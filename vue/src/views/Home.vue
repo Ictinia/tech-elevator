@@ -28,7 +28,7 @@
               md:leading-10
             "
           >
-            Featured Destination
+            <div class="text-white">Featured Destination</div>
           </h1>
         </div>
         <div class="flex justify-center items-center">
@@ -37,18 +37,18 @@
               focus:outline-none
               focus:ring-2
               focus:ring-offset-2
-              focus:ring-indigo-700
-              bg-indigo-700
+              focus:ring-cyan-600
+              bg-white
               transition
               duration-150
               ease-in-out
-              hover:bg-indigo-600
+              hover:bg-cyan-700
               lg:text-xl lg:font-bold
               rounded
-              text-white
+              text-black
               px-4
               sm:px-10
-              border border-indigo-700
+              border border-cyan-700
               py-2
               sm:py-4
               text-sm
@@ -60,12 +60,12 @@
       </div>
     </div>
 
-    <div class="ml-10">Popular Categories</div>
+    <div class="ml-10 mt-10 mb-5 text-xl font-bold">Popular Categories</div>
     <!-- Category 1 -->
     <button
       class="
-        bg-blue-500
-        hover:bg-blue-700
+        bg-cyan-600
+        hover:bg-cyan-700
         text-white
         font-bold
         py-2
@@ -80,8 +80,8 @@
     <!-- Category 2 -->
     <button
       class="
-        bg-blue-500
-        hover:bg-blue-700
+        bg-cyan-600
+        hover:bg-cyan-700
         text-white
         font-bold
         py-2
@@ -96,8 +96,8 @@
     <!-- Category 3 -->
     <button
       class="
-        bg-blue-500
-        hover:bg-blue-700
+        bg-cyan-600
+        hover:bg-cyan-700
         text-white
         font-bold
         py-2
@@ -112,8 +112,8 @@
     <!-- Category 4 -->
     <button
       class="
-        bg-blue-500
-        hover:bg-blue-700
+        bg-cyan-600
+        hover:bg-cyan-700
         text-white
         font-bold
         py-2
@@ -128,8 +128,8 @@
     <!-- Category 5 -->
     <button
       class="
-        bg-blue-500
-        hover:bg-blue-700
+        bg-cyan-600
+        hover:bg-cyan-700
         text-white
         font-bold
         py-2
@@ -141,7 +141,8 @@
       Button
     </button>
 
-    <div>Categories</div>
+    <div class="ml-10 mt-10 text-xl font-bold">Categories</div>
+    <hr class="h-px my-8 ml-10 mr-10 bg-black border-0 dark:bg-gray-700" />
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
       <!-- Carousel wrapper -->
       <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -221,50 +222,12 @@
           />
         </div>
       </div>
-      <!-- Slider indicators -->
-      <div
-        class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2"
-      >
-        <button
-          type="button"
-          class="w-3 h-3 rounded-full"
-          aria-current="true"
-          aria-label="Slide 1"
-          data-carousel-slide-to="0"
-        ></button>
-        <button
-          type="button"
-          class="w-3 h-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 2"
-          data-carousel-slide-to="1"
-        ></button>
-        <button
-          type="button"
-          class="w-3 h-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 3"
-          data-carousel-slide-to="2"
-        ></button>
-        <button
-          type="button"
-          class="w-3 h-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 4"
-          data-carousel-slide-to="3"
-        ></button>
-        <button
-          type="button"
-          class="w-3 h-3 rounded-full"
-          aria-current="false"
-          aria-label="Slide 5"
-          data-carousel-slide-to="4"
-        ></button>
-      </div>
+
       <!-- Slider controls -->
       <button
         type="button"
         class="
+          bg-black
           absolute
           top-0
           left-0
@@ -319,6 +282,7 @@
       <button
         type="button"
         class="
+          bg-black
           absolute
           top-0
           right-0
