@@ -1,22 +1,75 @@
 <template>
   <div id="navbar">
     <div
-      class="lg:px-12 px-5 md:flex md:justify-between md:items-center md:h-14 mx-auto h-11 bg-white border-b"
+      class="lg:px-12 px-5 md:flex md:justify-between md:items-center md:h-20 mx-auto h-16 bg-white border-b"
     >
       <div class="flex items-center justify-between">
-        <router-link to="/" class="h-11 flex items-center">
-          <img src="../assets/planeteer-logo.png" class="h-9 w-auto" />
+        <router-link to="/" class="h-16 flex items-center">
+          <img src="../assets/planeteer-logo.png" class="h-12 md:h-14 w-auto" />
         </router-link>
+
+        <div class="hidden xl:flex">Location</div>
+
+        <div class="left-1/2 md:left-1/3 absolute my-10 w-5/12">
+          <form>
+            <label
+              for="default-search"
+              class="mb-2 text-sm font-medium text-gray-900 sr-only"
+              >Search</label
+            >
+            <div class="relative hidden lg:block">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                type="search"
+                id="default-search"
+                class="block md:w-full p-4 pl-10 h-12 text-md text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text"
+                placeholder="Search Locations, Attractions..."
+              />
+            </div>
+          </form>
+        </div>
 
         <!-- Mobile menu button -->
         <div class="flex md:hidden">
+          <button>
+            <svg
+              aria-hidden="true"
+              class="w-7 h-7 text-black dark:text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </button>
           <button
             type="button"
             :show="showMenu"
             @click="showMenu = !showMenu"
             class="text-gray-800 hover:text-gray-400 focus:outline-none focus:text-gray-400"
           >
-            <!-- <img src="../assets/hamburger-menu.png" /> -->
             <div
               class="relative flex overflow-hidden items-center justify-end w-[50px] transform transition-all duration-200"
             >
@@ -58,7 +111,7 @@
           >
             <div class="flex-col flex items-center mt-4">
               <button
-                class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 mb-2 hover:bg-cyan-500 hover:border-cyan-500"
+                class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 mb-2 hover:bg-cyan-600/[0.9] hover:border-cyan-500"
                 @click="showSignup"
                 v-if="!isLoggedIn"
               >
@@ -85,22 +138,39 @@
       <div
         class="hidden md:flex flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
       >
+        <button>
+          <svg
+            aria-hidden="true"
+            class="w-7 h-7 text-black dark:text-gray-400 lg:hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </button>
         <button
-          class="text-sm bg-cyan-600 border border-cyan-600 text-white rounded px-4 leading-8"
+          class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-full px-4 leading-8 h-12 hover:bg-cyan-600/[0.9]"
           @click="showSignup"
           v-if="!isLoggedIn"
         >
           Sign Up
         </button>
         <button
-          class="text-sm text-gray-500 border border-gray-200 rounded px-4 leading-8"
+          class="text-md text-gray-500 border bg-gray-100 border-gray-200 rounded-full px-4 leading-8 h-12 hover:bg-gray-200"
           @click="showLogin"
           v-if="!isLoggedIn"
         >
           Login
         </button>
         <button
-          class="text-sm text-gray-500 border border-gray-200 rounded px-4 leading-8"
+          class="text-md text-gray-500 bg-gray-100 border border-gray-200 rounded-full px-4 leading-8 h-12"
           @click="logout"
           v-if="isLoggedIn"
         >
