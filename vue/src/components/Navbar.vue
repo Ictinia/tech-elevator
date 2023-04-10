@@ -17,26 +17,68 @@
             class="text-gray-800 hover:text-gray-400 focus:outline-none focus:text-gray-400"
           >
             <!-- <img src="../assets/hamburger-menu.png" /> -->
+            <div
+              class="relative flex overflow-hidden items-center justify-end w-[50px] transform transition-all duration-200"
+            >
+              <div
+                class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden"
+              >
+                <div
+                  class="bg-black h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-y-6 delay-100"
+                ></div>
+                <div
+                  class="bg-black h-[2px] w-7 rounded transform transition-all duration-300 group-focus:translate-y-6 delay-75"
+                ></div>
+                <div
+                  class="bg-black h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-y-6"
+                ></div>
+
+                <div
+                  class="absolute items-center justify-between transform transition-all duration-500 top-2.5 -translate-x-10 group-focus:translate-x-0 flex w-0 group-focus:w-12"
+                >
+                  <div
+                    class="absolute bg-black h-[2px] w-5 transform transition-all duration-500 rotate-0 delay-300 group-focus:rotate-45"
+                  ></div>
+                  <div
+                    class="absolute bg-black h-[2px] w-5 transform transition-all duration-500 -rotate-0 delay-300 group-focus:-rotate-45"
+                  ></div>
+                </div>
+              </div>
+            </div>
           </button>
           <div
             :class="showMenu ? 'flex' : 'hidden'"
             @click="showMenu = !showMenu"
             class="bg-gray-400 h-full left-0 fixed top-0 w-full opacity-20"
           ></div>
+
           <div
-            :class="showMenu ? 'flex' : 'hidden'"
             class="bg-white flex flex-col h-full overflow-y-auto fixed right-0 top-0 w-56 z-50 ease-out duration-300"
+            :class="showMenu ? 'flex' : 'hidden'"
           >
-            <ul
-              class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
-            >
-              <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
-                Home
-              </li>
-              <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
-                About
-              </li>
-            </ul>
+            <div class="flex-col flex items-center mt-4">
+              <button
+                class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 mb-2 hover:bg-cyan-500 hover:border-cyan-500"
+                @click="showSignup"
+                v-if="!isLoggedIn"
+              >
+                Sign Up
+              </button>
+              <button
+                class="text-md text-black border border-gray-200 bg-gray-200 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-gray-300"
+                @click="showLogin"
+                v-if="!isLoggedIn"
+              >
+                Login
+              </button>
+              <button
+                class="text-md text-black border border-gray-200 bg-gray-200 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-gray-300"
+                @click="logout"
+                v-if="isLoggedIn"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -109,10 +151,12 @@ export default {
     showSignup() {
       this.isOpen = true;
       this.isSignup = true;
+      this.showMenu = false;
     },
     showLogin() {
       this.isOpen = true;
       this.isLogin = true;
+      this.showMenu = false;
     },
     closeLogin() {
       this.isOpen = false;
@@ -120,6 +164,7 @@ export default {
       this.isSignup = false;
     },
     async logout() {
+      this.showMenu = false;
       this.$store.commit("LOGOUT");
       this.$router.push("/");
     },

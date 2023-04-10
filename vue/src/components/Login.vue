@@ -34,6 +34,14 @@
         </div>
       </header>
       <form ref="auth" class="bg-white px-8 pb-8 mb-4" @submit.prevent="submit">
+        <div role="alert" v-if="invalidCredentials" class="p-2">
+          Invalid username or password!
+        </div>
+
+        <div role="alert" v-if="registrationErrors" class="p-2">
+          {{ registrationErrorMsg }}
+        </div>
+
         <div class="identity-input mb-5">
           <input
             id="username"
@@ -42,6 +50,8 @@
             placeholder="Username"
             aria-describedby="usernameHelp"
             v-model="user.username"
+            required
+            autofocus
           />
         </div>
 
@@ -53,6 +63,7 @@
             type="password"
             placeholder="Password"
             v-model="user.password"
+            required
           />
         </div>
 
@@ -66,6 +77,7 @@
             v-model="user.confirmPassword"
           />
         </div>
+
         <div class="flex items-center justify-between flex-col">
           <button
             class="bg-cyan-600 border border-cyan-600 text-white font-semibold text-md rounded px-4 leading-8 w-full mb-4 h-12 transition duration-300 hover:ease-out hover:bg-cyan-700 focus:outline-none focus:border-gray-700 focus:ease-out focus:bg-cyan-700"
@@ -75,6 +87,7 @@
           </button>
           <a
             class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 focus:outline-none focus:border-gray-700"
+            :class="registrationErrors"
             href="#"
             @click="notImplemented"
           >
@@ -100,6 +113,8 @@ export default {
       },
       invalidCredentials: false,
       showError: false,
+      registrationErrors: false,
+      registrationErrorMsg: "There were problems registering this user.",
     };
   },
 
@@ -118,6 +133,10 @@ export default {
   methods: {
     close() {
       this.$emit("close");
+      this.user.username = "";
+      this.user.password = "";
+      this.user.confirmPassword = "";
+      this.invalidCredentials = false;
     },
     submit() {
       if (this.isLogin) {
