@@ -11,7 +11,7 @@
         <div class="hidden xl:flex">Location</div>
 
         <div class="left-1/2 md:left-1/3 absolute my-10 w-5/12">
-          <form>
+          <div>
             <label
               for="default-search"
               class="mb-2 text-sm font-medium text-gray-900 sr-only"
@@ -35,19 +35,22 @@
                   ></path>
                 </svg>
               </div>
-              <input
+              <div
                 type="search"
                 id="default-search"
-                class="block md:w-full p-4 pl-10 h-12 text-md text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text"
-                placeholder="Search Locations, Attractions..."
-              />
+                class="block md:w-full pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-3"
+                data-text="Search Locations, Attractions..."
+                @click="searchDrawer = !searchDrawer"
+              >
+                Search Locations, Attractions...
+              </div>
             </div>
-          </form>
+          </div>
         </div>
 
         <!-- Mobile menu button -->
         <div class="flex md:hidden">
-          <button>
+          <button @click="searchDrawer = !searchDrawer">
             <svg
               aria-hidden="true"
               class="w-7 h-7 text-black dark:text-gray-400"
@@ -138,7 +141,7 @@
       <div
         class="hidden md:flex flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
       >
-        <button>
+        <button @click="searchDrawer = !searchDrawer">
           <svg
             aria-hidden="true"
             class="w-7 h-7 text-black dark:text-gray-400 lg:hidden"
@@ -185,6 +188,34 @@
       :isSignup="isSignup"
       @close="closeLogin"
     />
+    <div
+      class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-auto ease-in-out transition-all duration-500 z-1000"
+      :class="searchDrawer ? 'translate-y-0' : 'translate-y-full'"
+    >
+      <button
+        type="button"
+        class="rounded-md p-2 absolute right-3 top-3 text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+        @click="searchDrawer = !searchDrawer"
+      >
+        <span class="sr-only">Close menu</span>
+        <!-- Heroicon name: outline/x -->
+        <svg
+          class="h-6 w-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -203,6 +234,7 @@ export default {
       isLogin: false,
       isSignup: false,
       showMenu: false,
+      searchDrawer: false,
     };
   },
 
