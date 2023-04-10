@@ -3,6 +3,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS stops;
 DROP TABLE IF EXISTS itineraries;
 DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS operating_hrs;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS landmarks;
 
@@ -51,6 +52,18 @@ CREATE TABLE reviews (
 	description varchar(1000) NOT NULL,
 	
 	CONSTRAINT fk_reviews_landmarks FOREIGN KEY (landmark_id) REFERENCES landmarks(landmark_id)
+);
+
+CREATE TABLE operating_hrs (
+	id SERIAL PRIMARY KEY,
+	landmark_id INT NOT NULL,
+	day_of_week varchar(8) NOT NULL,
+	opening_time TIME,
+	closing_time TIME,
+	closed BOOLEAN,
+	varies BOOLEAN,
+	
+	CONSTRAINT fk_operating_hrs_landmarks FOREIGN KEY (landmark_id) REFERENCES landmarks(landmark_id)
 );
 
 COMMIT;
