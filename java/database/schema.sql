@@ -58,7 +58,7 @@ CREATE TABLE reviews (
 CREATE TABLE operating_hrs (
 	id SERIAL PRIMARY KEY,
 	landmark_id INT NOT NULL,
-	day_of_week varchar(8) NOT NULL,
+	day_of_week varchar(9) NOT NULL,
 	opening_time TIME,
 	closing_time TIME,
 	closed BOOLEAN,

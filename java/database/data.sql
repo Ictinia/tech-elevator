@@ -16,5 +16,17 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'The Root Beer Stand'), 
 ((SELECT landmark_id FROM landmarks WHERE name = 'The Root Beer Stand'), 'Sunday', '11:00:00', '20:00:00', false, false);
 
 
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved)
+VALUES ('Boca', 'food', 'Boca has been recognized as one of the top French Restaurants in the United States by Travel and Leisure Magazine as well as Open Table’s Top 100 Restaurants in the United States.', '(513) 542-2022', '114 E 6th St, Cincinnati, OH 45202', 0, 0, true);
+
+INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
+VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Boca'), 'Monday', '16:00:00', '22:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Boca'), 'Tuesday', '16:00:00', '22:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Boca'), 'Wednesday', '16:00:00', '22:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Boca'), 'Thursday', '16:00:00', '22:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Boca'), 'Friday', '16:00:00', '22:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Boca'), 'Saturday', '16:00:00', '22:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Boca'), 'Sunday', '16:00:00', '22:00:00', false, false);
+
 
 COMMIT TRANSACTION;
