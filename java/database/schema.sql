@@ -23,7 +23,8 @@ CREATE TABLE landmarks (
 	phone varchar(14),
 	address varchar(100),
 	thumbs_up INT NOT NULL,
-	thumbs_down INT NOT NULL
+	thumbs_down INT NOT NULL,
+	approved boolean NOT NULL
 );
 
 CREATE TABLE itineraries (
