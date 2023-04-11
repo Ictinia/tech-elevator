@@ -148,7 +148,7 @@
             class="bg-white flex flex-col h-full overflow-y-auto fixed right-0 top-0 w-64 z-50 ease-out duration-300"
             :class="showMenu ? 'flex' : 'hidden'"
           >
-            <div class="flex-col flex items-center mt-4">
+            <div class="flex-col flex items-center mt-6 px-4">
               <button
                 class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 mb-2 hover:bg-cyan-600/[0.9] hover:border-cyan-500"
                 @click="showSignup"
@@ -164,7 +164,19 @@
                 Login
               </button>
               <button
-                class="text-md text-black border border-gray-200 bg-gray-200 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-gray-300"
+                class="text-md text-black border border-green-500 bg-green-500 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-green-500/90 mb-2"
+                v-if="isLoggedIn"
+              >
+                Create Itinerary
+              </button>
+              <button
+                class="text-md text-black border border-cyan-500 bg-cyan-500 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-cyan-500/90 mb-2"
+                v-if="isLoggedIn"
+              >
+                My Itineraries
+              </button>
+              <button
+                class="text-md text-black border border-gray-200 bg-gray-200 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-gray-300 mb-2"
                 @click="logout"
                 v-if="isLoggedIn"
               >
@@ -174,13 +186,17 @@
           </div>
         </div>
       </div>
+
       <div
         class="hidden md:flex flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
       >
-        <button @click="searchDrawer = !searchDrawer">
+        <button
+          @click="searchDrawer = !searchDrawer"
+          class="h-full items-center flex flex-col hover:text-black/80"
+        >
           <svg
             aria-hidden="true"
-            class="w-7 h-7 text-black dark:text-gray-400 lg:hidden"
+            class="w-9 h-9 text-black dark:text-gray-400 lg:hidden justify-center items-center mr-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -193,6 +209,9 @@
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             ></path>
           </svg>
+          <p class="lg:hidden text-xs m-0 p-0 mr-5 hover:text-black/80">
+            Search
+          </p>
         </button>
         <button
           class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-full px-4 leading-8 h-12 hover:bg-cyan-600/[0.9]"
@@ -210,10 +229,10 @@
         </button>
         <div
           v-if="isLoggedIn"
-          class="h-full items-center flex flex-col hover:cursor-pointer"
+          class="h-full items-center flex flex-col hover:cursor-pointer hover:text-green-600"
         >
           <svg
-            class="h-9 w-9 text-green-600 justify-center items-center"
+            class="h-9 w-9 text-green-600 justify-center items-center mr-5"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -225,9 +244,14 @@
             <line x1="12" y1="8" x2="12" y2="16" />
             <line x1="8" y1="12" x2="16" y2="12" />
           </svg>
-          <p class="text-xs m-0 p-0">Create Itinerary</p>
+          <p class="text-xs m-0 p-0 mr-5 hover:text-green-600">
+            Create Itinerary
+          </p>
         </div>
-        <AppDropdown>
+        <AppDropdown
+          class="h-full items-center flex flex-col hover:cursor-pointer hover:text-cyan-500"
+          v-if="isLoggedIn"
+        >
           <!-- <div></div> -->
           <!-- <template slot="toggler">
             <button
@@ -247,13 +271,24 @@
           </template> -->
           <AppDropdownContent class="z-50">
             <AppDropdownItem>
-              <button
-                class="text-md text-gray-500 bg-gray-100 border border-gray-200 rounded-full px-4 leading-8 h-12"
-                @click="logout"
-                v-if="isLoggedIn"
-              >
-                Logout
-              </button>
+              <div>
+                <button
+                  class="text-md text-gray-500 px-4 leading-8 h-12"
+                  v-if="isLoggedIn"
+                >
+                  My Itineraries
+                </button>
+              </div>
+            </AppDropdownItem>
+            <AppDropdownItem>
+              <div @click="logout">
+                <button
+                  class="text-md text-gray-500 px-4 leading-8 h-12"
+                  v-if="isLoggedIn"
+                >
+                  Logout
+                </button>
+              </div>
             </AppDropdownItem>
           </AppDropdownContent>
         </AppDropdown>
