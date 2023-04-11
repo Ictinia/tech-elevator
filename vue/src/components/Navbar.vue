@@ -1,7 +1,7 @@
 <template>
   <div id="navbar">
     <div
-      class="lg:px-12 px-5 md:flex md:justify-between md:items-center md:h-20 mx-auto h-16 bg-white border-b"
+      class="lg:px-12 px-5 md:flex md:justify-between md:items-center md:h-20 mx-auto h-16 bg-white border-b font-sans"
     >
       <div class="flex items-center justify-between">
         <router-link to="/" class="h-16 flex items-center">
@@ -189,7 +189,7 @@
       @close="closeLogin"
     />
     <div
-      class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-auto ease-in-out transition-all duration-500 z-1000"
+      class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-auto ease-in-out transition-all duration-500 z-50"
       :class="searchDrawer ? 'translate-y-0' : 'translate-y-full'"
     >
       <button

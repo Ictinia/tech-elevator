@@ -1,8 +1,8 @@
 <template>
-  <div class="modal" v-show="isOpen">
-    <div class="fixed bg-black opacity-70 inset-0 z-0" @click="close"></div>
+  <div class="modal font-sans" v-show="isOpen">
+    <div class="fixed bg-black opacity-70 inset-0 z-20" @click="close"></div>
     <div
-      class="w-full max-w-md p-3 absolute right-auto top-1/2 mx-auto my-auto rounded-md bg-white -translate-x-1/2 -translate-y-1/2 left-1/2"
+      class="z-50 w-full max-w-md p-3 absolute right-auto top-1/2 mx-auto my-auto rounded-md bg-white -translate-x-1/2 -translate-y-1/2 left-1/2"
     >
       <header>
         <button
@@ -29,7 +29,7 @@
           </svg>
         </button>
         <div class="text-center p-3 flex-auto justify-center leading-6">
-          <img src="../assets/planeteer-logo.png" class="h-9 w-auto mx-auto" />
+          <img src="../assets/planeteer-logo.png" class="h-12 w-auto mx-auto" />
           <h2 class="font-bold py-4 text-2xl text-"></h2>
         </div>
       </header>
