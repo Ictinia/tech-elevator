@@ -26,7 +26,8 @@ CREATE TABLE landmarks (
 	address varchar(100),
 	thumbs_up INT NOT NULL,
 	thumbs_down INT NOT NULL,
-	approved boolean NOT NULL
+	approved boolean NOT NULL,
+	hero_img varchar(200) NOT NULL
 );
 
 CREATE TABLE itineraries (
