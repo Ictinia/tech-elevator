@@ -5,10 +5,46 @@
     >
       <div class="flex items-center justify-between">
         <router-link to="/" class="h-16 flex items-center">
-          <img src="../assets/planeteer-logo.png" class="h-12 md:h-14 w-auto" />
+          <img src="../assets/planeteer-logo.png" class="h-12 md:h-12 w-auto" />
         </router-link>
 
-        <div class="hidden xl:flex">Location</div>
+        <div class="hidden xl:flex relative ml-2 pl-4">
+          <button>
+            <svg
+              class="h-6 w-6 text-gray-500 inline-block"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            <svg
+              class="h-3 w-3 text-gray-500 inline-block"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="4"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </div>
 
         <div class="left-1/2 md:left-1/3 absolute my-10 w-5/12">
           <div>
