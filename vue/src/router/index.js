@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '../views/Home.vue'
 import Logout from '../views/Logout.vue'
 import store from '../store/index'
+import LandmarkDetails from '../views/LandmarkDetail.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/landmarks/1",
+      name: "landmark-details",
+      component: LandmarkDetails,
+      meta: {
+        requiresAuth: false
+      }
+    }
   ]
 })
 
