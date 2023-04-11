@@ -8,7 +8,7 @@
           <img src="../assets/planeteer-logo.png" class="h-12 md:h-12 w-auto" />
         </router-link>
 
-        <div class="hidden xl:flex relative ml-2 pl-4">
+        <div class="hidden md:flex relative ml-2 pl-4">
           <button>
             <svg
               class="h-6 w-6 text-gray-500 inline-block"
@@ -85,7 +85,7 @@
         </div>
 
         <!-- Mobile menu button -->
-        <div class="flex md:hidden">
+        <div class="flex md:hidden z-50">
           <button @click="searchDrawer = !searchDrawer">
             <svg
               aria-hidden="true"
@@ -145,7 +145,7 @@
           ></div>
 
           <div
-            class="bg-white flex flex-col h-full overflow-y-auto fixed right-0 top-0 w-56 z-50 ease-out duration-300"
+            class="bg-white flex flex-col h-full overflow-y-auto fixed right-0 top-0 w-64 z-50 ease-out duration-300"
             :class="showMenu ? 'flex' : 'hidden'"
           >
             <div class="flex-col flex items-center mt-4">
@@ -208,13 +208,55 @@
         >
           Login
         </button>
-        <button
-          class="text-md text-gray-500 bg-gray-100 border border-gray-200 rounded-full px-4 leading-8 h-12"
-          @click="logout"
+        <div
           v-if="isLoggedIn"
+          class="h-full items-center flex flex-col hover:cursor-pointer"
         >
-          Logout
-        </button>
+          <svg
+            class="h-9 w-9 text-green-600 justify-center items-center"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="8" y1="12" x2="16" y2="12" />
+          </svg>
+          <p class="text-xs m-0 p-0">Create Itinerary</p>
+        </div>
+        <AppDropdown>
+          <!-- <div></div> -->
+          <!-- <template slot="toggler">
+            <button
+              class="relative flex items-center focus:outline-none pl-5 pr-3 py-2 rounded-lg bg-gray-300 text-gray-800 font-semibold"
+            >
+              Click me
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="ml-1 h-5 w-5 fill-current text-gray-700"
+              >
+                <path
+                  d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"
+                ></path>
+              </svg>
+            </button>
+          </template> -->
+          <AppDropdownContent class="z-50">
+            <AppDropdownItem>
+              <button
+                class="text-md text-gray-500 bg-gray-100 border border-gray-200 rounded-full px-4 leading-8 h-12"
+                @click="logout"
+                v-if="isLoggedIn"
+              >
+                Logout
+              </button>
+            </AppDropdownItem>
+          </AppDropdownContent>
+        </AppDropdown>
       </div>
     </div>
     <login
@@ -225,7 +267,7 @@
       @close="closeLogin"
     />
     <div
-      class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-auto ease-in-out transition-all duration-500 z-50"
+      class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
       :class="searchDrawer ? 'translate-y-0' : 'translate-y-full'"
     >
       <button
@@ -257,11 +299,17 @@
 
 <script>
 import Login from "../components/Login.vue";
+import AppDropdown from "../components/AppDropdown.vue";
+import AppDropdownContent from "../components/AppDropdownContent.vue";
+import AppDropdownItem from "../components/AppDropdownItem.vue";
 
 export default {
   name: "navbar",
   components: {
     Login,
+    AppDropdown,
+    AppDropdownContent,
+    AppDropdownItem,
   },
 
   data() {
@@ -271,6 +319,7 @@ export default {
       isSignup: false,
       showMenu: false,
       searchDrawer: false,
+      showNavbar: false,
     };
   },
 

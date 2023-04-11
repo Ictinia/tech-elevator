@@ -137,6 +137,8 @@ export default {
       this.user.password = "";
       this.user.confirmPassword = "";
       this.invalidCredentials = false;
+      this.registrationErrors = false;
+      this.showError = false;
     },
     submit() {
       if (this.isLogin) {
