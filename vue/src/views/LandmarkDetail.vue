@@ -24,7 +24,7 @@
         <div
           class="
             absolute
-            right-5
+            left-5
             bottom-5
             lg:right-14 lg:bottom-8
             flex-col
@@ -52,7 +52,7 @@
             "
           >
             <svg
-              class="h-8 w-16 text-red-500"
+              class="h-8 w-16 text-white"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -73,9 +73,9 @@
             type="button"
             class="
               text-white
-              bg-blue-700
-              hover:bg-blue-800
-              focus:ring-4 focus:outline-none focus:ring-blue-300
+              bg-red-700
+              hover:bg-red-800
+              focus:ring-4 focus:outline-none focus:ring-red-300
               font-medium
               rounded-lg
               text-sm
@@ -84,11 +84,11 @@
               inline-flex
               items-center
               mr-2
-              dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+              dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800
             "
           >
             <svg
-              class="h-8 w-8 text-red-500"
+              class="h-8 w-16 text-white"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -100,7 +100,7 @@
             >
               <path stroke="none" d="M0 0h24v24H0z" />
               <path
-                d="M7 11v 8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3"
+                d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v 1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3"
               />
             </svg>
             <span class="sr-only">Icon description</span>

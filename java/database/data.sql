@@ -80,7 +80,7 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'FC Cincinnati'), 'Monda
 ((SELECT landmark_id FROM landmarks WHERE name = 'FC Cincinnati'), 'Sunday', NULL, NULL, false, true);
 
 INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Cincinnati Reds', 'sports', 'The Cincinnati Reds are an American professional baseball team based in Cincinnati. They compete in Major League Baseball as a member club of the National League Central division and were a charter member of the American Association in 1881 before joining the NL in 1890.', '(513) 765-7000', '100 Joe Nuxhall Way, Cincinnati, OH 45202', 0, 0, true, '');
+VALUES ('Cincinnati Reds', 'sports', 'The Cincinnati Reds are an American professional baseball team based in Cincinnati. They compete in Major League Baseball as a member club of the National League Central division and were a charter member of the American Association in 1881 before joining the NL in 1890.', '(513) 765-7000', '100 Joe Nuxhall Way, Cincinnati, OH 45202', 0, 0, true, 'https://www.ballparksofbaseball.com/wp-content/uploads/2016/03/gab23main.jpg');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'FC Cincinnati'), 'Monday', NULL, NULL, false, true),
