@@ -2,7 +2,7 @@
   <transition name="dropdown-content">
     <div
       v-if="active"
-      class="flex-none origin-top-right absolute -right-12 mt-[4.2rem] w-72 bg-white border"
+      class="flex-none origin-top-right absolute -right-12 mt-[67.9px] w-72 bg-white"
     >
       <slot />
     </div>

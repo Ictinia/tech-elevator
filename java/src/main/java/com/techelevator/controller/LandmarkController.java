@@ -1,8 +1,10 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.LandmarkDao;
+import com.techelevator.dao.OperatingDao;
 import com.techelevator.model.Landmark;
 import com.techelevator.model.LandmarkDto;
+import com.techelevator.model.Operating;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +14,17 @@ import java.util.List;
 @RestController
 public class LandmarkController {
     private LandmarkDao landmarkDao;
+    private OperatingDao operatingDao;
 
-    public LandmarkController(LandmarkDao dao) {
+    public LandmarkController(LandmarkDao dao, OperatingDao operatingDao) {
         this.landmarkDao = dao;
+        this.operatingDao = operatingDao;
     }
 
+    @GetMapping(path = "/landmarks/{id}/hours")
+    public List<Operating> getOperating(@PathVariable int id) {
+        return operatingDao.getByLandmark(id);
+    }
     @GetMapping(path = "/landmarks")
     public List<Landmark> getAll() {
         return landmarkDao.getAll();

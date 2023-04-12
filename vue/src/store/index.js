@@ -25,6 +25,8 @@ export default new Vuex.Store({
     categoryCards: [],
     landmarks: [],
     activeLandmark: null,
+    hours: [],
+    activeHourId: null,
     landmark: {
       landmark_id: '',
       name: '',
@@ -38,6 +40,15 @@ export default new Vuex.Store({
       latitude: '',
       longitude: '',
       map_link: ''
+    },
+    hour: {
+      id: '',
+      landmark_id: '',
+      day_of_week: '',
+      opening_time: '',
+      closing_time: '',
+      closed: '',
+      varies: '',
     },
     card: {
       name: '',
@@ -76,6 +87,12 @@ export default new Vuex.Store({
     },
     SET_ACTIVE_LANDMARK(state, id) {
       state.activeLandmark = id;
+    },
+    SET_CURRENT_LANDMARK(state, landmark) {
+      state.landmark = landmark;
+    },
+    SET_LANDMARK_HOURS(state, hours) {
+      state.hours = hours;
     }
   }
 })

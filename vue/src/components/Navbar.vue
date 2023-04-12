@@ -145,8 +145,8 @@
           ></div>
 
           <div
-            class="bg-white flex flex-col h-full overflow-y-auto fixed right-0 top-0 w-64 z-50 ease-out duration-300"
-            :class="showMenu ? 'flex' : 'hidden'"
+            class="bg-white flex flex-col h-full overflow-y-auto fixed right-0 top-0 w-64 z-50 duration-500 transform ease-in-out transition-all"
+            :class="showMenu ? 'translate-x-0' : 'translate-x-full'"
           >
             <div class="flex-col flex items-center mt-6 px-4">
               <button

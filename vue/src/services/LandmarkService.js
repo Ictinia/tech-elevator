@@ -10,6 +10,10 @@ export default {
         return http.get(`/landmarks`)
     },
 
+    getOperating(id) {
+        return http.get(`/landmarks/${id}/hours`)
+    },
+
     getLandmark(id) {
         return http.get(`/landmarks/${id}`)
     },
