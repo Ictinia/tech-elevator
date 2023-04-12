@@ -148,13 +148,13 @@
                   Add to Itinerary
                 </button>
               </div>
-              <div>
+              <div class="mt-5 md:mt-0">
                 <table>
                   <tr>
-                    <td id="day">day</td>
-                    <td id="opening">09.00</td>
+                    <td id="day">day:</td>
+                    <td id="opening">opening</td>
                     <td id="sign">-</td>
-                    <td id="closing">20.00</td>
+                    <td id="closing">closing</td>
                   </tr>
                 </table>
               </div>

@@ -1,8 +1,37 @@
 import axios from "axios";
-const url = axios.create({
-    baseURL: "http://localhost:8080"
+
+const http = axios.create({
+    baseURL: "http://localhost:9000"
 });
 
 export default {
+
+    getAllLandmarks() {
+        return http.get(`/landmarks`)
+    },
+
+    getLandmark(id) {
+        return http.get(`/landmarks/${id}`)
+    },
+
+    getAllCategories() {
+        return http.get(`/categories`)
+    },
+
+    getByCategory(category) {
+        return http.get(`/${category}`)
+    },
+
+    createLandmark(landmark) {
+        return http.post(`/landmarks`, landmark)
+    },
+
+    approveLandmark(id) {
+        return http.put(`/landmarks/${id}`)
+    },
+
+    deleteLandmark(id) {
+        return http.delete(`/landmarks/${id}`)
+    }
 
 }
