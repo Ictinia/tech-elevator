@@ -135,12 +135,29 @@
             </ul>
             <div class="pt-2">
               <h2 class="text-lg font-semibold">About</h2>
-              <p class="text-md">
+              <p class="text-md pb-5">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Cupiditate perferendis architecto sed aliquid, inventore autem
                 fugit saepe excepturi eum error temporibus asperiores magnam,
                 obcaecati, eos aperiam nulla fuga voluptatibus expedita.
               </p>
+              <div class="flex justify-center align-middle w-full">
+                <button
+                  class="md:hidden sm:w-8/12 text-lg font-semibold w-full bg-blue-600 border text-white rounded-lg px-4 leading-8 h-12 hover:bg-blue-600/[0.9] z-10"
+                >
+                  Add to Itinerary
+                </button>
+              </div>
+              <div>
+                <table>
+                  <tr>
+                    <td id="day">day</td>
+                    <td id="opening">09.00</td>
+                    <td id="sign">-</td>
+                    <td id="closing">20.00</td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </section>
         </section>
