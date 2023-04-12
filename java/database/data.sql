@@ -30,7 +30,7 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Boca'),'Monday','16:00:
 
 
 INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Skyline (Ludlow)', 'food', 'Skyline is famous for their incredibly delicious Cheese Coneys and 3-Ways. Their unique chili is still made with the original secret family recipe passed down through generations of the Lambrinides family. It’s extremely craveable. Some would even say addictive. All we know is people love it.', '(513) 221-2142', '290 Ludlow Ave, Cincinnati, OH 45220', 0, 0, true, '');
+VALUES ('Skyline (Ludlow)', 'food', 'Skyline is famous for their incredibly delicious Cheese Coneys and 3-Ways. Their unique chili is still made with the original secret family recipe passed down through generations of the Lambrinides family. It’s extremely craveable. Some would even say addictive. All we know is people love it.', '(513) 221-2142', '290 Ludlow Ave, Cincinnati, OH 45220', 0, 0, true, '' );
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Skyline (Ludlow)'),'Monday','10:00:00','24:00:00', false, false),

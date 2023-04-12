@@ -27,7 +27,10 @@ CREATE TABLE landmarks (
 	thumbs_up INT NOT NULL,
 	thumbs_down INT NOT NULL,
 	approved boolean NOT NULL,
-	hero_img varchar(200) NOT NULL
+	hero_img varchar(200) NOT NULL,
+	latitude numeric(8,6),
+	longitude numeric (9,6),
+	map_link varchar(200)
 );
 
 CREATE TABLE itineraries (
