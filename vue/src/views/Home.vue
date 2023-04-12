@@ -55,7 +55,7 @@
       </div>
     </div>
     <body>
-      <div class="ml-8 md:ml-12 xl:ml-16 mr-8 mt-10">
+      <div class="mx-8 md:mx-12 lg:mx-28 xl:mx-56 2xl:mx-80 mr-8 mt-10">
         <h1 class="text-2xl font-semibold">Popular Categories</h1>
         <div class="w-full h-full">
           <nav>
