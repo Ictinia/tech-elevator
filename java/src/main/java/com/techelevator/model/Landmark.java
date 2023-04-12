@@ -1,6 +1,8 @@
 package com.techelevator.model;
 
-public class Landmarks {
+import java.math.BigDecimal;
+
+public class Landmark {
     private int id;
     private String name;
     private String category;
@@ -11,9 +13,13 @@ public class Landmarks {
     private int thumbsDown;
     private boolean approved;
     private String heroImg;
+    private BigDecimal latitude;
+    private BigDecimal longitude;
+    private String mapLink;
 
-    public Landmarks() {}
-    public Landmarks(int id, String name, String category, String description, String phone, String address, int thumbsUp, int thumbsDown, boolean approved, String heroImg) {
+    public Landmark() {}
+
+    public Landmark(int id, String name, String category, String description, String phone, String address, int thumbsUp, int thumbsDown, boolean approved, String heroImg, BigDecimal latitude, BigDecimal longitude, String mapLink) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -24,7 +30,35 @@ public class Landmarks {
         this.thumbsDown = thumbsDown;
         this.approved = approved;
         this.heroImg = heroImg;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.mapLink = mapLink;
     }
+
+    public String getMapLink() {
+        return mapLink;
+    }
+
+    public void setMapLink(String mapLink) {
+        this.mapLink = mapLink;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
 
     public int getId() {
         return id;
