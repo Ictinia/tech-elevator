@@ -167,11 +167,30 @@
 </template>
 
 <script>
+import landmarkService from "../services/LandmarkService";
+
 export default {
   name: "landmark-detail",
   data() {
     return {};
   },
   components: {},
+  methods: {
+    retrieveLandmark() {
+      landmarkService
+        .getCard(this.$route.params.id)
+        .then((response) => {
+          this.$store.commit("SET_CURRENT_LANDMARK", response.data);
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 404) {
+            alert(
+              "Card not available. This card may have been deleted or you have entered an invalid card ID."
+            );
+            this.$router.push({ name: "Home" });
+          }
+        });
+    },
+  },
 };
 </script>

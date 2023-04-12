@@ -19,7 +19,31 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    categories: [],
+    activeCategory: null,
+    categoryCards: [],
+    landmarks: [],
+    activeLandmark: null,
+    landmark: {
+      landmark_id: '',
+      name: '',
+      category: '',
+      description: '',
+      phone: '',
+      address: '',
+      thumbs_up: '',
+      thumbs_down: '',
+      hero_img: '',
+      latitude: '',
+      longitude: '',
+      map_link: ''
+    },
+    card: {
+      name: '',
+      category: '',
+      status: '',
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +61,21 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_CATEGORIES(state, categories) {
+      state.categories = categories;
+    },
+    SET_ACTIVE_CATEGORY(state, category) {
+      state.activeCategory = category;
+    },
+    SET_CATEGORY_CARD(state, cards) {
+      state.categoryCards = cards;
+    },
+    SET_LANDMARKS(state, landmarks) {
+      state.landmarks = landmarks;
+    },
+    SET_ACTIVE_LANDMARK(state, id) {
+      state.activeLandmark = id;
     }
   }
 })
