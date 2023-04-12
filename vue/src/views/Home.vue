@@ -187,8 +187,19 @@
         </div>
       </div>
 
-      <section class="py-6 sm:py-12 dark:bg-gray-800 dark:text-gray-100">
-        <div class="container p-6 mx-auto space-y-8">
+      <section
+        class="
+          mx-8
+          md:mx-12
+          lg:mx-28
+          xl:mx-56
+          2xl:mx-80
+          mr-8
+          mt-10
+          dark:bg-gray-800 dark:text-gray-100
+        "
+      >
+        <div class="container">
           <div class="space-y-2 text-center">
             <h2 class="text-3xl font-bold">Discover what's available</h2>
             <p class="font-serif text-sm dark:text-gray-400">
