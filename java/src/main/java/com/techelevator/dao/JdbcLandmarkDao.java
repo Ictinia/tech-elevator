@@ -40,13 +40,14 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     @Override
-    public List<Landmark> getCategories() {
-        List<Landmark> landmarks = new ArrayList<>();
+    public List<String> getCategories() {
+        List<String> landmarks = new ArrayList<>();
         String sql = "SELECT DISTINCT category FROM landmarks ORDER BY category ASC;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
-            landmarks.add(mapRowToLandmarks(results));
+            String str = results.getString("category");
+            landmarks.add(str);
         }
         return landmarks;
     }
@@ -54,7 +55,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
     @Override
     public List<Landmark> getLandmarkInCategory(String category) {
         List<Landmark> landmarks = new ArrayList<>();
-        String sql = "SELECT name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link FROM landmarks WHERE category = ?;";
+        String sql = "SELECT landmark_id, name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link FROM landmarks WHERE category = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, category);
         while (results.next()) {
@@ -66,7 +67,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
     @Override
     public void create(LandmarkDto landmark) {
         String sql = "INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-        jdbcTemplate.update(sql);
+        jdbcTemplate.update(sql, landmark.getName(), landmark.getCategory(), landmark.getDescription(), landmark.getPhone(), landmark.getAddress(), 0, 0, false, landmark.getHeroImg(), landmark.getLatitude(), landmark.getLongitude(), landmark.getMapLink());
     }
 
     @Override

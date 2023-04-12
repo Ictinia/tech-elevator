@@ -28,12 +28,12 @@ public class LandmarkController {
     }
 
     @GetMapping(path = "/categories")
-    public List<Landmark> getAllCategories() {
+    public List<String> getAllCategories() {
         return landmarkDao.getCategories();
     }
 
     @GetMapping(path = "/{category}")
-    public List<Landmark> getByCategory(@RequestParam String category) {
+    public List<Landmark> getByCategory(@PathVariable String category) {
         return landmarkDao.getLandmarkInCategory(category);
     }
 
@@ -42,12 +42,12 @@ public class LandmarkController {
         landmarkDao.create(landmark);
     }
 
-    @PutMapping(path = "/landmarks")
+    @PutMapping(path = "/landmarks/{id}")
     public void approve(@PathVariable int id) {
         landmarkDao.approve(id);
     }
 
-    @DeleteMapping(path = "/landmarks")
+    @DeleteMapping(path = "/landmarks/{id}")
     public void delete(@PathVariable int id) {
         landmarkDao.delete(id);
     }

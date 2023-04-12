@@ -94,7 +94,7 @@ public class LandmarkDto {
     }
 
     public void setThumbsUp(int thumbsUp) {
-        this.thumbsUp = 0;
+        this.thumbsUp = thumbsUp;
     }
 
     public int getThumbsDown() {
@@ -102,7 +102,7 @@ public class LandmarkDto {
     }
 
     public void setThumbsDown(int thumbsDown) {
-        this.thumbsDown = 0;
+        this.thumbsDown = thumbsDown;
     }
 
     public boolean isApproved() {
@@ -110,7 +110,7 @@ public class LandmarkDto {
     }
 
     public void setApproved(boolean approved) {
-        this.approved = false;
+        this.approved = approved;
     }
 
     public String getHeroImg() {
