@@ -28,8 +28,8 @@ CREATE TABLE landmarks (
 	thumbs_down INT NOT NULL,
 	approved boolean NOT NULL,
 	hero_img varchar(200) NOT NULL,
-	latitude numeric(8,6),
-	longitude numeric (9,6),
+	latitude numeric(9,7),
+	longitude numeric (10,7),
 	map_link varchar(200)
 );
 
