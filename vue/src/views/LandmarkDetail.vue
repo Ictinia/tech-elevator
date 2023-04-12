@@ -108,6 +108,27 @@
         </div>
       </div>
     </div>
+    <br />
+    <br />
+    <div class="relative">
+      <p class="absolute left-0">Landmark name placeholder</p>
+      <p class="absolute right-0">
+        <button
+          class="
+            bg-blue-500
+            hover:bg-blue-700
+            text-white
+            font-bold
+            py-2
+            px-4
+            border border-blue-700
+            rounded
+          "
+        >
+          Add To Itinerary
+        </button>
+      </p>
+    </div>
   </div>
 </template>
 

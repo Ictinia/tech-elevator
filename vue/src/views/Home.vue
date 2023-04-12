@@ -23,6 +23,69 @@
         </div>
       </div>
     </div>
+    <body>
+      <div class="ml-8 md:ml-12 xl:ml-16 mr-8 mt-10">
+        <h1 class="text-2xl font-semibold">Popular Categories</h1>
+        <div class="w-full h-full">
+          <nav>
+            <ul class="flex relative pb-4 overflow-auto">
+              <li class="inline-block pr-4">
+                <button
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                >
+                  <span>All</span>
+                </button>
+              </li>
+              <li class="inline-block pr-4">
+                <button
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                >
+                  <span>Food</span>
+                </button>
+              </li>
+              <li class="inline-block pr-4">
+                <button
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                >
+                  <span>Sports</span>
+                </button>
+              </li>
+              <li class="inline-block pr-4">
+                <button
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                >
+                  <span>Landmark</span>
+                </button>
+              </li>
+              <li class="inline-block pr-4">
+                <button
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                >
+                  <span>Brewery</span>
+                </button>
+              </li>
+              <li class="inline-block pr-4">
+                <button
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                >
+                  <span>Historic</span>
+                </button>
+              </li>
+              <li class="inline-block pr-4">
+                <button
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                >
+                  <span>Haunted</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+          <div id="Card" class="pt-5">
+            <h3 class="text-lg font-semibold">{{ somethingsomething }}</h3>
+          </div>
+        </div>
+      </div>
+    </body>
   </div>
 </template>
 
