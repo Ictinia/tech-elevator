@@ -41,15 +41,6 @@ export default new Vuex.Store({
       longitude: '',
       map_link: ''
     },
-    hour: {
-      id: '',
-      landmark_id: '',
-      day_of_week: '',
-      opening_time: '',
-      closing_time: '',
-      closed: '',
-      varies: '',
-    },
     card: {
       name: '',
       category: '',

@@ -99,141 +99,42 @@
               maiores facere tempora corporis et sequi laborum.
             </p>
           </div>
-          <div>
-            <h2 class="text-3xl font-bold te">Food</h2>
+          <div class="py-5 border-b-gray-300 border-b">
+            <h2 class="text-2xl font-semibold">Food</h2>
           </div>
-          <div class="flex gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Te nulla oportere reprimique his dolorum"
-              >
+          <div class="flex gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4 mt-5">
+            <div
+              class="block w-64 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
+            >
+              <a href="#!">
                 <img
+                  class="rounded-t-lg"
+                  src="https://tecdn.b-cdn.net/img/new/standard/nature/184.jpg"
                   alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?1"
                 />
               </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Landmarks</a
+              <div class="p-3">
+                <h5
+                  class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
                 >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Description for matching picture"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?2"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Historical</a
+                  Card title
+                </h5>
+                <p
+                  class="mb-4 text-base text-neutral-600 dark:text-neutral-200"
                 >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Description for matching picture"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?3"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Sports</a
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <button
+                  type="button"
+                  class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
                 >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
+                  Button
+                </button>
               </div>
-            </article>
-
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Description for matching picture"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?4"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description matching the Picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Food</a
-                >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
+            </div>
           </div>
 
           <!-- *************start of grid 2************-->
@@ -244,105 +145,6 @@
 
           <div class="flex gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
             <article class="flex flex-col dark:bg-gray-900 hidden md:block">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Te nulla oportere reprimique his dolorum"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?1"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Landmarks</a
-                >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Te nulla oportere reprimique his dolorum"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?1"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Landmarks</a
-                >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Te nulla oportere reprimique his dolorum"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?1"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Landmarks</a
-                >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-
-            <article class="flex flex-col dark:bg-gray-900">
               <a
                 rel="noopener noreferrer"
                 href="#"
@@ -405,105 +207,6 @@
                   href="#"
                   class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
                   >Landmarks</a
-                >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Description for matching picture"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?2"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Historical</a
-                >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Description for matching picture"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?3"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Sports</a
-                >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Description for matching picture"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?4"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description matching the Picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Food</a
                 >
                 <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
                   Description for matching picture

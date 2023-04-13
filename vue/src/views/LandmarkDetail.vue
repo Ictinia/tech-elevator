@@ -174,9 +174,13 @@
                     <td id="day" class="font-semibold pr-3">
                       {{ hour.day_of_week }}
                     </td>
-                    <td id="opening">{{ hour.opening }}</td>
+                    <td id="opening" class="text-right">
+                      {{ hour.closed ? "Closed" : timeCheck(hour.opening) }}
+                    </td>
                     <td id="sign">-</td>
-                    <td id="closing">{{ hour.closing }}</td>
+                    <td id="closing">
+                      {{ hour.closed ? "Closed" : timeCheck(hour.closing) }}
+                    </td>
                   </tr>
                 </table>
               </div>
@@ -209,6 +213,16 @@ import landmarkService from "../services/LandmarkService";
 
 export default {
   name: "landmark-detail",
+  methods: {
+    timeCheck(time) {
+      let varied = "Varied";
+      if (time == null) {
+        return varied;
+      } else {
+        return time.substring(0, 5);
+      }
+    },
+  },
   created() {
     landmarkService
       .getLandmark(this.$route.params.id)
