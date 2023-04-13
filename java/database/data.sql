@@ -30,16 +30,16 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Boca'),'Monday','16:00:
 
 
 INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
-VALUES ('Skyline (Ludlow)', 'Food', 'Skyline is famous for their incredibly delicious Cheese Coneys and 3-Ways. Their unique chili is still made with the original secret family recipe passed down through generations of the Lambrinides family. It’s extremely craveable. Some would even say addictive. All we know is people love it.', '(513) 221-2142', '290 Ludlow Ave, Cincinnati, OH 45220', 0, 0, true, 'https://www.discovercincinnati.co/wp-content/uploads/place_rest_skyline_gas-cover.jpg', '39.1436235', '-84.5216162', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.367442811581!2d-84.52161622360084!3d39.14362353213741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b386e5a3a045%3A0xfbff9d299db0eadc!2sSkyline%20Chili!5e0!3m2!1sen!2sus!4v1681353477658!5m2!1sen!2sus');
+VALUES ('Skyline Chili - Ludlow', 'Food', 'Skyline is famous for their incredibly delicious Cheese Coneys and 3-Ways. Their unique chili is still made with the original secret family recipe passed down through generations of the Lambrinides family. It’s extremely craveable. Some would even say addictive. All we know is people love it.', '(513) 221-2142', '290 Ludlow Ave, Cincinnati, OH 45220', 0, 0, true, 'https://www.discovercincinnati.co/wp-content/uploads/place_rest_skyline_gas-cover.jpg', '39.1436235', '-84.5216162', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.367442811581!2d-84.52161622360084!3d39.14362353213741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b386e5a3a045%3A0xfbff9d299db0eadc!2sSkyline%20Chili!5e0!3m2!1sen!2sus!4v1681353477658!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
-VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Skyline (Ludlow)'),'Monday','10:00:00','24:00:00', false, false),
-((SELECT landmark_id FROM landmarks WHERE name = 'Skyline (Ludlow)'),'Tuesday','10:00:00','24:00:00', false, false),
-((SELECT landmark_id FROM landmarks WHERE name = 'Skyline (Ludlow)'),'Wednesday','10:00:00','24:00:00', false, false),
-((SELECT landmark_id FROM landmarks WHERE name = 'Skyline (Ludlow)'),'Thursday','10:00:00','24:00:00', false, false),
-((SELECT landmark_id FROM landmarks WHERE name = 'Skyline (Ludlow)'),'Friday','10:00:00','24:00:00', false, false),
-((SELECT landmark_id FROM landmarks WHERE name = 'Skyline (Ludlow)'),'Saturday','10:00:00','24:00:00', false, false),
-((SELECT landmark_id FROM landmarks WHERE name = 'Skyline (Ludlow)'),'Sunday','10:00:00','24:00:00', false, false);
+VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'),'Monday','10:00:00','24:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'),'Tuesday','10:00:00','24:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'),'Wednesday','10:00:00','24:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'),'Thursday','10:00:00','24:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'),'Friday','10:00:00','24:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'),'Saturday','10:00:00','24:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'),'Sunday','10:00:00','24:00:00', false, false);
 
 
 INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
@@ -103,8 +103,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Bengals'), '
 ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Bengals'), 'Saturday', NULL, NULL, false, true),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Bengals'), 'Sunday', NULL, NULL, false, true);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Cincinnati Rollergirls', 'Sports', 'The Cincinnati Rollergirls is Cincinnati’s amateur flat track roller derby team. A member of the Women''s Flat Track Derby Association, CRG plays its home games at Cintas Center at Xavier University and at Sports Plus in Evendale.', '(513) 818-3372', 'P.O. Box 36322. Cincinnati, OH 45236', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Cincinnati Rollergirls', 'Sports', 'The Cincinnati Rollergirls is Cincinnati’s amateur flat track roller derby team. A member of the Women''s Flat Track Derby Association, CRG plays its home games at Cintas Center at Xavier University and at Sports Plus in Evendale.', '(513) 818-3372', 'P.O. Box 36322. Cincinnati, OH 45236', 0, 0, true, 'https://cincinnatirollergirls.com/wp-content/uploads/elementor/thumbs/crg_091022_1985jpg_52364621023_o-puycppbu4vfd6ctkmuy332uyvwgvsqb7kypc2jtv9w.jpg', '39.1503572', '-84.474432', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.071417865256!2d-84.4744320236007!3d39.150357231738106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b2f8dca0c0f5%3A0xbf225e354313f6ea!2sCintas%20Center!5e0!3m2!1sen!2sus!4v1681356066856!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Rollergirls'), 'Monday', NULL, NULL, false, true),
@@ -115,8 +115,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Rollergirls'
 ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Rollergirls'), 'Saturday', NULL, NULL, false, true),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Rollergirls'), 'Sunday', NULL, NULL, false, true);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Rhinegeist', 'Brewery', 'Taproom located in a historic bottling plant offering house-brewed beers, Ping-Pong, cornhole & TVs.', '(513) 381-1367', '1910 Elm St, Cincinnati, OH 45202', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Rhinegeist', 'Brewery', 'Taproom located in a historic bottling plant offering house-brewed beers, Ping-Pong, cornhole & TVs.', '(513) 381-1367', '1910 Elm St, Cincinnati, OH 45202', 0, 0, true, 'https://d24v69n0tr7hm9.cloudfront.net/wp-content/uploads/2018/07/03161434/visit-hero.png', '39.1172664', '-84.5201012', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.7948718634975!2d-84.52056646619724!3d39.11671891197333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b3f9acd61b67%3A0x402ea6be65897064!2sRhinegeist%20Brewery!5e0!3m2!1sen!2sus!4v1681356635017!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Rhinegeist'),'Monday','15:00:00','22:00:00',false, false),
@@ -127,8 +127,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Rhinegeist'),'Monday','
 ((SELECT landmark_id FROM landmarks WHERE name = 'Rhinegeist'),'Saturday','12:00:00','24:00:00', false, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Rhinegeist'),'Sunday','12:00:00','21:00:00', false, false);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Madtree', 'Brewery', 'Bustling taproom offering craft beers, wood-fired pizzas, growler fills & keg sales, plus a patio.', '(513) 836-8733', '3301 Madison Rd, Cincinnati, OH 45209', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Madtree', 'Brewery', 'Bustling taproom offering craft beers, wood-fired pizzas, growler fills & keg sales, plus a patio.', '(513) 836-8733', '3301 Madison Rd, Cincinnati, OH 45209', 0, 0, true, 'https://scontent.fosu2-2.fna.fbcdn.net/v/t39.30808-6/305201164_514080887388819_1895280498697232630_n.jpg?stp=dst-jpg_p640x640&_nc_cat=110&ccb=1-7&_nc_sid=e3f864&_nc_ohc=ZVa7hGVxlXYAX9PqE1w&_nc_ht=scontent.fosu2-2.fna&oh=00_AfDtX7UL0b7FiADlADFO2VkwYj1MIWdFOJQ74qFbDR-wDw&oe=643CBCCC', '39.1563092', '-84.4265755', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3093.80972219786!2d-84.42657545916461!3d39.15630923150296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841ad6e2118ee3d%3A0xf7fabe0d67ce78bc!2sMadTree%20Brewing!5e0!3m2!1sen!2sus!4v1681357646355!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Madtree'),'Monday','11:00:00','23:00:00',false, false),
@@ -139,8 +139,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Madtree'),'Monday','11:
 ((SELECT landmark_id FROM landmarks WHERE name = 'Madtree'),'Saturday','10:00:00','24:00:00', false, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Madtree'),'Sunday','10:00:00','24:00:00', false, false);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Fifty West Brewing Company', 'Brewery', 'Offers craft beer brewery, restaurant for lunch and dinner, sand volleyball courts, canoe and kayak rental, bicycle rental, Sunday brunch, running club, craft beer, and brewery services. Located next to the Little Miami Scenic Trail.', '(513) 834-8789', '7605 Wooster Pike, Cincinnati, OH 45227', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Fifty West Brewing Company', 'Brewery', 'Offers craft beer brewery, restaurant for lunch and dinner, sand volleyball courts, canoe and kayak rental, bicycle rental, Sunday brunch, running club, craft beer, and brewery services. Located next to the Little Miami Scenic Trail.', '(513) 834-8789', '7605 Wooster Pike, Cincinnati, OH 45227', 0, 0, true, 'https://fiftywestbrew.com/wp-content/uploads/sites/90/2022/12/BrewpubExterior-1-1500x844.jpg', '39.1394493', '-84.3560129', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1547.2754646572682!2d-84.35601285122674!3d39.13944926403053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841ab3bd0757057%3A0x66343d3fbfbbb889!2sFifty%20West%20Brewpub!5e0!3m2!1sen!2sus!4v1681358017294!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Fifty West Brewing Company'),'Monday','11:00:00','23:00:00',false, false),
@@ -151,8 +151,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Fifty West Brewing Comp
 ((SELECT landmark_id FROM landmarks WHERE name = 'Fifty West Brewing Company'),'Saturday','11:00:00','23:00:00', false, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Fifty West Brewing Company'),'Sunday','11:00:00','21:00:00', false, false);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('American Sign Museum', 'Historic', 'This museum features a collection of over 100 years of American signage, including neon signs, electric signs, and other types of advertising and marketing materials.', '(513) 541-6366', '1330 Monmouth Ave, Cincinnati, OH 45225', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('American Sign Museum', 'Historic', 'This museum features a collection of over 100 years of American signage, including neon signs, electric signs, and other types of advertising and marketing materials.', '(513) 541-6366', '1330 Monmouth Ave, Cincinnati, OH 45225', 0, 0, true, 'https://www.ohiotraveler.com/wp-content/uploads/2016/07/American-Sign-Museum-by-Alias-Imaging.jpg', '39.1434819', '-84.5426437', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.37366733047!2d-84.54264372360088!3d39.143481932145896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b4665765cc9f%3A0xb1a2d0a73e91ab13!2sAmerican%20Sign%20Museum!5e0!3m2!1sen!2sus!4v1681358208454!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'American Sign Museum'), 'Monday', NULL, NULL, true, false),
@@ -163,8 +163,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'American Sign Museum'),
 ((SELECT landmark_id FROM landmarks WHERE name = 'American Sign Museum'), 'Saturday', '10:00:00', '16:00:00', false, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'American Sign Museum'), 'Sunday', NULL, NULL, true, false);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Serpent Mound State Memorial', 'Historic', 'The Great Serpent Mound is a 1,348-foot-long, three-foot-high prehistoric effigy mound located in Peebles, Ohio. It was built on what is known as the Serpent Mound crater plateau, running along the Ohio Brush Creek in Adams County, Ohio. The mound is the largest serpent effigy in the world', '(800) 752-2757', '3850 OH-73, Peebles, OH 45660', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Serpent Mound State Memorial', 'Historic', 'The Great Serpent Mound is a 1,348-foot-long, three-foot-high prehistoric effigy mound located in Peebles, Ohio. It was built on what is known as the Serpent Mound crater plateau, running along the Ohio Brush Creek in Adams County, Ohio. The mound is the largest serpent effigy in the world', '(800) 752-2757', '3850 OH-73, Peebles, OH 45660', 0, 0, true, 'https://i0.wp.com/worldheritageohio.org/wp-content/support/sites/site-serpent.jpg', '39.0252455', '-83.4327731', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3099.5645579111006!2d-83.43277312360514!3d39.02524553914982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8846d09a5c319709%3A0xacd28418cfc04e!2sSerpent%20Mound%20State%20Memorial!5e0!3m2!1sen!2sus!4v1681358483359!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Serpent Mound State Memorial'), 'Monday', '10:00:00', '17:00:00', false, false),
@@ -175,8 +175,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Serpent Mound State Mem
 ((SELECT landmark_id FROM landmarks WHERE name = 'Serpent Mound State Memorial'), 'Saturday', '10:00:00', '17:00:00', false, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Serpent Mound State Memorial'), 'Sunday', '12:00:00', '17:00:00', false, false);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Norwood Mound', 'Historic', 'Norwood Mound, also known as “Indian Mound” by locals, is a prehistoric Native American earthwork mound located in Norwood, Ohio, United States, believed to be at least 2000 years old.', NULL, '2413 Indian Mound Ave, Cincinnati, OH 45212, USA', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Norwood Mound', 'Historic', 'Norwood Mound, also known as “Indian Mound” by locals, is a prehistoric Native American earthwork mound located in Norwood, Ohio, United States, believed to be at least 2000 years old.', NULL, '2413 Indian Mound Ave, Cincinnati, OH 45212, USA', 0, 0, true, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Norwood_Mound_from_the_southwest.jpg/1200px-Norwood_Mound_from_the_southwest.jpg', '39.1679122', '-84.4482764', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3093.2994691724666!2d-84.44827642359998!3d39.167912230696594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b2a278e49f73%3A0x2e46128d7e6130e8!2sNorwood%20Mound!5e0!3m2!1sen!2sus!4v1681358664364!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Norwood Mound'), 'Monday', NULL, NULL, false, true),
@@ -187,9 +187,9 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Norwood Mound'), 'Monda
 ((SELECT landmark_id FROM landmarks WHERE name = 'Norwood Mound'), 'Saturday', NULL, NULL, false, true),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Norwood Mound'), 'Sunday', NULL, NULL, false, true);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
 VALUES ('Harriet Beecher Stowe House', 'Historic', 'The Harriet Beecher Stowe House is a historic home in Cincinnati, Ohio which was once the residence of influential anti slavery author Harriet Beecher Stowe, author of the 1852 novel Uncle Tom''s Cabin.', '(513) 751-0651', '2950 Gilbert Ave, Cincinnati, OH 45206
-', 0, 0, true, '');
+', 0, 0, true, 'https://ohio.org/static/uploads/0688y000000pvcMAAQ.png', '39.1331569', '-84.4899151', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.827487565016!2d-84.48991512360126!3d39.13315693275831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b3b6cdfd223b%3A0xd8d3e6f431f1d790!2sHarriet%20Beecher%20Stowe%20House!5e0!3m2!1sen!2sus!4v1681359118153!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Harriet Beecher Stowe House'), 'Monday', NULL, NULL, true, false),
@@ -200,8 +200,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Harriet Beecher Stowe H
 ((SELECT landmark_id FROM landmarks WHERE name = 'Harriet Beecher Stowe House'), 'Saturday', '10:00:00', '16:00:00', false, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Harriet Beecher Stowe House'), 'Sunday', NULL, NULL, true, false);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Bobby Mackeys', 'Haunted', 'On the 2 hour tour, you are taken around all accessible areas of the building.  Your tour guide is with you at all times and provides information on the history of the location and reported paranormal activity.  We will spend time in each area to allow for a brief paranormal investigation.  You are welcome to bring small, handheld equipment such as recorders, EMF meters, camera, etc.', '(859) 431-5588', '44 Licking Pike, Wilder, KY 41071', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Bobby Mackeys', 'Haunted', 'On the 2 hour tour, you are taken around all accessible areas of the building.  Your tour guide is with you at all times and provides information on the history of the location and reported paranormal activity.  We will spend time in each area to allow for a brief paranormal investigation.  You are welcome to bring small, handheld equipment such as recorders, EMF meters, camera, etc.', '(859) 431-5588', '44 Licking Pike, Wilder, KY 41071', 0, 0, true, 'https://creepycincinnati.files.wordpress.com/2014/04/dscn1472.jpg', '39.0733538', '-84.4955359', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.4540678037724!2d-84.4955359236034!3d39.07335383630229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b11b05bcd3f3%3A0x7a493810ab51566!2sBobby%20Mackey&#39;s!5e0!3m2!1sen!2sus!4v1681359297297!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), 'Monday', '19:00:00', '21:00:00', false, false),
@@ -212,8 +212,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), 'Monda
 ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), 'Saturday', NULL, NULL, true, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), 'Sunday', '19:00:00', '21:00:00', false, false);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Lick Road', 'Haunted', 'A ghost named Amy is said to haunt the end of the long, desolate road.  There are many tales of how Amy had died, but the most popular is that she was murdered by her boyfriend.  Witnesses have reported hearing footsteps following them, others have spotted a ghostly girl walking the grounds.  Another legend states that if one flicks their headlights at the sign, you can see “Amy” written on the sign. Other legends states that one might hear screams, or even see the word “Help” scrawled in the condensation on the window of your car while parked in the cul-de-sac.', NULL, 'Lick Rd, Colerain Township, OH 45251', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Lick Road', 'Haunted', 'A ghost named Amy is said to haunt the end of the long, desolate road.  There are many tales of how Amy had died, but the most popular is that she was murdered by her boyfriend.  Witnesses have reported hearing footsteps following them, others have spotted a ghostly girl walking the grounds.  Another legend states that if one flicks their headlights at the sign, you can see “Amy” written on the sign. Other legends states that one might hear screams, or even see the word “Help” scrawled in the condensation on the window of your car while parked in the cul-de-sac.', NULL, 'Lick Rd, Colerain Township, OH 45251', 0, 0, true, 'https://creepycincinnati.files.wordpress.com/2011/11/lick-road-gate.jpg', '39.3098791', '-84.608904', 'https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d771.7619053529011!2d-84.60959073036628!3d39.30984403588237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMznCsDE4JzM1LjQiTiA4NMKwMzYnMzIuMiJX!5e0!3m2!1sen!2sus!4v1681359531445!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Lick Road'), 'Monday', NULL, NULL, false, true),
@@ -224,8 +224,8 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Lick Road'), 'Monday', 
 ((SELECT landmark_id FROM landmarks WHERE name = 'Lick Road'), 'Saturday', NULL, NULL, false, true),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Lick Road'), 'Sunday', NULL, NULL, false, true);
 
-INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img)
-VALUES ('Spring Grove Cemetery', 'Haunted', 'One legend revolves around the grave of Charles Breuer, upon which a bust of Charles sits.  Late one evening, a visitor is said to have witnessed one of the eyes popping out of the head of the bust, landing beside the visitor’s foot, and then turning toward the visitor, squelching wetly as it moved. Another frightening tale involved a mausoleum that opens up to reveal a pair of snarling white dogs, eyes aglow with blue fire, that let out blood-curdling howls.', '(513) 681-7526', '4521 Spring Grove Ave. Cincinnati, OH 45232', 0, 0, true, '');
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Spring Grove Cemetery', 'Haunted', 'One legend revolves around the grave of Charles Breuer, upon which a bust of Charles sits.  Late one evening, a visitor is said to have witnessed one of the eyes popping out of the head of the bust, landing beside the visitor’s foot, and then turning toward the visitor, squelching wetly as it moved. Another frightening tale involved a mausoleum that opens up to reveal a pair of snarling white dogs, eyes aglow with blue fire, that let out blood-curdling howls.', '(513) 681-7526', '4521 Spring Grove Ave. Cincinnati, OH 45232', 0, 0, true, 'https://www.onlyinyourstate.com/wp-content/uploads/2018/03/39981548401_1f33e20085_b.jpg', '39.1743429', '-84.5275855', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3093.016618346244!2d-84.52758552359973!3d39.17434293031511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b4a1f5fa9487%3A0xfdc7e1db79a92d63!2sSpring%20Grove!5e0!3m2!1sen!2sus!4v1681359711336!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery'), 'Monday', '08:00:00', '18:00:00', false, false),
