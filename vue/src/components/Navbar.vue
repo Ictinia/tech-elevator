@@ -97,7 +97,7 @@
                   pt-3
                 "
                 placeholder="Search Locations, Attractions..."
-                @keypress.enter="showSearchDrawer"
+                @keypress.enter="goToSearchResults"
               />
             </div>
           </div>
@@ -598,14 +598,12 @@
         </svg>
       </button>
       <div>
-        ===================
         <landmarkCard
           v-for="landmark in searchLandmarks(this.searchTerm)"
           v-bind:key="landmark.id"
           v-bind:landmark="landmark"
         >
         </landmarkCard>
-        ===========
       </div>
     </div>
   </div>
@@ -672,9 +670,12 @@ export default {
       this.$store.commit("LOGOUT");
       this.$router.push("/");
     },
-    showSearchDrawer(event) {
-      this.searchTerm = event.target.value;
-      this.searchDrawer = true;
+    goToSearchResults(event) {
+      let searchTerm = event.target.value;
+      this.$router.push({
+        name: "landmark-search",
+        query: { term: searchTerm },
+      });
     },
     searchLandmarks(term) {
       return this.$store.state.landmarks.filter((l) => {
