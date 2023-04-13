@@ -246,5 +246,8 @@ export default {
       return this.$store.state.landmark;
     },
   },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
