@@ -8,14 +8,47 @@
       />
       <div class="relative bg-gray-900 bg-opacity-40 h-96 z-0">
         <p
-          class="text-md font-semibold italic text-white pb-3 text-right absolute right-5 bottom-12 lg:bottom-16 lg:right-14"
+          class="
+            text-md
+            font-semibold
+            italic
+            text-white
+            pb-3
+            text-right
+            absolute
+            right-5
+            bottom-12
+            lg:bottom-16 lg:right-14
+          "
         ></p>
         <div
-          class="absolute left-5 bottom-5 lg:right-14 lg:bottom-8 flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
+          class="
+            absolute
+            left-5
+            bottom-5
+            lg:right-14 lg:bottom-8
+            flex-col
+            mt-8
+            space-y-4
+            md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0
+          "
         >
           <button
             type="button"
-            class="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-1.5 text-center inline-flex items-center mr-2"
+            class="
+              text-white
+              bg-cyan-600
+              hover:bg-cyan-700
+              focus:ring-4 focus:outline-none focus:ring-blue-300
+              font-medium
+              rounded-lg
+              text-sm
+              p-1.5
+              text-center
+              inline-flex
+              items-center
+              mr-2
+            "
           >
             <svg
               class="h-8 w-16 text-white"
@@ -37,7 +70,20 @@
           </button>
           <button
             type="button"
-            class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-1.5 text-center inline-flex items-center mr-2"
+            class="
+              text-white
+              bg-red-700
+              hover:bg-red-800
+              focus:ring-4 focus:outline-none focus:ring-red-300
+              font-medium
+              rounded-lg
+              text-sm
+              p-1.5
+              text-center
+              inline-flex
+              items-center
+              mr-2
+            "
           >
             <svg
               class="h-8 w-16 text-white"
@@ -60,7 +106,26 @@
         </div>
       </div>
       <div
-        class="absolute flex sm:px-8 justify-center items-center p-2 lg:right-12 right-5 top-5 z-20 bg-white rounded-md border-[1px] border-gray-200 hover:border-blue-700 hover:border-[3px] hover:-m-[2px] hover:bg-gray-100 hover:cursor-pointer"
+        class="
+          absolute
+          flex
+          sm:px-8
+          justify-center
+          items-center
+          p-2
+          lg:right-12
+          right-5
+          top-5
+          z-20
+          bg-white
+          rounded-md
+          border-[1px] border-gray-200
+          hover:border-blue-700
+          hover:border-[3px]
+          hover:-m-[2px]
+          hover:bg-gray-100
+          hover:cursor-pointer
+        "
       >
         <svg
           class="h-6 w-6 text-black"
@@ -94,7 +159,21 @@
             </h1>
             <div class="flex-1 hidden md:flex items-center ml-1">
               <button
-                class="flex-auto text-lg font-semibold w-full bg-cyan-600 border text-white rounded-lg px-4 leading-8 h-12 hover:bg-cyan-600/[0.9] z-10"
+                class="
+                  flex-auto
+                  text-lg
+                  font-semibold
+                  w-full
+                  bg-cyan-600
+                  border
+                  text-white
+                  rounded-lg
+                  px-4
+                  leading-8
+                  h-12
+                  hover:bg-cyan-600/[0.9]
+                  z-10
+                "
               >
                 Add to Itinerary
               </button>
@@ -103,7 +182,16 @@
           <div class="flex align-middle justify-center h-full">
             <section class="w-full md:w-2/3 text-md">
               <ul
-                class="flex flex-wrap relative pb-4 overflow-auto pt-5 text-md items-center overflow"
+                class="
+                  flex flex-wrap
+                  relative
+                  pb-4
+                  overflow-auto
+                  pt-5
+                  text-md
+                  items-center
+                  overflow
+                "
               >
                 <li class="flex pr-6">Rating</li>
                 <li class="flex pr-6">
@@ -197,7 +285,22 @@
           </div>
           <div class="flex justify-center align-middle w-full">
             <button
-              class="md:hidden text-lg mx-5 font-semibold w-full bg-cyan-600 border text-white rounded-lg px-4 leading-8 h-12 hover:bg-cyan-600/[0.9] z-10"
+              class="
+                md:hidden
+                text-lg
+                mx-5
+                font-semibold
+                w-full
+                bg-cyan-600
+                border
+                text-white
+                rounded-lg
+                px-4
+                leading-8
+                h-12
+                hover:bg-cyan-600/[0.9]
+                z-10
+              "
             >
               Add to Itinerary
             </button>
