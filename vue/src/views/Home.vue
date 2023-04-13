@@ -24,7 +24,7 @@
       </div>
     </div>
     <body>
-      <div class="mx-8 md:mx-12 lg:mx-28 xl:mx-40 2xl:mx-64 mr-8 mt-10">
+      <div class="mx-8 md:mx-12 lg:mx-28 xl:mx-40 2xl:mx-64 mt-10">
         <h1 class="text-2xl font-semibold">Popular Categories</h1>
         <div class="w-full h-full">
           <nav>
@@ -86,24 +86,27 @@
         </div>
       </div>
 
-      <section class="mx-8 md:mx-12 lg:mx-28 xl:mx-40 2xl:mx-64 mr-8">
-        <div class="container">
+      <section class="mx-8 md:mx-12 lg:mx-28 xl:mx-40 2xl:mx-64">
+        <div class="w-full">
           <section
             v-for="category in this.$store.state.categories"
             v-bind:key="category.id"
+            class="overflow-hidden"
           >
             <div class="py-5 border-b-gray-300 border-b">
               <h2 class="text-2xl font-semibold">{{ category }}</h2>
             </div>
-            <div class="flex relative gap-x-4 gap-y-8 my-8">
+            <div
+              class="flex relative gap-x-4 gap-y-8 my-8 w-full overflow-x-auto no-scrollbar"
+            >
               <router-link
-                class="group hover:cursor-pointer !min-w-[236px] !w-[236px] overflow-hidden rounded-md bg-white border hover:-translate-y-1 duration-300 hover:shadow-[1px_1px_4px_0_gray]"
+                class="group hover:cursor-pointer !min-w-[236px] !w-[236px] rounded-md bg-white border hover:-translate-y-1 duration-300 hover:shadow-[1px_1px_4px_0_gray]"
                 v-for="landmark in landmarkFilter(category)"
                 v-bind:key="landmark.id"
                 :to="{ name: 'landmark-details', params: { id: landmark.id } }"
                 tag="ul"
               >
-                <li>
+                <li class="overflow-x-auto">
                   <div class="h-[132px] w-full overflow-hidden bg-green-400">
                     <img
                       class="group-hover:scale-105 rounded-md"
