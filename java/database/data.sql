@@ -92,7 +92,7 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'FC Cincinnati'), 'Monda
 ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Reds'), 'Sunday', NULL, NULL, false, true);
 
 INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
-VALUES ('Cincinnati Bengals', 'Sports', 'The Cincinnati Bengals are a professional American football team based in Cincinnati. The Bengals compete in the National Football League as a member club of the league''s American Football Conference North division. The club''s home games are held in downtown Cincinnati at Paycor Stadium.', '(513) 621-8383', '1 Paycor Stadium | Cincinnati, Ohio 45202', 0, 0, true, '');
+VALUES ('Cincinnati Bengals', 'Sports', 'The Cincinnati Bengals are a professional American football team based in Cincinnati. The Bengals compete in the National Football League as a member club of the league''s American Football Conference North division. The club''s home games are held in downtown Cincinnati at Paycor Stadium.', '(513) 621-8383', '1 Paycor Stadium | Cincinnati, Ohio 45202', 0, 0, true, 'https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/7HQC4LAMTZDF7KB4GXO5RTVNSY.jpg', '39.0954617', '-84.5186326', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3096.4834714548956!2d-84.51863262360266!3d39.095461734992575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b14e8e995ab1%3A0x991715beb84d8bcb!2sPaycor%20Stadium!5e0!3m2!1sen!2sus!4v1681355640464!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Bengals'), 'Monday', NULL, NULL, false, true),
