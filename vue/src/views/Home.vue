@@ -6,7 +6,10 @@
         class="absolute object-cover w-full h-full z-0"
         alt=""
       />
-      <div class="relative bg-gray-900 bg-opacity-40 h-96 z-0">
+      <div class="relative bg-gray-900 bg-opacity-40 h-[36rem] z-0">
+        <div class="flex h-full w-full justify-center align-middle">
+          <h2 class="align-middle">Looking to plan a city tour?</h2>
+        </div>
         <p
           class="text-md font-semibold italic text-white pb-3 text-right absolute right-5 bottom-12 lg:bottom-16 lg:right-14"
         >
@@ -100,7 +103,7 @@
               class="flex relative gap-x-4 gap-y-8 my-8 w-full overflow-x-auto no-scrollbar"
             >
               <router-link
-                class="group hover:cursor-pointer !min-w-[236px] !w-[236px] rounded-md bg-white border hover:-translate-y-1 duration-300 hover:shadow-[1px_1px_4px_0_gray]"
+                class="group hover:cursor-pointer !min-w-[236px] !w-[236px] !min-h-[300px] rounded-md bg-white border hover:-translate-y-1 duration-300 hover:shadow-[1px_1px_4px_0_gray]"
                 v-for="landmark in landmarkFilter(category)"
                 v-bind:key="landmark.id"
                 :to="{ name: 'landmark-details', params: { id: landmark.id } }"

@@ -6,7 +6,7 @@
         class="absolute object-cover w-full h-full z-0"
         alt=""
       />
-      <div class="relative bg-gray-900 bg-opacity-40 h-96 z-0">
+      <div class="relative bg-gray-900 bg-opacity-40 h-[36rem] z-0">
         <p
           class="text-md font-semibold italic text-white pb-3 text-right absolute right-5 bottom-12 lg:bottom-16 lg:right-14"
         ></p>
