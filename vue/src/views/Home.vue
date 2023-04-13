@@ -8,9 +8,9 @@
       />
       <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
         <div class="flex h-full w-full justify-center align-middle">
-          <h2 class="align-center text-2xl text-white">
+          <!-- <h2 class="text-center text-4xl text-white pt-40">
             Plan a tour in Cincinnati
-          </h2>
+          </h2> -->
         </div>
         <p
           class="
