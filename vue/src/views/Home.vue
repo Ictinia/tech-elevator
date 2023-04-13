@@ -24,7 +24,7 @@
       </div>
     </div>
     <body>
-      <div class="mx-8 md:mx-12 lg:mx-28 xl:mx-40 2xl:mx-64 mr-8 mt-10">
+      <div class="mx-8 md:mx-12 lg:mx-28 xl:mx-40 2xl:mx-64 mt-10">
         <h1 class="text-2xl font-semibold">Popular Categories</h1>
         <div class="w-full h-full">
           <nav>
@@ -86,137 +86,50 @@
         </div>
       </div>
 
-      <section
-        class="mx-8 md:mx-12 lg:mx-28 xl:mx-40 2xl:mx-64 mr-8 mt-10 dark:bg-gray-800 dark:text-gray-100"
-      >
-        <div class="container">
-          <div class="space-y-2 text-center">
-            <h2 class="text-3xl font-bold">Discover what's available</h2>
-            <p class="font-serif text-sm dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est cum
-              recusandae debitis temporibus voluptatum doloremque mollitia,
-              accusamus facilis voluptas nulla excepturi aliquid praesentium,
-              maiores facere tempora corporis et sequi laborum.
-            </p>
-          </div>
-          <div class="py-5 border-b-gray-300 border-b">
-            <h2 class="text-2xl font-semibold">Food</h2>
-          </div>
-          <div class="flex gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4 mt-5">
-            <div
-              class="block w-64 rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
-            >
-              <a href="#!">
-                <img
-                  class="rounded-t-lg"
-                  src="https://tecdn.b-cdn.net/img/new/standard/nature/184.jpg"
-                  alt=""
-                />
-              </a>
-              <div class="p-3">
-                <h5
-                  class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
-                >
-                  Card title
-                </h5>
-                <p
-                  class="mb-4 text-base text-neutral-600 dark:text-neutral-200"
-                >
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <button
-                  type="button"
-                  class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                >
-                  Button
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- *************start of grid 2************-->
-
-          <div>
-            <h2 class="text-3xl font-bold te">Sports</h2>
-          </div>
-
-          <div class="flex gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
-            <article class="flex flex-col dark:bg-gray-900 hidden md:block">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Te nulla oportere reprimique his dolorum"
-              >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?1"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Landmarks</a
-                >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-          </div>
-
-          <div>
-            <h2 class="text-3xl font-bold te">Historical</h2>
-          </div>
-          <div
-            class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4"
+      <section class="mx-8 md:mx-12 lg:mx-28 xl:mx-40 2xl:mx-64">
+        <div class="w-full">
+          <section
+            v-for="category in this.$store.state.categories"
+            v-bind:key="category.id"
+            class="overflow-hidden"
           >
-            <article class="flex flex-col dark:bg-gray-900">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                aria-label="Te nulla oportere reprimique his dolorum"
+            <div class="py-5 border-b-gray-300 border-b">
+              <h2 class="text-2xl font-semibold">{{ category }}</h2>
+            </div>
+            <div
+              class="flex relative gap-x-4 gap-y-8 my-8 w-full overflow-x-auto no-scrollbar"
+            >
+              <router-link
+                class="group hover:cursor-pointer !min-w-[236px] !w-[236px] rounded-md bg-white border hover:-translate-y-1 duration-300 hover:shadow-[1px_1px_4px_0_gray]"
+                v-for="landmark in landmarkFilter(category)"
+                v-bind:key="landmark.id"
+                :to="{ name: 'landmark-details', params: { id: landmark.id } }"
+                tag="ul"
               >
-                <img
-                  alt=""
-                  class="object-cover w-full h-52 dark:bg-gray-500"
-                  src="https://source.unsplash.com/200x200/?fashion?1"
-                />
-              </a>
-              <div class="flex flex-col flex-1 p-6">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  aria-label="Description for matching picture"
-                ></a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  class="text-xs tracking-wider uppercase hover:underline dark:text-violet-400"
-                  >Landmarks</a
-                >
-                <h3 class="flex-1 py-2 text-lg font-semibold leading-snug">
-                  Description for matching picture
-                </h3>
-                <div
-                  class="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400"
-                ></div>
-              </div>
-            </article>
-          </div>
+                <li class="overflow-x-auto">
+                  <div class="h-[132px] w-full overflow-hidden bg-green-400">
+                    <img
+                      class="group-hover:scale-105 rounded-md"
+                      :src="landmark.heroImg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="p-2">
+                    <h5
+                      class="mb-2 text-lg font-medium leading-tight text-neutral-800"
+                    >
+                      {{ landmark.name }}
+                    </h5>
+                    <p
+                      class="mb-4 text-md text-neutral-600 dark:text-neutral-200"
+                    >
+                      {{ landmark.address }}
+                    </p>
+                  </div>
+                </li>
+              </router-link>
+            </div>
+          </section>
         </div>
       </section>
     </body>
@@ -224,11 +137,33 @@
 </template>
 
 <script>
+import landmarkService from "../services/LandmarkService";
+
 export default {
   name: "home",
   data() {
     return {};
   },
   components: {},
+  methods: {
+    landmarkFilter(category) {
+      return this.$store.state.landmarks.filter((landmark) => {
+        if (landmark.category.includes(category)) {
+          return landmark;
+        }
+      });
+    },
+  },
+  created() {
+    landmarkService.getAllLandmarks().then((response) => {
+      this.$store.commit("SET_LANDMARKS", response.data);
+    });
+    landmarkService.getAllCategories().then((response) => {
+      this.$store.commit("SET_CATEGORIES", response.data);
+    });
+  },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>

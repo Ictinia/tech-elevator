@@ -17,8 +17,9 @@ module.exports = {
       '2xl': '1.5rem',
       '3xl': '1.875rem',
       '4xl': '2rem',
-    }
+    },
   },
+
   plugins: [],
 }
 
