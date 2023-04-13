@@ -6,7 +6,7 @@
         class="absolute object-cover w-full h-full z-0"
         alt=""
       />
-      <div class="relative bg-gray-900 bg-opacity-40 h-[36rem] z-0">
+      <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
         <p
           class="text-md font-semibold italic text-white pb-3 text-right absolute right-5 bottom-12 lg:bottom-16 lg:right-14"
         ></p>
@@ -190,7 +190,7 @@
             >
               <iframe
                 :src="this.$store.state.landmark.mapLink"
-                class="h-full w-full rounded-xl bg-green-500"
+                class="h-full w-full rounded-xl bg-gray-300"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </section>

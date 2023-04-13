@@ -6,7 +6,7 @@
         class="absolute object-cover w-full h-full z-0"
         alt=""
       />
-      <div class="relative bg-gray-900 bg-opacity-40 h-[36rem] z-0">
+      <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
         <div class="flex h-full w-full justify-center align-middle">
           <h2 class="align-middle">Looking to plan a city tour?</h2>
         </div>
@@ -96,14 +96,14 @@
             v-bind:key="category.id"
             class="overflow-hidden"
           >
-            <div class="py-5 border-b-gray-300 border-b">
+            <div class="py-2 border-b-gray-300 border-b">
               <h2 class="text-2xl font-semibold">{{ category }}</h2>
             </div>
             <div
-              class="flex relative gap-x-4 gap-y-8 my-8 w-full overflow-x-auto no-scrollbar"
+              class="flex relative gap-x-4 gap-y-8 my-5 w-full overflow-x-auto no-scrollbar"
             >
               <router-link
-                class="group hover:cursor-pointer !min-w-[236px] !w-[236px] !min-h-[300px] rounded-md bg-white border hover:-translate-y-1 duration-300 hover:shadow-[1px_1px_4px_0_gray]"
+                class="group hover:cursor-pointer !min-w-[236px] !w-[236px] !min-h-[300px] rounded-md bg-white border border-gray-400 hover:-translate-y-1 duration-300 hover:shadow-[1px_1px_4px_0_gray]"
                 v-for="landmark in landmarkFilter(category)"
                 v-bind:key="landmark.id"
                 :to="{ name: 'landmark-details', params: { id: landmark.id } }"
@@ -112,7 +112,7 @@
                 <li class="overflow-x-auto">
                   <div class="h-[132px] w-full overflow-hidden bg-green-400">
                     <img
-                      class="group-hover:scale-105 rounded-md"
+                      class="group-hover:scale-105 rounded-md h-full w-full"
                       :src="landmark.heroImg"
                       alt=""
                     />
