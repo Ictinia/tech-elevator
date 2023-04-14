@@ -156,7 +156,8 @@
               class="flex-[2_2_0%] text-3xl font-semibold left-0 text-gray-800"
             >
               {{ landmark.name }}
-              <p class="flex-[2_2_0%] text-md font-light left-0 text-gray-800">
+
+              <p class="flex-[2_2_0%] text-lg font-light left-0 text-gray-800">
                 {{ landmark.address }}
               </p>
             </h1>
@@ -278,7 +279,7 @@
               </div>
             </section>
             <section
-              class="hidden md:flex !w-1/3 text-md aspect-square ml-2 my-5"
+              class="md hidden md:flex !w-1/3 text-md aspect-square ml-2 my-5"
             >
               <iframe
                 :src="this.$store.state.landmark.mapLink"
@@ -286,6 +287,16 @@
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </section>
+          </div>
+
+          <!-- Underneath is mobile map -->
+
+          <div class="md:hidden">
+            <iframe
+              :src="this.$store.state.landmark.mapLink"
+              class="mb-7 h-full w-full rounded-xl bg-gray-300"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
           <div class="flex justify-center align-middle w-full">
             <button
