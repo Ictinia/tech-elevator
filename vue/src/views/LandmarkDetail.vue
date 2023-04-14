@@ -277,7 +277,8 @@
                   </tr>
                 </table>
               </div>
-              <div class="reviewSection">
+
+              <!-- <div class="reviewSection">
                 <table>
                   <tbody>
                     <tr
@@ -293,8 +294,13 @@
                     </tr>
                   </tbody>
                 </table>
+              </div> -->
+
+              <div class="review-table">
+                <review-section />
               </div>
             </section>
+
             <section
               class="md hidden md:flex !w-1/3 text-md aspect-square ml-2 my-5"
             >
@@ -346,6 +352,7 @@
 <script>
 import landmarkService from "../services/LandmarkService";
 import reviewsService from "../services/ReviewsService";
+import ReviewSection from "../components/ReviewSection.vue";
 
 export default {
   data() {
@@ -367,6 +374,10 @@ export default {
         return time.substring(0, 5);
       }
     },
+  },
+
+  components: {
+    ReviewSection,
   },
   created() {
     landmarkService
