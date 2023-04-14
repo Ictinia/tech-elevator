@@ -26,7 +26,9 @@ export default new Vuex.Store({
     landmarks: [],
     activeLandmark: null,
     hours: [],
+    itineraries: [],
     activeHourId: null,
+    activeItinerary: null,
     landmark: {
       landmark_id: '',
       name: '',
@@ -41,10 +43,11 @@ export default new Vuex.Store({
       longitude: '',
       map_link: ''
     },
-    card: {
+    itinerary: {
+      itinerary_id: '',
+      user_id: '',
       name: '',
-      category: '',
-      status: '',
+      date: '',
     },
     review: {
       review_id: '',
@@ -92,9 +95,14 @@ export default new Vuex.Store({
     SET_LANDMARK_HOURS(state, hours) {
       state.hours = hours;
     },
-
     SET_REVIEWS(state, reviews) {
       state.reviews = reviews;
+    },
+    SET_ITINERARIES(state, itineraries) {
+      state.itineraries = itineraries;
+    },
+    SET_CURRENT_ITINERARY(state, itinerary) {
+      state.itinerary = itinerary;
     }
   }
 })

@@ -2,7 +2,6 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Itinerary;
 import com.techelevator.model.ItineraryDto;
-import com.techelevator.model.Landmark;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -16,6 +15,11 @@ public class JdbcItineraryDao implements ItineraryDao {
     JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
     public JdbcItineraryDao(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
+
+    @Override
+    public int getNextId() {
+        String sql = ""
+    }
 
     @Override
     public List<Itinerary> getUserItineraries(int userId) {
@@ -42,7 +46,7 @@ public class JdbcItineraryDao implements ItineraryDao {
     }
 
     @Override
-    public void create(Itinerary itinerary) {
+    public void create(ItineraryDto itinerary) {
         String sql = "INSERT INTO itineraries (user_id, name, date) VALUES (?, ?, ?);";
         jdbcTemplate.update(sql, itinerary.getUserId(), itinerary.getName(), itinerary.getDate());
     }

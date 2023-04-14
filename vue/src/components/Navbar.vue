@@ -337,6 +337,7 @@ import Login from "../components/Login.vue";
 import AppDropdown from "../components/AppDropdown.vue";
 import AppDropdownContent from "../components/AppDropdownContent.vue";
 import AppDropdownItem from "../components/AppDropdownItem.vue";
+import ItineraryService from "../services/ItineraryService";
 
 export default {
   name: "navbar",
@@ -345,6 +346,7 @@ export default {
     AppDropdown,
     AppDropdownContent,
     AppDropdownItem,
+    ItineraryService,
   },
 
   data() {
@@ -389,6 +391,23 @@ export default {
       this.showMenu = false;
       this.$store.commit("LOGOUT");
       this.$router.push("/");
+    },
+    createItinerary() {
+      const newItinerary = {
+        user_id: this.itinerary.user_id,
+        name: this.itinerary.name,
+        date: this.itinerary.date,
+      };
+
+      ItineraryService.createItinerary(newItinerary)
+        .then((response) => {
+          if (response.status === 201) {
+            this.$router.push(`/itinerary/${newItinerary.itinerary_id}`);
+          }
+        })
+        .catch((error) => {
+          this.handleErrorResponse(error, "adding");
+        });
     },
   },
 };

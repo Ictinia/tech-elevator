@@ -20,18 +20,18 @@ public class ItineraryController {
         this.itineraryDao = dao;
     }
 
-    @GetMapping(path = "/itinerary/{id}")
+    @GetMapping(path = "/itinerary/user/{id}")
     public List<Itinerary> getUserItineraries (@PathVariable int id) {
         return itineraryDao.getUserItineraries(id);
     }
 
-    @GetMapping(path = "/itinerary/all/{id}")
+    @GetMapping(path = "/itinerary/{id}")
     public Itinerary get (@PathVariable int id) {
         return itineraryDao.get(id);
     }
 
     @PostMapping(path = "/itinerary")
-    public void create(@RequestBody Itinerary itinerary) {
+    public void create(@RequestBody ItineraryDto itinerary) {
         itineraryDao.create(itinerary);
     }
 
