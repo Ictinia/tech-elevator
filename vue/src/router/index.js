@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Logout from '../views/Logout.vue'
 import store from '../store/index'
 import LandmarkDetails from '../views/LandmarkDetail.vue'
+import Itinerary from '../views/MyItinerary.vue'
 
 Vue.use(Router)
 
@@ -42,6 +43,14 @@ const router = new Router({
       component: LandmarkDetails,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/itineraries/:id",
+      name: "my-itinerary",
+      component: Itinerary,
+      meta: {
+        requiresAuth: true
       }
     }
   ]
