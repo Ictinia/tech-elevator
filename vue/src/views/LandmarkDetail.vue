@@ -279,17 +279,19 @@
               </div>
               <div class="reviewSection">
                 <table>
-                  <tr
-                    v-for="review in this.$store.state.reviews"
-                    v-bind:key="review.id"
-                  >
-                    <td id="Title" class="font-semibold pr-3">
-                      {{ reviews.title }}
-                    </td>
-                    <td id="Description" class="text-right">
-                      {{ reviews.description }}
-                    </td>
-                  </tr>
+                  <tbody>
+                    <tr
+                      v-for="review in this.$store.state.reviews"
+                      v-bind:key="review.id"
+                    >
+                      <td id="Title" class="font-semibold pr-3">
+                        {{ review.title }}
+                      </td>
+                      <td id="Description" class="text-right">
+                        {{ review.description }}
+                      </td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </section>
@@ -357,12 +359,6 @@ export default {
 
   name: "landmark-detail",
   methods: {
-    addNewReview() {
-      const productID = this.$route.params.id;
-      this.newReview.productID = productID;
-      this.$store.commit("ADD_REVIEW", this.newReview);
-      // this.$router.push({ name: "product-detail", params: { id: productID } });
-    },
     timeCheck(time) {
       let varied = "Varied";
       if (time == null) {
@@ -386,6 +382,7 @@ export default {
           this.$router.push({ name: "Home" });
         }
       });
+
     landmarkService.getOperating(this.$route.params.id).then((response) => {
       this.$store.commit("SET_LANDMARK_HOURS", response.data);
     });
