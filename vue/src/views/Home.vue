@@ -6,12 +6,20 @@
         class="absolute object-cover w-full h-full z-0"
         alt=""
       />
+
       <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
-        <div class="flex h-full w-full justify-center align-middle">
-          <!-- <h2 class="text-center text-4xl text-white pt-40">
-            Plan a tour in Cincinnati
-          </h2> -->
-        </div>
+        <h2
+          class="
+            text-center text-4xl text-white
+            line-height
+            tracking-wider
+            pt-60
+            sm:pt-40
+          "
+        >
+          Plan a tour in Cincinnati
+        </h2>
+        <div class="flex h-full w-full justify-center align-middle"></div>
         <p
           class="
             text-md
@@ -25,9 +33,7 @@
             bottom-12
             lg:bottom-16 lg:right-14
           "
-        >
-          test lorem ipsum
-        </p>
+        ></p>
         <div
           class="
             absolute
@@ -39,24 +45,7 @@
             space-y-4
             md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0
           "
-        >
-          <button
-            class="
-              text-md
-              bg-white
-              border
-              text-black
-              rounded-lg
-              px-4
-              leading-8
-              h-10
-              hover:bg-white/[0.9]
-              z-10
-            "
-          >
-            Button
-          </button>
-        </div>
+        ></div>
       </div>
     </div>
     <body>

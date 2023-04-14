@@ -156,7 +156,13 @@
               class="flex-[2_2_0%] text-3xl font-semibold left-0 text-gray-800"
             >
               {{ landmark.name }}
+              <p
+                class="flex-[2_2_0%] text-md font-semibold left-0 text-gray-800"
+              >
+                {{ landmark.address }}
+              </p>
             </h1>
+
             <div class="flex-1 hidden md:flex items-center ml-1">
               <button
                 class="
