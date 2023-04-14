@@ -8,10 +8,12 @@
       />
       <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
         <div class="flex h-full w-full justify-center align-middle">
-          <h2 class="text-center text-4xl text-white pt-40">
+          <h2 class="text-center text-2xl text-white pt-40">
             Plan a tour in Cincinnati
           </h2>
         </div>
+
+        <div>Plan A Tour In Cincinnati</div>
 
         <div
           class="
@@ -64,7 +66,7 @@
                     !py-4
                   "
                 >
-                  <span>Food</span>
+                  <span @click="getFoodLandmarks()">Food</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
@@ -81,7 +83,7 @@
                     !py-4
                   "
                 >
-                  <span>Sports</span>
+                  <span @click="getSportsLandmarks()">Sports</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
@@ -98,7 +100,7 @@
                     !py-4
                   "
                 >
-                  <span>Brewery</span>
+                  <span @click="getBreweryLandmarks()">Brewery</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
@@ -115,11 +117,12 @@
                     !py-4
                   "
                 >
-                  <span>Historic</span>
+                  <span @click="getHistoricLandmarks()">Historic</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
+                  @click="getHistoricLandmarks()"
                   class="
                     text-gray-500
                     hover:text-black
@@ -231,30 +234,55 @@ export default {
   data() {
     return {};
   },
+  // landmarks() {
+  //   return this.landmark;
+  // },
   components: {},
+
   methods: {
     landmarkFilter(category) {
       return this.$store.state.landmarks.filter((landmark) => {
         if (landmark.category.includes(category)) {
           return landmark;
         }
+
+        return landmark;
       });
     },
-  },
-  created() {
-    landmarkService.getAllLandmarks().then((response) => {
-      this.$store.commit("SET_LANDMARKS", response.data);
-    });
-    landmarkService.getAllCategories().then((response) => {
-      this.$store.commit("SET_CATEGORIES", response.data);
-    });
-  },
-  mounted() {
-    window.scrollTo(0, 0);
+
+    getBreweryLandmarks() {
+      landmarkService.getByCategory().then((response) => {
+        this.$store.commit("SET_ACTIVE_CATEGORY", response.data);
+      });
+    },
+    getSportsLandmarks() {
+      landmarkService.getByCategory("landmarks.Sports").then((response) => {
+        this.landmarks = response.data;
+      });
+    },
+    getFoodLandmarks() {
+      landmarkService.getByCategory("landmarks.Food").then((response) => {
+        this.landmarks = response.data;
+      });
+    },
+    getHistoricLandmarks() {
+      landmarkService.getByCategory("landmarks.Historic").then((response) => {
+        this.landmarks = response.data;
+      });
+    },
+
+    created() {
+      landmarkService.getAllLandmarks().then((response) => {
+        this.$store.commit("SET_LANDMARKS", response.data);
+      });
+      landmarkService.getAllCategories().then((response) => {
+        this.$store.commit("SET_CATEGORIES", response.data);
+      });
+    },
+
+    mounted() {
+      window.scrollTo(0, 0);
+    },
   },
 };
 </script>
-
-
-
-
