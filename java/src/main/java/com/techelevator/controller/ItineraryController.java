@@ -36,13 +36,8 @@ public class ItineraryController {
     }
 
     @PutMapping(path = "/itinerary/{id}")
-    public void updateName(@PathVariable int id, @RequestBody ItineraryDto itinerary) {
-        itineraryDao.updateName(id, itinerary.getName());
-    }
-
-    @PutMapping(path = "/itinerary/{id}")
-    public void updateDate(@PathVariable int id, @RequestBody ItineraryDto itinerary) {
-        itineraryDao.updateDate(id, itinerary.getDate());
+    public void update(@PathVariable int id, @RequestBody ItineraryDto itinerary) {
+        itineraryDao.update(id, itinerary);
     }
 
     @DeleteMapping(path = "/itinerary/{id}")

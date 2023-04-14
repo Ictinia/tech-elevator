@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Itinerary;
+import com.techelevator.model.ItineraryDto;
 import com.techelevator.model.Landmark;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -47,15 +48,9 @@ public class JdbcItineraryDao implements ItineraryDao {
     }
 
     @Override
-    public void updateName(int id, String name) {
-        String sql = "UPDATE itineraries SET name = ? WHERE itinerary_id = ?;";
-        jdbcTemplate.update(sql, name, id);
-    }
-
-    @Override
-    public void updateDate(int id, LocalDate date) {
-        String sql = "UPDATE itineraries SET date = ? WHERE itinerary_id = ?;";
-        jdbcTemplate.update(sql, date, id);
+    public void update(int id, ItineraryDto itineraryDto) {
+        String sql = "UPDATE itineraries SET name = ?, date = ? WHERE itinerary_id = ?;";
+        jdbcTemplate.update(sql, itineraryDto.getName(), itineraryDto.getDate(), id);
     }
 
     @Override
