@@ -276,6 +276,21 @@
                   </tr>
                 </table>
               </div>
+              <div class="reviewSection">
+                <table>
+                  <tr
+                    v-for="review in this.$store.state.reviews"
+                    v-bind:key="review.id"
+                  >
+                    <td id="Title" class="font-semibold pr-3">
+                      {{ reviews.title }}
+                    </td>
+                    <td id="Description" class="text-right">
+                      {{ reviews.description }}
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </section>
             <section
               class="hidden md:flex !w-1/3 text-md aspect-square ml-2 my-5"
@@ -317,10 +332,26 @@
 
 <script>
 import landmarkService from "../services/LandmarkService";
+import reviewsService from "../services/ReviewsService";
 
 export default {
+  data() {
+    return {
+      newReview: {
+        title: "",
+        description: "",
+      },
+    };
+  },
+
   name: "landmark-detail",
   methods: {
+    addNewReview() {
+      const productID = this.$route.params.id;
+      this.newReview.productID = productID;
+      this.$store.commit("ADD_REVIEW", this.newReview);
+      // this.$router.push({ name: "product-detail", params: { id: productID } });
+    },
     timeCheck(time) {
       let varied = "Varied";
       if (time == null) {
@@ -346,6 +377,10 @@ export default {
       });
     landmarkService.getOperating(this.$route.params.id).then((response) => {
       this.$store.commit("SET_LANDMARK_HOURS", response.data);
+    });
+
+    reviewsService.getAllReviews(this.$route.params.id).then((response) => {
+      this.$store.commit("SET_REVIEWS", response.data);
     });
   },
   computed: {
