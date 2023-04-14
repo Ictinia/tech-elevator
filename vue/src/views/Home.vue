@@ -8,7 +8,9 @@
       />
       <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
         <div class="flex h-full w-full justify-center align-middle">
-          <h2 class="align-middle">Looking to plan a city tour?</h2>
+          <!-- <h2 class="text-center text-4xl text-white pt-40">
+            Plan a tour in Cincinnati
+          </h2> -->
         </div>
         <p
           class="
@@ -112,23 +114,6 @@
                   "
                 >
                   <span>Sports</span>
-                </button>
-              </li>
-              <li class="inline-block pr-4">
-                <button
-                  class="
-                    text-gray-500
-                    hover:text-black
-                    font-semibold
-                    leading-8
-                    h-12
-                    hover:decoration-2
-                    hover:underline
-                    hover:underline-offset-[16px]
-                    !py-4
-                  "
-                >
-                  <span>Landmark</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
