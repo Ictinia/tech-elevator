@@ -15,7 +15,7 @@
       "
     >
       <landmarkCard
-        v-for="landmark in searchLandmarks"
+        v-for="landmark in filteredLandmarks"
         v-bind:key="landmark.id"
         v-bind:landmark="landmark"
       >
@@ -26,14 +26,23 @@
 
 <script>
 import landmarkCard from "../components/LandmarkCard.vue";
+import landmarkService from "../services/LandmarkService.js";
 
 export default {
   name: "search-results",
   components: { landmarkCard },
   data() {
-    return {};
+    return {
+      filteredLandmarks: [],
+    };
   },
-  methods: {},
+  methods: {
+    loadLandmarks(searchTerm) {
+      landmarkService
+        .filterLandmarks(searchTerm)
+        .then((resp) => (this.filteredLandmarks = resp.data));
+    },
+  },
   computed: {
     searchTerm() {
       return this.$route.query.term;
@@ -44,8 +53,18 @@ export default {
       });
     },
   },
+  created() {
+    console.log("in created");
+    this.loadLandmarks(this.searchTerm);
+  },
+  beforeRouteUpdate(to, from, next) {
+    console.log("in bru");
+    // the 'to' parameter is a route object for the route we are trying to navigate to
+    this.loadLandmarks(to.query.term);
+    next();
+  },
 };
 </script>
 
-<style>
+<style scoped>
 </style>

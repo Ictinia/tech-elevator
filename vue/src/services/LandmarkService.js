@@ -18,6 +18,15 @@ export default {
         return http.get(`/landmarks/${id}`)
     },
 
+    /**
+     * return a list of landmarks 
+     * @param {*} term - option value to filter the landmarks
+     * @returns a list of landmarks
+     */
+    filterLandmarks(term) {
+        return http.get(`/landmarks?filter=${term}`)
+    },
+
     searchLandmarks(term) {
         return this.$store.state.landmarks.filter(l => {
             return l.name.includes(term)

@@ -677,6 +677,7 @@ export default {
         query: { term: searchTerm },
       });
     },
+
     searchLandmarks(term) {
       return this.$store.state.landmarks.filter((l) => {
         return l.name.toLowerCase().includes(term.toLowerCase());

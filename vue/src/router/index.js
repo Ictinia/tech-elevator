@@ -38,6 +38,14 @@ const router = new Router({
       }
     },
     {
+      path: "/landmarks/search",
+      name: "landmark-search",
+      component: LandmarkSearch,
+      meta: {
+        requiresAuth: false
+      },
+    },
+    {
       path: "/landmarks/:id",
       name: "landmark-details",
       component: LandmarkDetails,
@@ -45,14 +53,6 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    {
-      path: "/landmarks/search",
-      name: "landmark-search",
-      component: LandmarkSearch,
-      meta: {
-        requiresAuth: false
-      },
-    }
   ]
 })
 

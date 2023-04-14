@@ -138,7 +138,7 @@
             </ul>
           </nav>
           <div id="Card" class="pt-5">
-            <h3 class="text-lg font-semibold">{{ somethingsomething }}</h3>
+            <h3 class="text-lg font-semibold">WTF</h3>
           </div>
         </div>
       </div>
