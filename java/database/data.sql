@@ -242,5 +242,7 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery')
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '1', 'Ghosts everywhere!', 'I went out for a simple burger, but instead was inundated with ghosts trying to also order burgers.  I really wish they could solve their ghost issues at this place.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '2', 'Just wanted a burger', 'Someone call the Ghostbusters. Too many ghouls. I just wanted some sliders without having to deal with dead people everywhere.');
 
+INSERT INTO itineraries (user_id, name, date)
+VALUES (1, 'test', '2023-05-05');
 
 COMMIT TRANSACTION;

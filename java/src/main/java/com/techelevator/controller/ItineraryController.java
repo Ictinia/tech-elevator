@@ -20,12 +20,12 @@ public class ItineraryController {
         this.itineraryDao = dao;
     }
 
-    @GetMapping(path = "/itinerary")
+    @GetMapping(path = "/itinerary/{id}")
     public List<Itinerary> getUserItineraries (@PathVariable int id) {
         return itineraryDao.getUserItineraries(id);
     }
 
-    @GetMapping(path = "/itinerary/{id}")
+    @GetMapping(path = "/itinerary/all/{id}")
     public Itinerary get (@PathVariable int id) {
         return itineraryDao.get(id);
     }

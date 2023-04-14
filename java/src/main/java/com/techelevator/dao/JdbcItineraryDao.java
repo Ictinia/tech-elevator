@@ -20,7 +20,7 @@ public class JdbcItineraryDao implements ItineraryDao {
     @Override
     public List<Itinerary> getUserItineraries(int userId) {
         List<Itinerary> itineraries = new ArrayList<>();
-        String sql = "SELECT itinerary_id, user_id, name, date FROM itineraries;";
+        String sql = "SELECT itinerary_id, user_id, name, date FROM itineraries WHERE user_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
