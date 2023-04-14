@@ -55,9 +55,11 @@ CREATE TABLE stops (
 CREATE TABLE reviews (
 	review_id SERIAL PRIMARY KEY,
 	landmark_id INT NOT NULL,
+	user_id INT NOT NULL,
 	title varchar(100) NOT NULL,
 	description varchar(1000) NOT NULL,
 	
+	CONSTRAINT fk_reviews_users FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT fk_reviews_landmarks FOREIGN KEY (landmark_id) REFERENCES landmarks(landmark_id)
 );
 

@@ -1,7 +1,10 @@
 BEGIN TRANSACTION;
 
+
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+
+
 
 INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
 VALUES ('The Root Beer Stand', 'Food', ' The Root Beer Stand, the wonderful eatery that signifies summer in Greater Cincinnati, opened as an A & W Root Beer Stand in 1957. Since then, Cincinnati Magazine has named it as the best place to quaff a root beer in town and ranked "The Stand" in the number 12 slot among the "Top 100 Places in Cincinnati."', '(513) 769-4349', '11566 Reading Rd, Sharonville, OH 45241', 0, 0, true, 'https://img-aws.ehowcdn.com/700x/www.onlyinyourstate.com/wp-content/uploads/2018/03/17362418_1313394472060039_2753526769913276673_n.jpg', '39.2822679', '-84.412874', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.2637848254303!2d-84.41287402359576!3d39.28226792390299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88405191a43276e9%3A0xc72d7e2a77afdbff!2sThe%20Root%20Beer%20Stand!5e0!3m2!1sen!2sus!4v1681351900744!5m2!1sen!2sus');
@@ -235,6 +238,9 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery')
 ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery'), 'Friday', '08:00:00', '18:00:00', false, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery'), 'Saturday', '08:00:00', '18:00:00', false, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery'), 'Sunday', '08:00:00', '18:00:00', false, false);
+
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '1', 'Ghosts everywhere!', 'I went out for a simple burger, but instead was inundated with ghosts trying to also order burgers.  I really wish they could solve their ghost issues at this place.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '2', 'Just wanted a burger', 'Someone call the Ghostbusters. Too many ghouls. I just wanted some sliders without having to deal with dead people everywhere.');
 
 
 COMMIT TRANSACTION;
