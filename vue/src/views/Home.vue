@@ -6,12 +6,14 @@
         class="absolute object-cover w-full h-full z-0"
         alt=""
       />
+
       <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
-        <div class="flex h-full w-full justify-center align-middle">
-          <h2 class="text-center text-4xl text-white pt-40">
-            Plan a tour in Cincinnati
-          </h2>
-        </div>
+        <h2
+          class="text-center text-4xl text-white tracking-wider pt-60 sm:pt-40"
+        >
+          Plan a tour in Cincinnati
+        </h2>
+        <div class="flex h-full w-full justify-center align-middle"></div>
 
         <div
           class="
