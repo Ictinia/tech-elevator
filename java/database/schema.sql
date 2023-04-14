@@ -37,8 +37,7 @@ CREATE TABLE itineraries (
 	itinerary_id SERIAL PRIMARY KEY,
 	user_id INT NOT NULL,
 	name varchar(100) NOT NULL,
-	date DATE NOT NULL,
-	starting_location varchar(100) NOT NULL,
+	date DATE NOT NULL
 	
 	CONSTRAINT fk_itineraries_users FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
