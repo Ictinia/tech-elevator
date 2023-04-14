@@ -13,4 +13,7 @@ public interface LandmarkDao {
     void create (LandmarkDto landmark);
     void delete (int id);
     void approve (int id);
+
+    List<Landmark> filterLandmarks(String filter);
+
 }

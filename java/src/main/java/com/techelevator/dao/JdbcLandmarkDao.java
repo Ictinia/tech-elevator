@@ -77,6 +77,21 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     @Override
+    public List<Landmark> filterLandmarks(String filter) {
+        List<Landmark> landmarks = new ArrayList<>();
+        String sql = "SELECT landmark_id, name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link \n" +
+                "FROM landmarks\n" +
+                "WHERE name ILIKE ? OR description ILIKE ? or category ILIKE ?;";
+
+        final String arg = "%"+filter+"%";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, arg, arg, arg);
+        while (results.next()) {
+            landmarks.add(mapRowToLandmarks(results));
+        }
+        return landmarks;
+    }
+
+    @Override
     public void delete(int id) {
         String sql = "DELETE FROM landmarks WHERE landmark_id = ?;";
         jdbcTemplate.update(sql, id);

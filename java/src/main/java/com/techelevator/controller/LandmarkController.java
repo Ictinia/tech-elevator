@@ -26,8 +26,13 @@ public class LandmarkController {
         return operatingDao.getByLandmark(id);
     }
     @GetMapping(path = "/landmarks")
-    public List<Landmark> getAll() {
-        return landmarkDao.getAll();
+    public List<Landmark> getLandmarks(@RequestParam String filter) {
+        if (filter != null) {
+            return landmarkDao.filterLandmarks(filter);
+        }
+        else {
+            return landmarkDao.getAll();
+        }
     }
 
     @GetMapping(path = "/landmarks/{id}")
