@@ -8,18 +8,51 @@
       />
       <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
         <div class="flex h-full w-full justify-center align-middle">
-          <h2 class="align-middle">Looking to plan a city tour?</h2>
+          <!-- <h2 class="text-center text-4xl text-white pt-40">
+            Plan a tour in Cincinnati
+          </h2> -->
         </div>
         <p
-          class="text-md font-semibold italic text-white pb-3 text-right absolute right-5 bottom-12 lg:bottom-16 lg:right-14"
+          class="
+            text-md
+            font-semibold
+            italic
+            text-white
+            pb-3
+            text-right
+            absolute
+            right-5
+            bottom-12
+            lg:bottom-16 lg:right-14
+          "
         >
           test lorem ipsum
         </p>
         <div
-          class="absolute right-5 bottom-5 lg:right-14 lg:bottom-8 flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
+          class="
+            absolute
+            right-5
+            bottom-5
+            lg:right-14 lg:bottom-8
+            flex-col
+            mt-8
+            space-y-4
+            md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0
+          "
         >
           <button
-            class="text-md bg-white border text-black rounded-lg px-4 leading-8 h-10 hover:bg-white/[0.9] z-10"
+            class="
+              text-md
+              bg-white
+              border
+              text-black
+              rounded-lg
+              px-4
+              leading-8
+              h-10
+              hover:bg-white/[0.9]
+              z-10
+            "
           >
             Button
           </button>
@@ -34,49 +67,102 @@
             <ul class="flex relative pb-4 overflow-auto">
               <li class="inline-block pr-4">
                 <button
-                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  class="
+                    text-gray-500
+                    hover:text-black
+                    font-semibold
+                    leading-8
+                    h-12
+                    hover:decoration-2
+                    hover:underline
+                    hover:underline-offset-[16px]
+                    !py-4
+                  "
                 >
                   <span>All</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  class="
+                    text-gray-500
+                    hover:text-black
+                    font-semibold
+                    leading-8
+                    h-12
+                    hover:decoration-2
+                    hover:underline
+                    hover:underline-offset-[16px]
+                    !py-4
+                  "
                 >
                   <span>Food</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  class="
+                    text-gray-500
+                    hover:text-black
+                    font-semibold
+                    leading-8
+                    h-12
+                    hover:decoration-2
+                    hover:underline
+                    hover:underline-offset-[16px]
+                    !py-4
+                  "
                 >
                   <span>Sports</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
-                >
-                  <span>Landmark</span>
-                </button>
-              </li>
-              <li class="inline-block pr-4">
-                <button
-                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  class="
+                    text-gray-500
+                    hover:text-black
+                    font-semibold
+                    leading-8
+                    h-12
+                    hover:decoration-2
+                    hover:underline
+                    hover:underline-offset-[16px]
+                    !py-4
+                  "
                 >
                   <span>Brewery</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  class="
+                    text-gray-500
+                    hover:text-black
+                    font-semibold
+                    leading-8
+                    h-12
+                    hover:decoration-2
+                    hover:underline
+                    hover:underline-offset-[16px]
+                    !py-4
+                  "
                 >
                   <span>Historic</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  class="
+                    text-gray-500
+                    hover:text-black
+                    font-semibold
+                    leading-8
+                    h-12
+                    hover:decoration-2
+                    hover:underline
+                    hover:underline-offset-[16px]
+                    !py-4
+                  "
                 >
                   <span>Haunted</span>
                 </button>
@@ -100,10 +186,30 @@
               <h2 class="text-2xl font-semibold">{{ category }}</h2>
             </div>
             <div
-              class="flex relative gap-x-4 gap-y-8 my-5 w-full overflow-x-auto no-scrollbar"
+              class="
+                flex
+                relative
+                gap-x-4 gap-y-8
+                my-5
+                w-full
+                overflow-x-auto
+                no-scrollbar
+              "
             >
               <router-link
-                class="group hover:cursor-pointer !min-w-[236px] !w-[236px] !min-h-[300px] rounded-md bg-white border border-gray-400 hover:-translate-y-1 duration-300 hover:shadow-[1px_1px_4px_0_gray]"
+                class="
+                  group
+                  hover:cursor-pointer
+                  !min-w-[236px]
+                  !w-[236px]
+                  !min-h-[300px]
+                  rounded-md
+                  bg-white
+                  border border-gray-400
+                  hover:-translate-y-1
+                  duration-300
+                  hover:shadow-[1px_1px_4px_0_gray]
+                "
                 v-for="landmark in landmarkFilter(category)"
                 v-bind:key="landmark.id"
                 :to="{ name: 'landmark-details', params: { id: landmark.id } }"
@@ -119,12 +225,22 @@
                   </div>
                   <div class="p-2">
                     <h5
-                      class="mb-2 text-lg font-medium leading-tight text-neutral-800"
+                      class="
+                        mb-2
+                        text-lg
+                        font-medium
+                        leading-tight
+                        text-neutral-800
+                      "
                     >
                       {{ landmark.name }}
                     </h5>
                     <p
-                      class="mb-4 text-md text-neutral-600 dark:text-neutral-200"
+                      class="
+                        mb-4
+                        text-md text-neutral-600
+                        dark:text-neutral-200
+                      "
                     >
                       {{ landmark.address }}
                     </p>
@@ -170,3 +286,7 @@ export default {
   },
 };
 </script>
+
+
+
+
