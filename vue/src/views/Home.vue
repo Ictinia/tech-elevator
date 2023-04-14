@@ -9,31 +9,12 @@
 
       <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
         <h2
-          class="
-            text-center text-4xl text-white
-            line-height
-            tracking-wider
-            pt-60
-            sm:pt-40
-          "
+          class="text-center text-4xl text-white tracking-wider pt-60 sm:pt-40"
         >
           Plan a tour in Cincinnati
         </h2>
         <div class="flex h-full w-full justify-center align-middle"></div>
-        <p
-          class="
-            text-md
-            font-semibold
-            italic
-            text-white
-            pb-3
-            text-right
-            absolute
-            right-5
-            bottom-12
-            lg:bottom-16 lg:right-14
-          "
-        ></p>
+
         <div
           class="
             absolute
@@ -275,3 +256,7 @@ export default {
   },
 };
 </script>
+
+
+
+
