@@ -1,47 +1,70 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.ItineraryDao;
-import com.techelevator.dao.LandmarkDao;
-import com.techelevator.dao.OperatingDao;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.Itinerary;
 import com.techelevator.model.ItineraryDto;
-import com.techelevator.model.LandmarkDto;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.security.Principal;
 import java.util.List;
 
 @CrossOrigin
+@PreAuthorize("isAuthenticated()")
 @RestController
 public class ItineraryController {
     private ItineraryDao itineraryDao;
+    private final UserDao userDao;
 
-    public ItineraryController(ItineraryDao dao) {
-        this.itineraryDao = dao;
+    public ItineraryController(ItineraryDao itineraryDao, UserDao userDao) {
+        this.itineraryDao = itineraryDao;
+        this.userDao = userDao;
     }
 
-    @GetMapping(path = "/itinerary/user/{id}")
-    public List<Itinerary> getUserItineraries (@PathVariable int id) {
-        return itineraryDao.getUserItineraries(id);
+    /**
+     *
+     * @param principal
+     * @return List<Itinerary> list of the user's itineraries
+     */
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @GetMapping(path = "/itinerary")
+    public List<Itinerary> getUserItineraries(Principal principal) {
+        final int userId = userDao.findIdByUsername(principal.getName());
+        return itineraryDao.getUserItineraries(userId);
     }
 
-    @GetMapping(path = "/itinerary/{id}")
-    public Itinerary get (@PathVariable int id) {
-        return itineraryDao.get(id);
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @GetMapping(path = "/itinerary/{itineraryId}")
+    public Itinerary getItineraryById(@PathVariable int itineraryId, Principal principal) {
+        final int userId = userDao.findIdByUsername(principal.getName());
+        final Itinerary itinerary = itineraryDao.get(itineraryId, userId);
+        if (itinerary == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return itinerary;
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/itinerary")
-    public void create(@RequestBody ItineraryDto itinerary) {
-        itineraryDao.create(itinerary);
+    public void create(@RequestBody ItineraryDto itineraryDto, Principal principal) {
+        final int userId = userDao.findIdByUsername(principal.getName());
+        itineraryDao.create(itineraryDto, userId);
     }
 
-    @PutMapping(path = "/itinerary/{id}")
-    public void update(@PathVariable int id, @RequestBody ItineraryDto itinerary) {
-        itineraryDao.update(id, itinerary);
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping(path = "/itinerary/{itineraryId}")
+    public void update(@PathVariable int itineraryId, @RequestBody ItineraryDto itineraryDto, Principal principal) {
+        final int userId = userDao.findIdByUsername(principal.getName());
+        itineraryDao.update(itineraryId, itineraryDto, userId);
     }
 
-    @DeleteMapping(path = "/itinerary/{id}")
-    public void delete(@PathVariable int id) {
-        itineraryDao.delete(id);
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping(path = "/itinerary/{itineraryId}")
+    public void delete(@PathVariable int itineraryId, Principal principal) {
+        final int userId = userDao.findIdByUsername(principal.getName());
+        itineraryDao.delete(itineraryId, userId);
     }
 }
