@@ -166,7 +166,10 @@
               <button
                 class="text-md text-black border border-green-500 bg-green-500 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-green-500/90 mb-2"
                 v-if="isLoggedIn"
-                @click="create = true"
+                @click="
+                  create = true;
+                  focusInput;
+                "
               >
                 Create Itinerary
               </button>
@@ -231,7 +234,10 @@
         <div
           v-if="isLoggedIn"
           class="h-full items-center flex flex-col hover:cursor-pointer hover:text-green-600"
-          @click="create = !create"
+          @click="
+            create = !create;
+            focusInput;
+          "
         >
           <svg
             class="h-9 w-9 text-green-600 justify-center items-center mr-5"
@@ -334,6 +340,7 @@
     <div
       class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
       :class="create ? 'translate-y-0' : 'translate-y-full'"
+      @click="focusInput"
     >
       <button
         type="button"
@@ -358,85 +365,48 @@
           />
         </svg>
       </button>
-      <div class="h-screen md:flex">
+      <div class="h-screen w-full md:flex">
         <div
-          class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden"
-        ></div>
-        <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
-          <form class="bg-white">
-            <h1 class="text-gray-800 font-bold text-2xl mb-1">New Itinerary</h1>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+          class="relative overflow-hidden md:flex w-1/2 bg-cyan-600 i justify-around items-center hidden"
+        >
+          <img
+            src="https://www.tpl.org/wp-content/uploads/2021/05/8_2021_Cincinnati-Ohio_header.jpg"
+            class="absolute object-cover w-full h-full z-0"
+            alt=""
+          />
+        </div>
+        <div
+          class="flex md:w-1/2 justify-center py-10 items-center bg-white h-full"
+        >
+          <form class="bg-white w-4/6 relative h-full">
+            <div
+              class="flex absolute top-[30%] items-center py-2 mb-4 overflow-hidden"
+            >
               <input
-                class="pl-2 outline-none border-none"
+                class="placeholder-black font-extrabold tracking-tighter outline-none text-big border-none"
                 type="text"
                 name=""
                 id=""
-                placeholder="Full name"
+                ref="itineraryName"
+                v-model="itinerary.name"
               />
             </div>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
-                />
-              </svg>
+            <div
+              class="flex absolute top-[45%] items-center py-2 mb-4 overflow-hidden"
+            >
               <input
-                class="pl-2 outline-none border-none"
+                class="placeholder-black font-extrabold tracking-tighter text-big outline-none border-none"
                 type="text"
                 name=""
                 id=""
-                placeholder="Username"
-              />
-            </div>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                />
-              </svg>
-              <input
-                class="pl-2 outline-none border-none"
-                type="text"
-                name=""
-                id=""
-                placeholder="Email Address"
+                v-model="itinerary.date"
               />
             </div>
             <button
               type="submit"
-              class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
+              class="block absolute bottom-0 w-full text-3xl bg-green-600 my-auto py-2 rounded-2xl text-white font-semibold"
             >
-              Login
+              Get Started
             </button>
           </form>
         </div>
@@ -470,6 +440,10 @@ export default {
       searchDrawer: false,
       showNavbar: false,
       create: false,
+      itinerary: {
+        name: "Name your trip",
+        date: this.currentDate(),
+      },
     };
   },
 
@@ -508,7 +482,7 @@ export default {
     createItinerary() {
       const newItinerary = {
         user_id: this.itinerary.user_id,
-        name: this.$store.state.user.user_id,
+        name: this.itinerary.name,
         date: this.itinerary.date,
       };
 
@@ -521,6 +495,14 @@ export default {
         .catch((error) => {
           this.handleErrorResponse(error, "adding");
         });
+    },
+    currentDate() {
+      const current = new Date();
+      const date = `${current.getMonth() + 1}/${current.getDate()}`;
+      return date;
+    },
+    focusInput() {
+      this.$refs.itineraryName.focus();
     },
   },
 };
