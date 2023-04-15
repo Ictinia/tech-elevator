@@ -385,14 +385,11 @@
                 id=""
                 ref="itineraryName"
                 v-model="itinerary.name"
-                autofocus
               />
             </div>
-            <div
-              class="flex absolute top-[45%] items-center py-2 mb-4 overflow-hidden"
-            >
+            <div class="flex absolute top-[45%] w-full items-center py-2 mb-4">
               <input
-                class="placeholder-black font-extrabold tracking-tighter text-big outline-none border-none"
+                class="placeholder-black w-full font-extrabold tracking-tighter text-big outline-none border-none"
                 type="text"
                 name=""
                 id=""
@@ -436,7 +433,7 @@ export default {
       showMenu: false,
       searchDrawer: false,
       showNavbar: false,
-      create: false,
+      create: true,
       itinerary: {
         name: "Name your trip",
         date: this.currentDate(),
