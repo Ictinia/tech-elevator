@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class JdbcItineraryDao implements ItineraryDao {
         List<Itinerary> itineraries = new ArrayList<>();
         String sql = "SELECT itinerary_id, user_id, name, date FROM itineraries WHERE user_id = ?;";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
             itineraries.add(mapRowToItinerary(results));
         }
@@ -34,33 +33,33 @@ public class JdbcItineraryDao implements ItineraryDao {
     }
 
     @Override
-    public Itinerary get(int id) {
-        Itinerary itinerary = new Itinerary();
-        String sql = "SELECT itinerary_id, user_id, name, date FROM itineraries WHERE itinerary_id = ?;";
+    public Itinerary get(int itineraryId, int userId) {
+        Itinerary itinerary = null;
+        String sql = "SELECT itinerary_id, user_id, name, date FROM itineraries WHERE itinerary_id = ? AND user_id = ?;";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-        while (results.next()) {
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, itineraryId, userId);
+        if (results.next()) {
             itinerary = mapRowToItinerary(results);
         }
         return itinerary;
     }
 
     @Override
-    public void create(ItineraryDto itinerary) {
+    public void create(ItineraryDto itinerary, int userId) {
         String sql = "INSERT INTO itineraries (user_id, name, date) VALUES (?, ?, ?);";
-        jdbcTemplate.update(sql, itinerary.getUserId(), itinerary.getName(), itinerary.getDate());
+        jdbcTemplate.update(sql, userId, itinerary.getName(), itinerary.getDate());
     }
 
     @Override
-    public void update(int id, ItineraryDto itineraryDto) {
-        String sql = "UPDATE itineraries SET name = ?, date = ? WHERE itinerary_id = ?;";
-        jdbcTemplate.update(sql, itineraryDto.getName(), itineraryDto.getDate(), id);
+    public void update(int itineraryId, ItineraryDto itineraryDto, int userId) {
+        String sql = "UPDATE itineraries SET name = ?, date = ? WHERE itinerary_id = ? AND user_id = ?;";
+        jdbcTemplate.update(sql, itineraryDto.getName(), itineraryDto.getDate(), itineraryId, userId);
     }
 
     @Override
-    public void delete(int id) {
-        String sql = "DELETE FROM itineraries WHERE itinerary_id = ?;";
-        jdbcTemplate.update(sql, id);
+    public void delete(int itineraryId, int userId) {
+        String sql = "DELETE FROM itineraries WHERE itinerary_id = ? AND user_id = ?;";
+        jdbcTemplate.update(sql, itineraryId, userId);
     }
 
     public Itinerary mapRowToItinerary(SqlRowSet result) {
