@@ -166,10 +166,7 @@
               <button
                 class="text-md text-black border border-green-500 bg-green-500 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-green-500/90 mb-2"
                 v-if="isLoggedIn"
-                @click="
-                  create = true;
-                  focusInput;
-                "
+                @click="create = true"
               >
                 Create Itinerary
               </button>
@@ -234,10 +231,7 @@
         <div
           v-if="isLoggedIn"
           class="h-full items-center flex flex-col hover:cursor-pointer hover:text-green-600"
-          @click="
-            create = !create;
-            focusInput;
-          "
+          @click="create = !create"
         >
           <svg
             class="h-9 w-9 text-green-600 justify-center items-center mr-5"
@@ -340,12 +334,14 @@
     <div
       class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
       :class="create ? 'translate-y-0' : 'translate-y-full'"
-      @click="focusInput"
     >
       <button
         type="button"
         class="rounded-md p-2 absolute right-3 top-3 text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-        @click="create = !create"
+        @click="
+          create = !create;
+          itinerary.name = 'Name your trip';
+        "
       >
         <span class="sr-only">Close menu</span>
         <!-- Heroicon name: outline/x -->
@@ -365,7 +361,7 @@
           />
         </svg>
       </button>
-      <div class="h-screen w-full md:flex">
+      <div class="h-screen w-screen md:flex">
         <div
           class="relative overflow-hidden md:flex w-1/2 bg-cyan-600 i justify-around items-center hidden"
         >
@@ -380,7 +376,7 @@
         >
           <form class="bg-white w-4/6 relative h-full">
             <div
-              class="flex absolute top-[30%] items-center py-2 mb-4 overflow-hidden"
+              class="flex absolute top-[30%] w-full items-center py-2 mb-4 overflow-hidden"
             >
               <input
                 class="placeholder-black font-extrabold tracking-tighter outline-none text-big border-none"
@@ -389,6 +385,7 @@
                 id=""
                 ref="itineraryName"
                 v-model="itinerary.name"
+                autofocus
               />
             </div>
             <div
@@ -500,9 +497,6 @@ export default {
       const current = new Date();
       const date = `${current.getMonth() + 1}/${current.getDate()}`;
       return date;
-    },
-    focusInput() {
-      this.$refs.itineraryName.focus();
     },
   },
 };
