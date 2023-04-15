@@ -278,27 +278,7 @@
                 </table>
               </div>
 
-              <!-- <div class="reviewSection">
-                <table>
-                  <tbody>
-                    <tr
-                      v-for="review in this.$store.state.reviews"
-                      v-bind:key="review.id"
-                    >
-                      <td id="Title" class="font-semibold pr-3">
-                        {{ review.title }}
-                      </td>
-                      <td id="Description" class="text-right">
-                        {{ review.description }}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> -->
-
-              <div class="review-table">
-                <review-section />
-              </div>
+              <review-section />
             </section>
 
             <section
@@ -357,7 +337,7 @@ import ReviewSection from "../components/ReviewSection.vue";
 export default {
   data() {
     return {
-      newReview: {
+      review: {
         title: "",
         description: "",
       },
