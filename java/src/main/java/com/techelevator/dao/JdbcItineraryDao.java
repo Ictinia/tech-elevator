@@ -18,7 +18,7 @@ public class JdbcItineraryDao implements ItineraryDao {
 
     @Override
     public int getNextId() {
-        String sql = ""
+        return 0;
     }
 
     @Override
