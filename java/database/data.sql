@@ -242,6 +242,18 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery')
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '1', 'Ghosts everywhere!', 'I went out for a simple burger, but instead was inundated with ghosts trying to also order burgers.  I really wish they could solve their ghost issues at this place.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '2', 'Just wanted a burger', 'Someone call the Ghostbusters. Too many ghouls. I just wanted some sliders without having to deal with dead people everywhere.');
 
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Lick Road'), '1', 'Misinformation', 'There were haunted things everywhere, but they were mostly ghost dogs and muskrats.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery'), '1', 'So many graves', 'There was at least one dead person in each grave!');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Bengals'), '2', 'False advertising', 'Very few actual Bengal tigers');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'), '1', 'Help!', 'Trapped in the bathroom, need someone to call for help');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'), '2', 'Tiny crackers', 'If you like those little tiny crackers that are shaped like hexagons, you are gonna love this place.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Reds'), '2', 'Big Red Machine!', 'They got the brats and mets with the best mustard in town.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Fifty West Brewing Company'), '1', 'I am leaving a review', 'This is the first reviews I have ever left on the internet.  I will be forever remembered.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'The Root Beer Stand'), '2', 'Root', 'There are so many roots.  Why did they choose a place with roots if they are a root beer stand?');
+
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'FC Cincinnati'), '2', 'Soccer is interesting', 'It is a lot like Riverdancing, no one is allowed to use their hands');
+
+
 INSERT INTO itineraries (user_id, name, date)
 VALUES (1, 'test', '2023-05-05');
 
