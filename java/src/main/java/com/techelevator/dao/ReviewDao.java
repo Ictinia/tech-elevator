@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface ReviewDao {
     List<Review> getReviewsByLandmarkId(int id);
-    Review addReview(Review review);
+    void addReview(int landmarkId, ReviewDto reviewDto, int userId);
 }
