@@ -8,44 +8,6 @@
           <img src="../assets/planeteer-logo.png" class="h-12 md:h-12 w-auto" />
         </router-link>
 
-        <div class="hidden md:flex relative ml-2 pl-4">
-          <button>
-            <svg
-              class="h-6 w-6 text-gray-500 inline-block"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-            <svg
-              class="h-3 w-3 text-gray-500 inline-block"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke-width="4"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-        </div>
-
         <div class="left-1/2 md:left-1/3 absolute my-10 w-5/12">
           <div>
             <label
@@ -83,7 +45,7 @@
         </div>
 
         <!-- Mobile menu button -->
-        <div class="flex md:hidden z-50">
+        <div class="flex md:hidden z-50" :v-show="searchDrawer">
           <button @click="searchDrawer = !searchDrawer">
             <svg
               aria-hidden="true"
@@ -189,10 +151,7 @@
       <div
         class="hidden md:flex flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
       >
-        <button
-          @click="searchDrawer = !searchDrawer"
-          class="h-full items-center flex flex-col hover:text-black/80"
-        >
+        <button class="h-full items-center flex flex-col hover:text-black/80">
           <svg
             aria-hidden="true"
             class="w-9 h-9 text-black dark:text-gray-400 lg:hidden justify-center items-center mr-5"
@@ -211,6 +170,42 @@
           <p class="lg:hidden text-xs m-0 p-0 mr-5 hover:text-black/80">
             Search
           </p>
+          <div
+            class="md:hidden transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
+            :class="searchDrawer ? 'translate-x-[40%]' : 'translate-x-full'"
+          >
+            <div
+              class="fixed bg-black opacity-0 inset-0 z-10"
+              @click="searchDrawer = !searchDrawer"
+              v-show="searchDrawer"
+            ></div>
+            <div class="relative block bg-white h-16 z-30 w-full">
+              <div class="absolute inset-y-0 left-0 flex items-center w-full">
+                <svg
+                  aria-hidden="true"
+                  class="w-5 h-5 text-gray-500 dark:text-gray-400 absolute left-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+                <input
+                  type="text"
+                  id="default-search"
+                  class="block w-7/12 pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
+                  placeholder="Search Locations, Attractions..."
+                  @keypress.enter="goToSearchResults"
+                />
+              </div>
+            </div>
+          </div>
         </button>
         <button
           class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-full px-4 leading-8 h-12 hover:bg-cyan-600/[0.9]"
@@ -302,41 +297,42 @@
       @close="closeLogin"
     />
     <div
-      class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
-      :class="searchDrawer ? 'translate-y-0' : 'translate-y-full'"
+      class="md:hidden transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
+      :class="searchDrawer ? 'translate-x-[40%]' : 'translate-x-full'"
     >
-      <button
-        type="button"
-        class="rounded-md p-2 absolute right-3 top-3 text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+      <div
+        class="fixed bg-black opacity-0 inset-0 z-10"
         @click="searchDrawer = !searchDrawer"
-      >
-        <span class="sr-only">Close menu</span>
-        <!-- Heroicon name: outline/x -->
-        <svg
-          class="h-6 w-6"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
+        v-show="searchDrawer"
+      ></div>
+      <div class="relative block bg-white h-16 z-30 w-full">
+        <div class="absolute inset-y-0 left-0 flex items-center w-full">
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5 text-gray-500 dark:text-gray-400 absolute left-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+          <input
+            type="text"
+            id="default-search"
+            class="block w-7/12 pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
+            placeholder="Search Locations, Attractions..."
+            @keypress.enter="goToSearchResults"
           />
-        </svg>
-      </button>
-      <div>
-        <landmarkCard
-          v-for="landmark in searchLandmarks(this.searchTerm)"
-          v-bind:key="landmark.id"
-          v-bind:landmark="landmark"
-        >
-        </landmarkCard>
+        </div>
       </div>
     </div>
+
     <div
       class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
       :class="create ? 'translate-y-0' : 'translate-y-full'"
@@ -421,7 +417,6 @@ import AppDropdown from "../components/AppDropdown.vue";
 import AppDropdownContent from "../components/AppDropdownContent.vue";
 import AppDropdownItem from "../components/AppDropdownItem.vue";
 import ItineraryService from "../services/ItineraryService";
-import landmarkCard from "../components/LandmarkCard";
 
 export default {
   name: "navbar",
@@ -430,7 +425,6 @@ export default {
     AppDropdown,
     AppDropdownContent,
     AppDropdownItem,
-    landmarkCard,
   },
 
   data() {
@@ -515,6 +509,9 @@ export default {
       return this.$store.state.landmarks.filter((l) => {
         return l.name.toLowerCase().includes(term.toLowerCase());
       });
+    },
+    close() {
+      this.$emit("close");
     },
   },
 };
