@@ -27,12 +27,6 @@ export default {
         return http.get(`/landmarks?filter=${term}`)
     },
 
-    searchLandmarks(term) {
-        return this.$store.state.landmarks.filter(l => {
-            return l.name.includes(term)
-        })
-    },
-
     getAllCategories() {
         return http.get(`/categories`)
     },

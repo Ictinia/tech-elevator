@@ -37,11 +37,6 @@ export default {
     searchTerm() {
       return this.$route.query.term;
     },
-    searchLandmarks() {
-      return this.$store.state.landmarks.filter((l) => {
-        return l.name.toLowerCase().includes(this.searchTerm.toLowerCase());
-      });
-    },
   },
   created() {
     console.log("in created");
