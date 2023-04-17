@@ -1,6 +1,81 @@
 <template>
   <div class="reviewSection">
     <h3 class="text-xl font-semibold">Reviews</h3>
+
+    <div @click="showForm = true" v-if="!showForm">Add Review</div>
+    <form @submit.prevent="addNewReview()" v-if="showForm === true">
+      <div class="form-element">
+        <input type="text" id="reviewer" v-model="newReview.reviewer" />
+      </div>
+      <div class="form-element">
+        <label for="title" type="button"> Title:</label>
+        <input
+          id="title"
+          type="text"
+          v-model="newReview.title"
+          class="
+            flex-auto
+            text-lg
+            font-semibold
+            outline-cyan-600
+            border
+            text-white
+            rounded-lg
+            px-8
+            leading-8
+            h-12
+            hover:white
+            z-10
+            space-x-5
+          "
+        />
+      </div>
+
+      <div class="form-element">
+        <label for="review">Review: </label>
+        <textarea
+          id="review"
+          v-model="newReview.review"
+          class="
+            flex-auto
+            text-lg
+            font-semibold
+            outline-cyan-600
+            border-cyan-600
+            text-white
+            rounded-lg
+            px-8
+            leading-8
+            h-12
+            hover:white
+            z-10
+            space-x-5
+          "
+        ></textarea>
+      </div>
+      <input
+        type="submit"
+        value="Save"
+        class="
+          bg-cyan-600
+          outline-grey
+          text-white
+          font-bold
+          py-2
+          px-6
+          rounded
+          margin-right
+          m-5
+        "
+      />
+      <input
+        type="button"
+        value="Cancel"
+        @click="resetForm()"
+        class="bg-cyan-600 outline-grey text-white font-bold py-2 px-4 rounded"
+      />
+    </form>
+
     <ol class="list-inside">
       <li
         v-for="review in this.$store.state.reviews"
@@ -33,9 +108,28 @@
 // import EachReview from "../components/EachReview.vue";
 
 export default {
-  name: "review-section",
+  name: "landmark-review",
+  data() {
+    return {
+      name: "Cigar Parties for Dummies",
+      showForm: false,
+      newReview: {},
+    };
+  },
+
   created() {
     console.log(this.$store.state.reviews);
+  },
+
+  methods: {
+    addNewReview() {
+      this.reviews.unshift(this.newReview);
+      this.resetForm();
+    },
+    resetForm() {
+      this.newReview = {};
+      this.showForm = false;
+    },
   },
 };
 </script>
