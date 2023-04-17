@@ -5,8 +5,10 @@ import com.techelevator.dao.OperatingDao;
 import com.techelevator.model.Landmark;
 import com.techelevator.model.LandmarkDto;
 import com.techelevator.model.Operating;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -55,6 +57,17 @@ public class LandmarkController {
         landmarkDao.create(landmark);
     }
 
+    @PostMapping(path = "/landmarks/{id}/ratings")
+    public void acceptRating(@PathVariable int id, @RequestBody RatingDto ratingDto) {
+        if ("up".equalsIgnoreCase(ratingDto.rating)) {
+            landmarkDao.thumbsUp(id);
+        } else if ("down".equalsIgnoreCase(ratingDto.rating)) {
+            landmarkDao.thumbsDown(id);
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Rating must be 'UP' or 'DOWN'");
+        }
+    }
+
     @PutMapping(path = "/landmarks/{id}")
     public void approve(@PathVariable int id) {
         landmarkDao.approve(id);
@@ -65,6 +78,9 @@ public class LandmarkController {
         landmarkDao.delete(id);
     }
 
+    static class RatingDto {
+        public String rating; // 'UP' or 'DOWN'
+    }
 
 }
 
