@@ -8,44 +8,6 @@
           <img src="../assets/planeteer-logo.png" class="h-12 md:h-12 w-auto" />
         </router-link>
 
-        <div class="hidden md:flex relative ml-2 pl-4">
-          <button>
-            <svg
-              class="h-6 w-6 text-gray-500 inline-block"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
-            <svg
-              class="h-3 w-3 text-gray-500 inline-block"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke-width="4"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-        </div>
-
         <div class="left-1/2 md:left-1/3 absolute my-10 w-5/12">
           <div>
             <label
@@ -71,21 +33,19 @@
                   ></path>
                 </svg>
               </div>
-              <div
-                type="search"
+              <input
+                type="text"
                 id="default-search"
-                class="block md:w-full pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-3"
-                data-text="Search Locations, Attractions..."
-                @click="searchDrawer = !searchDrawer"
-              >
-                Search Locations, Attractions...
-              </div>
+                class="block md:w-full pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
+                placeholder="Search Locations, Attractions..."
+                @keypress.enter="goToSearchResults"
+              />
             </div>
           </div>
         </div>
 
         <!-- Mobile menu button -->
-        <div class="flex md:hidden z-50">
+        <div class="flex md:hidden z-50" :v-show="searchDrawer">
           <button @click="searchDrawer = !searchDrawer">
             <svg
               aria-hidden="true"
@@ -192,8 +152,8 @@
         class="hidden md:flex flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
       >
         <button
-          @click="searchDrawer = !searchDrawer"
           class="h-full items-center flex flex-col hover:text-black/80"
+          @click="searchDrawer = true"
         >
           <svg
             aria-hidden="true"
@@ -214,6 +174,42 @@
             Search
           </p>
         </button>
+        <div
+          class="lg:hidden transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
+          :class="searchDrawer ? 'translate-x-[30%]' : 'translate-x-full'"
+        >
+          <div
+            class="fixed bg-black opacity-0 inset-0 z-10"
+            @click="searchDrawer = !searchDrawer"
+            v-show="searchDrawer"
+          ></div>
+          <div class="relative block bg-white h-20 z-30 w-full">
+            <div class="absolute inset-y-0 left-0 flex items-center w-full">
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400 absolute left-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+              <input
+                type="text"
+                id="default-search"
+                class="block w-8/12 pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
+                placeholder="Search Locations, Attractions..."
+                @keypress.enter="goToSearchResults"
+              />
+            </div>
+          </div>
+        </div>
         <button
           class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-full px-4 leading-8 h-12 hover:bg-cyan-600/[0.9]"
           @click="showSignup"
@@ -304,33 +300,42 @@
       @close="closeLogin"
     />
     <div
-      class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
-      :class="searchDrawer ? 'translate-y-0' : 'translate-y-full'"
+      class="md:hidden transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
+      :class="searchDrawer ? 'translate-x-[40%]' : 'translate-x-full'"
     >
-      <button
-        type="button"
-        class="rounded-md p-2 absolute right-3 top-3 text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+      <div
+        class="fixed bg-black opacity-0 inset-0 z-10"
         @click="searchDrawer = !searchDrawer"
-      >
-        <span class="sr-only">Close menu</span>
-        <!-- Heroicon name: outline/x -->
-        <svg
-          class="h-6 w-6"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
+        v-show="searchDrawer"
+      ></div>
+      <div class="relative block bg-white h-16 z-30 w-full">
+        <div class="absolute inset-y-0 left-0 flex items-center w-full">
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5 text-gray-500 dark:text-gray-400 absolute left-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+          <input
+            type="text"
+            id="default-search"
+            class="block w-7/12 pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
+            placeholder="Search Locations, Attractions..."
+            @keypress.enter="goToSearchResults"
           />
-        </svg>
-      </button>
+        </div>
+      </div>
     </div>
+
     <div
       class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
       :class="create ? 'translate-y-0' : 'translate-y-full'"
@@ -338,7 +343,10 @@
       <button
         type="button"
         class="rounded-md p-2 absolute right-3 top-3 text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-        @click="create = !create"
+        @click="
+          create = !create;
+          itinerary.name = 'Name your trip';
+        "
       >
         <span class="sr-only">Close menu</span>
         <!-- Heroicon name: outline/x -->
@@ -358,85 +366,46 @@
           />
         </svg>
       </button>
-      <div class="h-screen md:flex">
+      <div class="h-screen w-screen md:flex">
         <div
-          class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden"
-        ></div>
-        <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
-          <form class="bg-white">
-            <h1 class="text-gray-800 font-bold text-2xl mb-1">New Itinerary</h1>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+          class="relative overflow-hidden md:flex w-1/2 bg-cyan-600 i justify-around items-center hidden"
+        >
+          <img
+            src="https://www.tpl.org/wp-content/uploads/2021/05/8_2021_Cincinnati-Ohio_header.jpg"
+            class="absolute object-cover w-full h-full z-0"
+            alt=""
+          />
+        </div>
+        <div
+          class="flex md:w-1/2 justify-center py-10 items-center bg-white h-full"
+        >
+          <form class="bg-white w-4/6 relative h-full">
+            <div
+              class="flex absolute top-[30%] w-full items-center py-2 mb-4 overflow-hidden"
+            >
               <input
-                class="pl-2 outline-none border-none"
+                class="placeholder-black font-extrabold tracking-tighter outline-none text-big border-none"
                 type="text"
                 name=""
                 id=""
-                placeholder="Full name"
+                ref="itineraryName"
+                v-model="itinerary.name"
               />
             </div>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"
-                />
-              </svg>
+            <div class="flex absolute top-[45%] w-full items-center py-2 mb-4">
               <input
-                class="pl-2 outline-none border-none"
+                class="placeholder-black w-full font-extrabold tracking-tighter text-big outline-none border-none"
                 type="text"
                 name=""
                 id=""
-                placeholder="Username"
-              />
-            </div>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                />
-              </svg>
-              <input
-                class="pl-2 outline-none border-none"
-                type="text"
-                name=""
-                id=""
-                placeholder="Email Address"
+                v-model="itinerary.date"
               />
             </div>
             <button
               type="submit"
-              class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
+              class="block absolute bottom-0 w-full text-3xl bg-green-600 my-auto py-2 rounded-2xl text-white font-semibold"
             >
-              Login
+              Get Started
             </button>
           </form>
         </div>
@@ -470,6 +439,11 @@ export default {
       searchDrawer: false,
       showNavbar: false,
       create: false,
+      itinerary: {
+        name: "Name your trip",
+        date: this.currentDate(),
+      },
+      searchTerm: "",
     };
   },
 
@@ -508,7 +482,7 @@ export default {
     createItinerary() {
       const newItinerary = {
         user_id: this.itinerary.user_id,
-        name: this.$store.state.user.user_id,
+        name: this.itinerary.name,
         date: this.itinerary.date,
       };
 
@@ -521,6 +495,26 @@ export default {
         .catch((error) => {
           this.handleErrorResponse(error, "adding");
         });
+    },
+    currentDate() {
+      const current = new Date();
+      const date = `${current.getMonth() + 1}/${current.getDate()}`;
+      return date;
+    },
+    goToSearchResults(event) {
+      let searchTerm = event.target.value;
+      this.$router.push({
+        name: "landmark-search",
+        query: { term: searchTerm },
+      });
+    },
+    searchLandmarks(term) {
+      return this.$store.state.landmarks.filter((l) => {
+        return l.name.toLowerCase().includes(term.toLowerCase());
+      });
+    },
+    close() {
+      this.$emit("close");
     },
   },
 };
