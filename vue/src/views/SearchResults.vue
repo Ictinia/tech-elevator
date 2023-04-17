@@ -3,17 +3,7 @@
     <div>
       <h1 class="text-2xl font-semibold">Here's what we found:</h1>
     </div>
-    <div
-      class="
-        flex
-        relative
-        gap-x-4 gap-y-8
-        my-5
-        w-full
-        overflow-x-auto
-        no-scrollbar
-      "
-    >
+    <div class="flex flex-wrap relative gap-x-4 gap-y-8 my-5 w-full">
       <landmarkCard
         v-for="landmark in filteredLandmarks"
         v-bind:key="landmark.id"
