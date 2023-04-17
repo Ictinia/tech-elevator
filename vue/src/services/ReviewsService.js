@@ -6,8 +6,6 @@ const http = axios.create({
 
 export default {
 
-
-
     getReviews(id) {
         return http.get(`/landmarks/${id}/reviews`)
     },
@@ -15,4 +13,8 @@ export default {
     getAllReviews(id) {
         return http.get(`/landmarks/${id}/reviews`)
     },
+
+    addReview(id) {
+        return http.post(`landmarks/${id}/reviews`)
+    }
 }

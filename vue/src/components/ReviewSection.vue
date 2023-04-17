@@ -2,55 +2,109 @@
   <div class="reviewSection">
     <h3 class="text-xl font-semibold">Reviews</h3>
 
-    <div @click="showForm = true" v-if="!showForm">Add Review</div>
+    <button
+      @click="showForm = true"
+      v-if="!showForm"
+      class="
+        bg-cyan-600
+        outline-grey
+        text-white
+        font-bold
+        py-2
+        px-6
+        rounded
+        margin-right
+        m-5
+      "
+    >
+      Add Review
+    </button>
+
     <form @submit.prevent="addNewReview()" v-if="showForm === true">
       <div class="form-element">
         <input type="text" id="reviewer" v-model="newReview.reviewer" />
       </div>
       <div class="form-element">
-        <label for="title" type="button"> Title:</label>
+        <label
+          for="title"
+          class="
+            block
+            mb-2
+            pt-5
+            text-md
+            font-small
+            text-gray-900
+            dark:text-white
+          "
+        >
+          Title:</label
+        >
+
         <input
           id="title"
           type="text"
           v-model="newReview.title"
           class="
             flex-auto
-            text-lg
-            font-semibold
-            outline-cyan-600
-            border
-            text-white
+            block
+            p-2.5
+            w-full
+            text-sm text-gray-900
+            bg-gray-50
             rounded-lg
-            px-8
-            leading-8
-            h-12
-            hover:white
-            z-10
-            space-x-5
+            outline-cyan-600 outline
+            none
+            outline-cyan-600
+            focus:ring-blue-500 focus:border-blue-500
+            dark:bg-gray-700
+            dark:border-gray-600
+            dark:placeholder-gray-400
+            dark:text-white
+            dark:focus:ring-blue-500
+            dark:focus:border-blue-500
           "
         />
       </div>
 
       <div class="form-element">
-        <label for="review">Review: </label>
+        <label
+          for="message"
+          class="
+            block
+            mb-2
+            pt-5
+            text-md
+            font-small
+            text-gray-900
+            dark:text-white
+          "
+          >Description:
+        </label>
+
         <textarea
-          id="review"
+          id="message"
+          rows="4"
           v-model="newReview.review"
           class="
             flex-auto
-            text-lg
-            font-semibold
-            outline-cyan-600
-            border-cyan-600
-            text-white
+            block
+            p-2.5
+            w-full
+            text-sm text-gray-900
+            bg-gray-50
             rounded-lg
-            px-8
-            leading-8
-            h-12
-            hover:white
-            z-10
-            space-x-5
+            outline-cyan-600 outline
+            none
+            outline-cyan-600
+            focus:ring-blue-500 focus:border-blue-500
+            dark:bg-gray-700
+            dark:border-gray-600
+            dark:placeholder-gray-400
+            dark:text-white
+            dark:focus:ring-blue-500
+            dark:focus:border-blue-500
           "
+          placeholder="Leave a comment..."
         ></textarea>
       </div>
       <input
@@ -111,7 +165,6 @@ export default {
   name: "landmark-review",
   data() {
     return {
-      name: "Cigar Parties for Dummies",
       showForm: false,
       newReview: {},
     };
