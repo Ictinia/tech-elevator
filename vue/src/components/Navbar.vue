@@ -151,7 +151,10 @@
       <div
         class="hidden md:flex flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
       >
-        <button class="h-full items-center flex flex-col hover:text-black/80">
+        <button
+          class="h-full items-center flex flex-col hover:text-black/80"
+          @click="searchDrawer = true"
+        >
           <svg
             aria-hidden="true"
             class="w-9 h-9 text-black dark:text-gray-400 lg:hidden justify-center items-center mr-5"
@@ -170,43 +173,43 @@
           <p class="lg:hidden text-xs m-0 p-0 mr-5 hover:text-black/80">
             Search
           </p>
+        </button>
+        <div
+          class="lg:hidden transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
+          :class="searchDrawer ? 'translate-x-[30%]' : 'translate-x-full'"
+        >
           <div
-            class="md:hidden transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
-            :class="searchDrawer ? 'translate-x-[40%]' : 'translate-x-full'"
-          >
-            <div
-              class="fixed bg-black opacity-0 inset-0 z-10"
-              @click="searchDrawer = !searchDrawer"
-              v-show="searchDrawer"
-            ></div>
-            <div class="relative block bg-white h-16 z-30 w-full">
-              <div class="absolute inset-y-0 left-0 flex items-center w-full">
-                <svg
-                  aria-hidden="true"
-                  class="w-5 h-5 text-gray-500 dark:text-gray-400 absolute left-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  ></path>
-                </svg>
-                <input
-                  type="text"
-                  id="default-search"
-                  class="block w-7/12 pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
-                  placeholder="Search Locations, Attractions..."
-                  @keypress.enter="goToSearchResults"
-                />
-              </div>
+            class="fixed bg-black opacity-0 inset-0 z-10"
+            @click="searchDrawer = !searchDrawer"
+            v-show="searchDrawer"
+          ></div>
+          <div class="relative block bg-white h-20 z-30 w-full">
+            <div class="absolute inset-y-0 left-0 flex items-center w-full">
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-gray-500 dark:text-gray-400 absolute left-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+              <input
+                type="text"
+                id="default-search"
+                class="block w-8/12 pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
+                placeholder="Search Locations, Attractions..."
+                @keypress.enter="goToSearchResults"
+              />
             </div>
           </div>
-        </button>
+        </div>
         <button
           class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-full px-4 leading-8 h-12 hover:bg-cyan-600/[0.9]"
           @click="showSignup"
