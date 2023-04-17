@@ -1,22 +1,12 @@
 package com.techelevator.model;
 
-public class Review {
+public class ReviewDto {
     private int reviewId;
     private int landmarkId;
     private int userId;
     private String title;
     private String description;
 
-    public Review() {}
-
-
-   public Review(int reviewId, int landmarkId, int userId, String title, String description) {
-            this.reviewId = reviewId;
-            this.landmarkId = landmarkId;
-            this.userId = userId;
-            this.title = title;
-            this.description = description;
-        }
 
     public int getReviewId() {
         return reviewId;
@@ -57,4 +47,17 @@ public class Review {
     public void setDescription(String description) {
         this.description = description;
     }
-}
+
+ /*   @Override
+    public String toString() {
+        return "ReviewDto{" +
+                "reviewid=" + reviewId +
+                "landmarkid=" + landmarkId +
+                ", userId=" + userId +
+                ", name='" + title + '\'' +
+                ", date=" + description +
+                '}';*/
+
+
+    }
+

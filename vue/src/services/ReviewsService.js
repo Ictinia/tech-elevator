@@ -6,6 +6,12 @@ const http = axios.create({
 
 export default {
 
+
+
+    getReviews(id) {
+        return http.get(`/landmarks/${id}/reviews`)
+    },
+
     getAllReviews(id) {
         return http.get(`/landmarks/${id}/reviews`)
     },

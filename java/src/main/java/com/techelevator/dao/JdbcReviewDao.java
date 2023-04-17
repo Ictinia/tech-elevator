@@ -31,5 +31,29 @@ public JdbcReviewDao(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplat
         }
         return reviews;
 
+
+    }
+
+    @Override
+    public Review addReview(Review review) {
+        String sql = "INSERT INTO reviews (landmark_id, user_id, title, description) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(sql, review.getLandmarkId(), review.getUserId(), review.getTitle(), review.getDescription());
+
+        sql = "SELECT review_id, landmark_id, user_id, title, description FROM reviews WHERE review_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, review.getReviewId());
+        if (results.next()) {
+            review.setLandmarkId(results.getInt("landmark_id"));
+            review.setUserId(results.getInt("user_id"));
+            review.setTitle(results.getString("title"));
+            review.setDescription(results.getString("description"));
+        }
+
+        return review;
     }
 }
+
+
+
+
+
+

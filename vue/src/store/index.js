@@ -55,7 +55,8 @@ export default new Vuex.Store({
       user_id: '',
       title: '',
       description: '',
-    }
+    },
+    reviews: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -104,5 +105,10 @@ export default new Vuex.Store({
     SET_CURRENT_ITINERARY(state, itinerary) {
       state.itinerary = itinerary;
     }
+
+
+
   }
+
+
 })

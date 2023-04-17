@@ -277,10 +277,7 @@
                   </tr>
                 </table>
               </div>
-
-              <review-section />
             </section>
-
             <section
               class="md hidden md:flex !w-1/3 text-md aspect-square ml-2 my-5"
             >
@@ -290,6 +287,9 @@
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </section>
+          </div>
+          <div>
+            <review-section />
           </div>
 
           <!-- Underneath is mobile map -->
@@ -360,6 +360,7 @@ export default {
     ReviewSection,
   },
   created() {
+    console.log("in created");
     landmarkService
       .getLandmark(this.$route.params.id)
       .then((response) => {
@@ -379,6 +380,7 @@ export default {
     });
 
     reviewsService.getAllReviews(this.$route.params.id).then((response) => {
+      console.log("fetching reviews " + this.$route.params.id);
       this.$store.commit("SET_REVIEWS", response.data);
     });
   },

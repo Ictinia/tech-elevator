@@ -2,7 +2,11 @@
   <div class="reviewSection">
     <h3 class="text-xl font-semibold">Reviews</h3>
     <ol class="list-inside">
-      <li v-for="review in $store.state.reviews" :key="review.id" class="mb-6">
+      <li
+        v-for="review in this.$store.state.reviews"
+        :key="review.id"
+        class="mb-6"
+      >
         <div class="flex items-center">
           <svg
             class="h-7 w-7 text-cyan-600 pr-1"
@@ -29,9 +33,9 @@
 // import EachReview from "../components/EachReview.vue";
 
 export default {
-  props: ["LandmarkDetail"],
-  // components: {
-  //   EachReview,
-  // },
+  name: "review-section",
+  created() {
+    console.log(this.$store.state.reviews);
+  },
 };
 </script>
