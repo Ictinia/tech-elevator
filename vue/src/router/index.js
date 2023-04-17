@@ -5,6 +5,7 @@ import Logout from '../views/Logout.vue'
 import store from '../store/index'
 import LandmarkDetails from '../views/LandmarkDetail.vue'
 import Itinerary from '../views/MyItinerary.vue'
+import LandmarkSearch from '../views/SearchResults.vue'
 
 Vue.use(Router)
 
@@ -36,6 +37,14 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+    {
+      path: "/landmarks/search",
+      name: "landmark-search",
+      component: LandmarkSearch,
+      meta: {
+        requiresAuth: false
+      },
     },
     {
       path: "/landmarks/:id",
