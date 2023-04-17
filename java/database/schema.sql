@@ -6,6 +6,8 @@ DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS operating_hrs;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS landmarks;
+DROP TABLE IF EXISTS ratings;
+
 
 CREATE TABLE users (
 	user_id SERIAL,
