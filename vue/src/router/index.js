@@ -55,7 +55,7 @@ const router = new Router({
       }
     },
     {
-      path: "/itineraries/:id",
+      path: "/itineraries",
       name: "my-itinerary",
       component: Itinerary,
       meta: {

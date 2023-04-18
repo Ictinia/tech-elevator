@@ -1,29 +1,27 @@
 import axios from "axios";
 
-const http = axios.create({
-    baseURL: "http://localhost:9000/"
-});
+
 
 export default {
 
-    getUserItineraries(id) {
-        return http.get(`/itinerary/user/${id}`)
+    getUserItineraries() {
+        return axios.get(`/itinerary`)
     },
 
     getItinerary(id) {
-        return http.get(`/itinerary/${id}`)
+        return axios.get(`/itinerary/${id}`)
     },
 
     createItinerary(itinerary) {
-        return http.post('/itinerary', itinerary)
+        return axios.post('/itinerary', itinerary)
     },
 
     updateItinerary(id) {
-        return http.put(`/itinerary/${id}`)
+        return axios.put(`/itinerary/${id}`)
     },
 
     deleteItinerary(id) {
-        return http.delete(`/itinerary/${id}`)
+        return axios.delete(`/itinerary/${id}`)
     }
 
 }

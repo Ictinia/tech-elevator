@@ -128,17 +128,22 @@
                 v-if="isLoggedIn"
                 @click="
                   create = true;
-                  focusCreate;
+                  focusCreate();
                 "
               >
                 Create Itinerary
               </button>
+
               <button
                 class="text-md text-black border border-cyan-500 bg-cyan-500 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-cyan-500/90 mb-2"
                 v-if="isLoggedIn"
+                @click="showMenu = !showMenu"
               >
-                My Itineraries
+                <router-link :to="{ name: 'my-itinerary' }">
+                  My Itineraries
+                </router-link>
               </button>
+
               <button
                 class="text-md text-black border border-gray-200 bg-gray-200 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-gray-300 mb-2"
                 @click="logout"
@@ -205,7 +210,7 @@
               </svg>
               <input
                 type="text"
-                id="default-search"
+                id="mobile-search"
                 class="block w-8/12 !pl-10 !h-12 !font-normal !text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
                 placeholder="Search Locations, Attractions..."
                 @keypress.enter="goToSearchResults"
@@ -232,7 +237,7 @@
           class="h-full items-center flex flex-col hover:cursor-pointer hover:text-green-600"
           @click="
             create = !create;
-            focusCreate;
+            focusCreate();
           "
         >
           <svg
@@ -276,18 +281,20 @@
           <AppDropdownContent class="z-50">
             <AppDropdownItem>
               <div>
-                <button
-                  class="text-md text-gray-500 px-4 leading-8 h-12"
-                  v-if="isLoggedIn"
-                >
-                  My Itineraries
-                </button>
+                <router-link class="w-full" :to="{ name: 'my-itinerary' }">
+                  <button
+                    class="text-md text-gray-500 px-4 leading-8 h-12 w-full"
+                    v-if="isLoggedIn"
+                  >
+                    My Itineraries
+                  </button>
+                </router-link>
               </div>
             </AppDropdownItem>
             <AppDropdownItem>
               <div @click="logout">
                 <button
-                  class="text-md text-gray-500 px-4 leading-8 h-12"
+                  class="text-md text-gray-500 px-4 leading-8 h-12 w-full"
                   v-if="isLoggedIn"
                 >
                   Logout
@@ -333,7 +340,7 @@
           </svg>
           <input
             type="text"
-            id="default-search"
+            id="small-search"
             class="block w-7/12 !pl-10 !h-12 !font-normal !text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
             placeholder="Search Locations, Attractions..."
             @keypress.enter="goToSearchResults"
@@ -385,14 +392,17 @@
         <div
           class="flex md:w-1/2 justify-center py-10 items-center bg-white h-full"
         >
-          <form class="bg-white w-4/6 relative h-full">
+          <form
+            class="bg-white w-4/6 relative h-full"
+            v-on:submit.prevent="createItinerary"
+          >
             <div
               class="flex absolute top-[30%] w-full items-center py-2 mb-4 overflow-hidden"
             >
               <input
                 ref="itinerary"
                 id="itinerary"
-                class="placeholder-black font-extrabold tracking-tighter outline-none text-big border-none"
+                class="font-extrabold tracking-tighter outline-none text-big border-none"
                 type="text"
                 name="itinerary"
                 v-model="itinerary.name"
@@ -504,7 +514,7 @@ export default {
       ItineraryService.createItinerary(newItinerary)
         .then((response) => {
           if (response.status === 201) {
-            this.$router.push(`/itinerary/${newItinerary.itinerary_id}`);
+            this.$router.push(`/itineraries`);
           }
         })
         .catch((error) => {
@@ -534,7 +544,22 @@ export default {
       return moment(date).format("M / D");
     },
     focusCreate: function () {
-      return this.$nextTick(() => this.$refs.itinerary.focus());
+      return document.getElementById("itinerary").focus();
+    },
+    handleErrorResponse(error, verb) {
+      if (error.response) {
+        this.errorMsg =
+          "Error " +
+          verb +
+          " card. Response received was '" +
+          error.response.statusText +
+          "'.";
+      } else if (error.request) {
+        this.errorMsg = "Error " + verb + " card. Server could not be reached.";
+      } else {
+        this.errorMsg =
+          "Error " + verb + " card. Request could not be created.";
+      }
     },
   },
 };
