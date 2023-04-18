@@ -34,76 +34,7 @@
             md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0
           "
         >
-          <button
-            type="button"
-            class="
-              text-white
-              bg-cyan-600
-              hover:bg-cyan-700
-              focus:ring-4 focus:outline-none focus:ring-blue-300
-              font-medium
-              rounded-lg
-              text-sm
-              p-1.5
-              text-center
-              inline-flex
-              items-center
-              mr-2
-            "
-          >
-            <svg
-              class="h-8 w-16 text-white"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <path
-                d="M7 11v 8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3"
-              />
-            </svg>
-            <span class="sr-only">Icon description</span>
-          </button>
-          <button
-            type="button"
-            class="
-              text-white
-              bg-red-700
-              hover:bg-red-800
-              focus:ring-4 focus:outline-none focus:ring-red-300
-              font-medium
-              rounded-lg
-              text-sm
-              p-1.5
-              text-center
-              inline-flex
-              items-center
-              mr-2
-            "
-          >
-            <svg
-              class="h-8 w-16 text-white"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" />
-              <path
-                d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v 1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3"
-              />
-            </svg>
-            <span class="sr-only">Icon description</span>
-          </button>
+          <landmark-rating />
         </div>
       </div>
       <div
@@ -334,6 +265,7 @@
 import landmarkService from "../services/LandmarkService";
 import reviewsService from "../services/ReviewsService";
 import ReviewSection from "../components/ReviewSection.vue";
+import LandmarkRating from "../components/LandmarkRating.vue";
 
 export default {
   data() {
@@ -359,6 +291,7 @@ export default {
 
   components: {
     ReviewSection,
+    LandmarkRating,
   },
   created() {
     console.log("in created");

@@ -12,7 +12,7 @@
           <div>
             <label
               for="default-search"
-              class="mb-2 text-sm font-medium text-gray-900 sr-only"
+              class="mb-2 !text-sm !font-medium text-gray-900 sr-only"
               >Search</label
             >
             <div class="relative hidden lg:block">
@@ -178,7 +178,7 @@
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             ></path>
           </svg>
-          <p class="lg:hidden text-xs m-0 p-0 mr-5 hover:text-black/80">
+          <p class="lg:hidden !text-xs m-0 p-0 mr-5 hover:text-black/80">
             Search
           </p>
         </button>
@@ -359,6 +359,7 @@
         @click="
           create = !create;
           itinerary.name = 'Name your trip';
+          itinerary.date = currentDate();
         "
       >
         <span class="sr-only">Close menu</span>
@@ -396,32 +397,25 @@
             class="bg-white w-4/6 relative h-full"
             v-on:submit.prevent="createItinerary"
           >
-            <div
-              class="flex absolute top-[30%] w-full items-center py-2 mb-4 overflow-hidden"
-            >
+            <div class="flex absolute top-[30%] w-full items-center py-2 mb-4">
               <input
                 ref="itinerary"
                 id="itinerary"
-                class="font-extrabold tracking-tighter outline-none text-big border-none"
+                class="font-extrabold tracking-tighter outline-none text-big border-none overflow-auto"
                 type="text"
                 name="itinerary"
                 v-model="itinerary.name"
               />
             </div>
             <div class="flex absolute top-[45%] w-full items-center py-2 mb-4">
-              <datepicker
-                :minimumView="'day'"
-                :maximumView="'month'"
-                :initialView="'month'"
-                :format="customFormatter"
+              <t-datepicker
                 v-model="itinerary.date"
+                :date-formatter="dateFormatter"
+                :date-parser="dateParser"
+                date-format="YYYY-MM-DD"
+                user-format="M / D"
               >
-                <span
-                  slot="afterDateInput"
-                  class="placeholder-black w-full font-extrabold tracking-tighter text-big outline-none border-none"
-                >
-                </span>
-              </datepicker>
+              </t-datepicker>
             </div>
             <button
               type="submit"
@@ -442,7 +436,6 @@ import AppDropdown from "../components/AppDropdown.vue";
 import AppDropdownContent from "../components/AppDropdownContent.vue";
 import AppDropdownItem from "../components/AppDropdownItem.vue";
 import ItineraryService from "../services/ItineraryService";
-import Datepicker from "vuejs-datepicker";
 import moment from "moment";
 
 export default {
@@ -452,7 +445,6 @@ export default {
     AppDropdown,
     AppDropdownContent,
     AppDropdownItem,
-    Datepicker,
   },
 
   data() {
@@ -523,7 +515,7 @@ export default {
     },
     currentDate() {
       const current = new Date();
-      return current;
+      return current.toISOString().substring(0, 10);
     },
     goToSearchResults(event) {
       let searchTerm = event.target.value;
@@ -539,9 +531,6 @@ export default {
     },
     close() {
       this.$emit("close");
-    },
-    customFormatter(date) {
-      return moment(date).format("M / D");
     },
     focusCreate: function () {
       return document.getElementById("itinerary").focus();
@@ -561,22 +550,12 @@ export default {
           "Error " + verb + " card. Request could not be created.";
       }
     },
+    dateFormatter(date, format) {
+      return moment(date).format(format);
+    },
+    dateParser(date, format) {
+      return moment(date, format).toDate();
+    },
   },
 };
 </script>
-
-<style>
-input:focus,
-select:focus {
-  outline: none;
-  font-size: 4rem;
-  font-weight: 600;
-}
-
-input,
-select {
-  outline: none;
-  font-size: 4rem !important;
-  font-weight: 600 !important;
-}
-</style>

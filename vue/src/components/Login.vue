@@ -1,6 +1,6 @@
 <template>
   <div class="modal font-sans" v-show="isOpen">
-    <div class="fixed bg-black opacity-70 inset-0 z-20" @click="close"></div>
+    <div class="fixed bg-black opacity-70 inset-0 z-50" @click="close"></div>
     <div
       class="z-50 w-full max-w-md p-3 absolute right-auto top-1/2 mx-auto my-auto rounded-md bg-white -translate-x-1/2 -translate-y-1/2 left-1/2"
     >
