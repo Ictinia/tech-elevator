@@ -116,7 +116,7 @@
               </button>
             </div>
           </section>
-          <div class="flex align-middle justify-center h-full">
+          <div class="flex align-middle justify-center h-full md:mb-10">
             <section class="w-full md:w-2/3 text-md">
               <ul
                 class="
