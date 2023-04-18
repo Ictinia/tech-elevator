@@ -6,6 +6,7 @@ import com.techelevator.model.Landmark;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.beanvalidation.SpringValidatorAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,7 @@ public class JdbcItineraryDao implements ItineraryDao {
         }
         final Itinerary itinerary = this.mapRowToItinerary(results);
 
-        final SqlRowSet landmarksRs = this.jdbcTemplate.queryForRowSet(landmarksSql, itineraryId);
+        SqlRowSet landmarksRs = this.jdbcTemplate.queryForRowSet(landmarksSql, itineraryId);
         List<Landmark> landmarks = new ArrayList<>();
         while (landmarksRs.next()) {
             Landmark landmark = new Landmark();
@@ -67,6 +68,7 @@ public class JdbcItineraryDao implements ItineraryDao {
 
             landmarks.add(landmark);
         }
+        itinerary.setLandmarks(landmarks);
         return itinerary;
     }
 
@@ -77,22 +79,41 @@ public class JdbcItineraryDao implements ItineraryDao {
     }
 
     @Override
-    public void update(int itineraryId, ItineraryDto itineraryDto, int userId) {
+    public void updateItineraryNameOrDate(int itineraryId, ItineraryDto itineraryDto, int userId) {
         String sql = "UPDATE itineraries SET name = ?, date = ? WHERE itinerary_id = ? AND user_id = ?;";
         jdbcTemplate.update(sql, itineraryDto.getName(), itineraryDto.getDate(), itineraryId, userId);
     }
 
     @Override
     public void delete(int itineraryId, int userId) {
-        String sql = "DELETE FROM itineraries WHERE itinerary_id = ? AND user_id = ?;";
-        jdbcTemplate.update(sql, itineraryId, userId);
+        String sql1 = "DELETE FROM itinerary_details WHERE itin_id = ?;";
+        jdbcTemplate.update(sql1, itineraryId);
+
+        String sql2 = "DELETE FROM itineraries WHERE itinerary_id = ? AND user_id = ?;";
+        jdbcTemplate.update(sql2, itineraryId, userId);
     }
 
     @Override
-    public void addDestination(int itineraryId, int landmarkId) {
-        String sql = "INSERT INTO itinerary_details (itin_id, landmark_id, sequence_number) VALUES (?, ?, nextval('itinerary_sequence'));";
-        jdbcTemplate.update(sql, itineraryId, landmarkId);
+    public void updateItinerary(int itineraryId, List<Landmark> landmarks) {
+        String sql = "DELETE FROM itinerary_details WHERE itin_id = ?;";
+        jdbcTemplate.update(sql, itineraryId);
+
+        if (landmarks.size() > 0) {
+            int sequenceNumber = 1;
+            StringBuilder values = new StringBuilder("");
+            for (Landmark l : landmarks) {
+                values.append(String.format("(%n, %n, %n),", itineraryId, l.getId(), sequenceNumber));
+                sequenceNumber++;
+            }
+        values.deleteCharAt(values.length()-1);
+           values.toString();
+           String insertSql = String.format("INSERT INTO itinerary_details (itin_id, landmark_id, sequence_number) VALUES %n;", values);
+           jdbcTemplate.update(insertSql);
+        }
     }
+
+
+
 
     public Itinerary mapRowToItinerary(SqlRowSet result) {
         Itinerary itinerary = new Itinerary();
