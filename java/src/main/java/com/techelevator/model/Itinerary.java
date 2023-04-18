@@ -2,12 +2,14 @@ package com.techelevator.model;
 
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Itinerary {
     private int id;
     private int userId;
     private String name;
     private LocalDate date;
+    private List<Landmark> landmarks;
 
     public Itinerary() {};
     public Itinerary(int id, int userId, String name, LocalDate date) {

@@ -30,7 +30,7 @@ public class ItineraryController {
      * @param principal
      * @return List<Itinerary> list of the user's itineraries
      */
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping(path = "/itinerary")
     public List<Itinerary> getUserItineraries(Principal principal) {
         final int userId = userDao.findIdByUsername(principal.getName());
@@ -38,7 +38,7 @@ public class ItineraryController {
     }
 
 
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping(path = "/itinerary/{itineraryId}")
     public Itinerary getItineraryById(@PathVariable int itineraryId, Principal principal) {
         final int userId = userDao.findIdByUsername(principal.getName());

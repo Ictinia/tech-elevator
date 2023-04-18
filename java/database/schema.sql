@@ -45,10 +45,10 @@ CREATE TABLE itineraries (
 );
 
 CREATE TABLE itinerary_details (
-	stop_id SERIAL PRIMARY KEY,
 	itin_id INT NOT NULL,
 	landmark_id INT NOT NULL,
 	sequence_number INT NOT NULL,
+	PRIMARY KEY (itin_id, landmark_id),
 
 	CONSTRAINT fk_stops_itineraries FOREIGN KEY (itin_id) REFERENCES itineraries(itinerary_id),
 	CONSTRAINT fk_stops_landmark FOREIGN KEY (landmark_id) REFERENCES landmarks(landmark_id)		
