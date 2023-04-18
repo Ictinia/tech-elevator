@@ -359,6 +359,7 @@
         @click="
           create = !create;
           itinerary.name = 'Name your trip';
+          itinerary.date = currentDate();
         "
       >
         <span class="sr-only">Close menu</span>
@@ -454,7 +455,7 @@ export default {
       showMenu: false,
       searchDrawer: false,
       showNavbar: false,
-      create: true,
+      create: false,
       itinerary: {
         name: "Name your trip",
         date: this.currentDate(),
