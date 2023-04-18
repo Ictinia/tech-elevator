@@ -496,7 +496,7 @@ export default {
     },
     createItinerary() {
       const newItinerary = {
-        user_id: this.itinerary.user_id,
+        user_id: this.$store.state.user.id,
         name: this.itinerary.name,
         date: this.itinerary.date,
       };
