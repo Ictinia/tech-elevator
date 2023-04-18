@@ -37,8 +37,8 @@ export default new Vuex.Store({
       description: '',
       phone: '',
       address: '',
-      thumbs_up: '',
-      thumbs_down: '',
+      thumbsUp: '',
+      thumbsDown: '',
       hero_img: '',
       latitude: '',
       longitude: '',
@@ -96,6 +96,14 @@ export default new Vuex.Store({
     SET_CURRENT_LANDMARK(state, landmark) {
       state.landmark = landmark;
     },
+    SET_CURRENT_LANDMARK_THUMBS_UP(state, thumbsUp) {
+      state.landmark.thumbsUp = thumbsUp;
+    },
+
+    SET_CURRENT_LANDMARK_THUMBS_DOWN(state, thumbsDown) {
+      state.landmark.thumbsDown = thumbsDown;
+    },
+
     SET_LANDMARK_HOURS(state, hours) {
       state.hours = hours;
     },

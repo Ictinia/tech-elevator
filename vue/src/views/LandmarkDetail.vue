@@ -34,7 +34,7 @@
             md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0
           "
         >
-          <landmark-rating />
+          <landmark-rating :landmark="landmark" />
         </div>
       </div>
       <div
@@ -116,7 +116,7 @@
               </button>
             </div>
           </section>
-          <div class="flex align-middle justify-center h-full">
+          <div class="flex align-middle justify-center h-full md:mb-10">
             <section class="w-full md:w-2/3 text-md">
               <ul
                 class="
@@ -130,7 +130,6 @@
                   overflow
                 "
               >
-                <li class="flex pr-6">Rating</li>
                 <li class="flex pr-6">
                   <svg
                     class="h-7 w-7 text-cyan-600 pr-1"

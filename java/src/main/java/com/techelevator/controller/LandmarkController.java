@@ -58,11 +58,11 @@ public class LandmarkController {
     }
 
     @PostMapping(path = "/landmarks/{id}/ratings")
-    public void acceptRating(@PathVariable int id, @RequestBody RatingDto ratingDto) {
+    public int acceptRating(@PathVariable int id, @RequestBody RatingDto ratingDto) {
         if ("up".equalsIgnoreCase(ratingDto.rating)) {
-            landmarkDao.thumbsUp(id);
+           return landmarkDao.thumbsUp(id);
         } else if ("down".equalsIgnoreCase(ratingDto.rating)) {
-            landmarkDao.thumbsDown(id);
+           return landmarkDao.thumbsDown(id);
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Rating must be 'UP' or 'DOWN'");
         }
