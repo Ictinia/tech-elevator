@@ -36,7 +36,7 @@
               <input
                 type="text"
                 id="default-search"
-                class="block md:w-full pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
+                class="block md:w-full !pl-10 !h-12 !font-normal !text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
                 placeholder="Search Locations, Attractions..."
                 @keypress.enter="goToSearchResults"
               />
@@ -126,7 +126,10 @@
               <button
                 class="text-md text-black border border-green-500 bg-green-500 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-green-500/90 mb-2"
                 v-if="isLoggedIn"
-                @click="create = true"
+                @click="
+                  create = true;
+                  focusCreate;
+                "
               >
                 Create Itinerary
               </button>
@@ -203,7 +206,7 @@
               <input
                 type="text"
                 id="default-search"
-                class="block w-8/12 pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
+                class="block w-8/12 !pl-10 !h-12 !font-normal !text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
                 placeholder="Search Locations, Attractions..."
                 @keypress.enter="goToSearchResults"
               />
@@ -227,7 +230,10 @@
         <div
           v-if="isLoggedIn"
           class="h-full items-center flex flex-col hover:cursor-pointer hover:text-green-600"
-          @click="create = !create"
+          @click="
+            create = !create;
+            focusCreate;
+          "
         >
           <svg
             class="h-9 w-9 text-green-600 justify-center items-center mr-5"
@@ -328,7 +334,7 @@
           <input
             type="text"
             id="default-search"
-            class="block w-7/12 pl-10 h-12 text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-1"
+            class="block w-7/12 !pl-10 !h-12 !font-normal !text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
             placeholder="Search Locations, Attractions..."
             @keypress.enter="goToSearchResults"
           />
@@ -368,7 +374,7 @@
       </button>
       <div class="h-screen w-screen md:flex">
         <div
-          class="relative overflow-hidden md:flex w-1/2 bg-cyan-600 i justify-around items-center hidden"
+          class="relative overflow-hidden md:flex w-1/2 bg-cyan-600 justify-around items-center hidden"
         >
           <img
             src="https://www.tpl.org/wp-content/uploads/2021/05/8_2021_Cincinnati-Ohio_header.jpg"
@@ -384,22 +390,28 @@
               class="flex absolute top-[30%] w-full items-center py-2 mb-4 overflow-hidden"
             >
               <input
+                ref="itinerary"
+                id="itinerary"
                 class="placeholder-black font-extrabold tracking-tighter outline-none text-big border-none"
                 type="text"
-                name=""
-                id=""
-                ref="itineraryName"
+                name="itinerary"
                 v-model="itinerary.name"
               />
             </div>
             <div class="flex absolute top-[45%] w-full items-center py-2 mb-4">
-              <input
-                class="placeholder-black w-full font-extrabold tracking-tighter text-big outline-none border-none"
-                type="text"
-                name=""
-                id=""
+              <datepicker
+                :minimumView="'day'"
+                :maximumView="'month'"
+                :initialView="'month'"
+                :format="customFormatter"
                 v-model="itinerary.date"
-              />
+              >
+                <span
+                  slot="afterDateInput"
+                  class="placeholder-black w-full font-extrabold tracking-tighter text-big outline-none border-none"
+                >
+                </span>
+              </datepicker>
             </div>
             <button
               type="submit"
@@ -420,6 +432,8 @@ import AppDropdown from "../components/AppDropdown.vue";
 import AppDropdownContent from "../components/AppDropdownContent.vue";
 import AppDropdownItem from "../components/AppDropdownItem.vue";
 import ItineraryService from "../services/ItineraryService";
+import Datepicker from "vuejs-datepicker";
+import moment from "moment";
 
 export default {
   name: "navbar",
@@ -428,6 +442,7 @@ export default {
     AppDropdown,
     AppDropdownContent,
     AppDropdownItem,
+    Datepicker,
   },
 
   data() {
@@ -498,8 +513,7 @@ export default {
     },
     currentDate() {
       const current = new Date();
-      const date = `${current.getMonth() + 1}/${current.getDate()}`;
-      return date;
+      return current;
     },
     goToSearchResults(event) {
       let searchTerm = event.target.value;
@@ -516,6 +530,28 @@ export default {
     close() {
       this.$emit("close");
     },
+    customFormatter(date) {
+      return moment(date).format("M / D");
+    },
+    focusCreate: function () {
+      return this.$nextTick(() => this.$refs.itinerary.focus());
+    },
   },
 };
 </script>
+
+<style>
+input:focus,
+select:focus {
+  outline: none;
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+input,
+select {
+  outline: none;
+  font-size: 4rem !important;
+  font-weight: 600 !important;
+}
+</style>
