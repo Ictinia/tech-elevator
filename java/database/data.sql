@@ -258,21 +258,18 @@ INSERT INTO itineraries (user_id, name, date)
 VALUES (1, 'test', '2023-05-05');
 
 INSERT INTO itinerary_details (itin_id, landmark_id, sequence_number) VALUES 
-(1, 1, nextval('itinerary_sequence')),
-(1, 2, nextval('itinerary_sequence')),
-(1, 3, nextval('itinerary_sequence')),
-(1, 4, nextval('itinerary_sequence')),
-(1, 5, nextval('itinerary_sequence')),
-(1, 6, nextval('itinerary_sequence')),
-(1, 7, nextval('itinerary_sequence')),
-(1, 8, nextval('itinerary_sequence')),
-(1, 9, nextval('itinerary_sequence')),
-(1, 10, nextval('itinerary_sequence')),
-(1, 11, nextval('itinerary_sequence')),
-(1, 12, nextval('itinerary_sequence')),
-(1, 13, nextval('itinerary_sequence')),
-(1, 14, nextval('itinerary_sequence')),
-(1, 15, nextval('itinerary_sequence')),
-(1, 16, nextval('itinerary_sequence'));
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 11),
+(1, 12),
+
 
 COMMIT TRANSACTION;
