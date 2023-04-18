@@ -34,7 +34,7 @@
             md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0
           "
         >
-          <landmark-rating />
+          <landmark-rating :landmark="landmark" />
         </div>
       </div>
       <div
