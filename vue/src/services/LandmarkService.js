@@ -1,21 +1,17 @@
 import axios from "axios";
 
-const http = axios.create({
-    baseURL: "http://localhost:9000"
-});
-
 export default {
 
     getAllLandmarks() {
-        return http.get(`/landmarks`)
+        return axios.get(`/landmarks`)
     },
 
     getOperating(id) {
-        return http.get(`/landmarks/${id}/hours`)
+        return axios.get(`/landmarks/${id}/hours`)
     },
 
     getLandmark(id) {
-        return http.get(`/landmarks/${id}`)
+        return axios.get(`/landmarks/${id}`)
     },
 
     /**
@@ -24,31 +20,31 @@ export default {
      * @returns a list of landmarks
      */
     filterLandmarks(term) {
-        return http.get(`/landmarks?filter=${term}`)
+        return axios.get(`/landmarks?filter=${term}`)
     },
 
     getAllCategories() {
-        return http.get(`/categories`)
+        return axios.get(`/categories`)
     },
 
     getByCategory(category) {
-        return http.get(`/${category}`)
+        return axios.get(`/${category}`)
     },
 
     createLandmark(landmark) {
-        return http.post(`/landmarks`, landmark)
+        return axios.post(`/landmarks`, landmark)
     },
 
-    acceptRating(id) {
-        return http.post(`/landmarks/${id}/ratings`)
+    saveRating(id) {
+        return axios.post(`/landmarks/${id}/ratings`)
     },
 
     approveLandmark(id) {
-        return http.put(`/landmarks/${id}`)
+        return axios.put(`/landmarks/${id}`)
     },
 
     deleteLandmark(id) {
-        return http.delete(`/landmarks/${id}`)
+        return axios.delete(`/landmarks/${id}`)
     }
 
 }
