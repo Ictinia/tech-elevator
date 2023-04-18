@@ -47,18 +47,12 @@ CREATE TABLE itineraries (
 CREATE TABLE itinerary_details (
 	itin_id INT NOT NULL,
 	landmark_id INT NOT NULL,
-	sequence_number INT NOT NULL,
+	sequence_number INT NOT NULL CHECK (sequence_number > 0),
 	PRIMARY KEY (itin_id, landmark_id),
 
 	CONSTRAINT fk_stops_itineraries FOREIGN KEY (itin_id) REFERENCES itineraries(itinerary_id),
 	CONSTRAINT fk_stops_landmark FOREIGN KEY (landmark_id) REFERENCES landmarks(landmark_id)		
 );
-
-CREATE SEQUENCE itinerary_sequence
-START 1
-INCREMENT 1
-MINVALUE 1
-OWNED BY itinerary_details.sequence_number;
 
 CREATE TABLE reviews (
 	review_id SERIAL PRIMARY KEY,
