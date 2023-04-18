@@ -29,6 +29,7 @@ export default new Vuex.Store({
     itineraries: [],
     activeHourId: null,
     activeItinerary: null,
+    itineraryStops: [],
     landmark: {
       landmark_id: '',
       name: '',
@@ -36,18 +37,19 @@ export default new Vuex.Store({
       description: '',
       phone: '',
       address: '',
-      thumbs_up: '',
-      thumbs_down: '',
+      thumbsUp: '',
+      thumbsDown: '',
       hero_img: '',
       latitude: '',
       longitude: '',
       map_link: ''
     },
     itinerary: {
-      itinerary_id: '',
+      itinerary_id: null,
       user_id: '',
       name: '',
       date: '',
+      landmarks: []
     },
     review: {
       review_id: '',
@@ -58,6 +60,7 @@ export default new Vuex.Store({
     },
     reviews: []
   },
+
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
@@ -93,6 +96,14 @@ export default new Vuex.Store({
     SET_CURRENT_LANDMARK(state, landmark) {
       state.landmark = landmark;
     },
+    SET_CURRENT_LANDMARK_THUMBS_UP(state, thumbsUp) {
+      state.landmark.thumbsUp = thumbsUp;
+    },
+
+    SET_CURRENT_LANDMARK_THUMBS_DOWN(state, thumbsDown) {
+      state.landmark.thumbsDown = thumbsDown;
+    },
+
     SET_LANDMARK_HOURS(state, hours) {
       state.hours = hours;
     },
@@ -104,10 +115,16 @@ export default new Vuex.Store({
     },
     SET_CURRENT_ITINERARY(state, itinerary) {
       state.itinerary = itinerary;
+    },
+    SET_STOPS(state, stops) {
+      state.itinerary.landmarks = stops
     }
-
-
-
+  },
+  
+  actions: {
+    updateStops({commit}, stops) {
+      commit('SET_STOPS', stops);
+    },
   }
 
 

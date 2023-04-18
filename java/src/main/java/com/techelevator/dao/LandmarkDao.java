@@ -13,8 +13,8 @@ public interface LandmarkDao {
     void create (LandmarkDto landmark);
     void delete (int id);
     void approve (int id);
-    void thumbsUp (int id);
-    void thumbsDown (int id);
+    int thumbsUp (int id);
+    int thumbsDown (int id);
 
     List<Landmark> filterLandmarks(String filter);
 

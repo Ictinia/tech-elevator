@@ -1,8 +1,7 @@
 <template>
   <div>
     <button
-      @click="countUp++"
-      :landmarkId="landmarkId"
+      @click="thumbsUp()"
       type="button"
       class="
         text-white
@@ -35,12 +34,11 @@
           d="M7 11v 8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3"
         />
       </svg>
-      <span>{{ countUp }}</span>
+      <span>{{ landmark.thumbsUp }}</span>
       <span class="sr-only">Icon description</span>
     </button>
     <button
-      @click="countDown--"
-      :landmarkId="landmarkId"
+      @click="thumbsDown()"
       type="button"
       class="
         text-white
@@ -73,7 +71,7 @@
           d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v 1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3"
         />
       </svg>
-      <span>{{ countDown }}</span>
+      <span>{{ landmark.thumbsDown }}</span>
       <span class="sr-only">Icon description</span>
     </button>
   </div>
@@ -83,24 +81,13 @@
 import landmarkService from "../services/LandmarkService.js";
 
 export default {
-  props: {
-    landmarkId: {
-      type: Number,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      countUp: 0,
-      countDown: 0,
-    };
-  },
+  props: ["landmark"],
   methods: {
     thumbsUp() {
       landmarkService
-        .saveRating(this.landmarkId, { rating: "up" })
+        .saveRating(this.landmark.id, { rating: "up" })
         .then((response) => {
-          this.countUp = response.data.countUp;
+          this.$store.commit("SET_CURRENT_LANDMARK_THUMBS_UP", response.data);
         })
         .catch((error) => {
           console.error(error);
@@ -108,9 +95,9 @@ export default {
     },
     thumbsDown() {
       landmarkService
-        .saveRating(this.landmarkId, { rating: "down" })
+        .saveRating(this.landmark.id, { rating: "down" })
         .then((response) => {
-          this.countDown = response.data.countDown;
+          this.$store.commit("SET_CURRENT_LANDMARK_THUMBS_DOWN", response.data);
         })
         .catch((error) => {
           console.error(error);

@@ -35,8 +35,8 @@ export default {
         return axios.post(`/landmarks`, landmark)
     },
 
-    saveRating(id) {
-        return axios.post(`/landmarks/${id}/ratings`)
+    saveRating(id, rating) {
+        return axios.post(`/landmarks/${id}/ratings`, rating)
     },
 
     approveLandmark(id) {

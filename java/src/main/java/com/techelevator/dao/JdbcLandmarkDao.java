@@ -77,18 +77,23 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     @Override
-    public void thumbsUp(int id) {
+    public int thumbsUp(int id) {
         String sql = "UPDATE landmarks\n" +
                 "SET thumbs_up = thumbs_up + 1\n" +
                 "WHERE landmark_id = ?;";
         jdbcTemplate.update(sql, id);
+
+        Landmark updated = get(id);
+        return  updated.getThumbsUp();
     }
     @Override
-    public void thumbsDown(int id) {
+    public int thumbsDown(int id) {
         String sql = "UPDATE landmarks\n" +
-                "SET thumbs_down = thumbs_down - 1\n" +
+                "SET thumbs_down = thumbs_down + 1\n" +
                 "WHERE landmark_id = ?;";
         jdbcTemplate.update(sql, id);
+        Landmark updated = get(id);
+        return  updated.getThumbsDown();
     }
 
     @Override
