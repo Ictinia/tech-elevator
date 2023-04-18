@@ -1,3 +1,4 @@
+
 <template>
   <div class="reviewSection">
     <h3 class="text-xl font-semibold">Reviews</h3>
@@ -52,7 +53,7 @@
             text-sm text-gray-900
             bg-gray-50
             rounded-lg
-            outline-cyan-600 outline
+            outline
             none
             outline-cyan-600
             focus:ring-blue-500 focus:border-blue-500
@@ -84,7 +85,7 @@
         <textarea
           id="message"
           rows="4"
-          v-model="newReview.review"
+          v-model="newReview.description"
           class="
             flex-auto
             block
@@ -93,7 +94,7 @@
             text-sm text-gray-900
             bg-gray-50
             rounded-lg
-            outline-cyan-600 outline
+            outline
             none
             outline-cyan-600
             focus:ring-blue-500 focus:border-blue-500
@@ -159,10 +160,11 @@
 </template>
 
 <script>
+import ReviewsService from "../services/ReviewsService";
 // import EachReview from "../components/EachReview.vue";
 
 export default {
-  name: "landmark-review",
+  name: "review-section",
   data() {
     return {
       showForm: false,
@@ -170,19 +172,35 @@ export default {
     };
   },
 
+  props: ["landmarkId"],
+
   created() {
     console.log(this.$store.state.reviews);
   },
 
   methods: {
     addNewReview() {
-      this.reviews.unshift(this.newReview);
-      this.resetForm();
+      console.log("landmarkId: " + this.landmarkId);
+      ReviewsService.addReview(this.landmarkId, this.newReview)
+        .then(() => {
+          return ReviewsService.getReviews(this.landmarkId);
+        })
+        .then((response) => {
+          this.$store.commit("SET_REVIEWS", response.data);
+          this.resetForm();
+        });
     },
     resetForm() {
-      this.newReview = {};
       this.showForm = false;
+      this.newReview = {};
     },
+  },
+
+  // this.reviews.unshift(this.newReview);
+  // this.resetForm();
+  resetForm() {
+    this.newReview = {};
+    this.showForm = false;
   },
 };
 </script>
