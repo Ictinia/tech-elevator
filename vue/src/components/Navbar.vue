@@ -395,13 +395,16 @@
         >
           <form
             class="bg-white w-4/6 relative h-full"
-            v-on:submit.prevent="createItinerary"
+            v-on:submit.prevent="
+              createItinerary();
+              create = false;
+            "
           >
             <div class="flex absolute top-[30%] w-full items-center py-2 mb-4">
               <input
                 ref="itinerary"
                 id="itinerary"
-                class="font-extrabold tracking-tighter outline-none text-big border-none overflow-auto"
+                class="tracking-tighter outline-none text-big border-none overflow-auto"
                 type="text"
                 name="itinerary"
                 v-model="itinerary.name"

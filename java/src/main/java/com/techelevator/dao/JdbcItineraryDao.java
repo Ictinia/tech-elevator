@@ -45,7 +45,7 @@ public class JdbcItineraryDao implements ItineraryDao {
         if (!results.next()) {
             return null;
         }
-        final Itinerary itinerary = this.mapRowToItinerary(results);
+        Itinerary itinerary = this.mapRowToItinerary(results);
 
         final SqlRowSet landmarksRs = this.jdbcTemplate.queryForRowSet(landmarksSql, itineraryId);
         List<Landmark> landmarks = new ArrayList<>();
@@ -67,6 +67,8 @@ public class JdbcItineraryDao implements ItineraryDao {
 
             landmarks.add(landmark);
         }
+
+        itinerary.setLandmarks(landmarks);
         return itinerary;
     }
 
