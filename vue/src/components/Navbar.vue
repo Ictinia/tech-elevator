@@ -1,7 +1,16 @@
 <template>
   <div id="navbar">
     <div
-      class="lg:px-12 px-5 md:flex md:justify-between md:items-center md:h-20 mx-auto h-16 bg-white border-b font-sans"
+      class="
+        lg:px-12
+        px-5
+        md:flex md:justify-between md:items-center md:h-20
+        mx-auto
+        h-16
+        bg-white
+        border-b
+        font-sans
+      "
     >
       <div class="flex items-center justify-between">
         <router-link to="/" class="h-16 flex items-center">
@@ -36,7 +45,25 @@
               <input
                 type="text"
                 id="default-search"
-                class="block md:w-full !pl-10 !h-12 !font-normal !text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
+                class="
+                  placeholder-gray-400
+                  block
+                  md:w-full
+                  !pl-10
+                  !h-12
+                  !font-normal
+                  !text-md
+                  text-black
+                  border
+                  active:text-black
+                  border-gray-300
+                  rounded-full
+                  bg-gray-50
+                  focus:outline-none
+                  cursor-text
+                  pt-[0.1rem]
+                  focus:text-md
+                "
                 placeholder="Search Locations, Attractions..."
                 @keypress.enter="goToSearchResults"
               />
@@ -67,32 +94,120 @@
             type="button"
             :show="showMenu"
             @click="showMenu = !showMenu"
-            class="text-gray-800 hover:text-gray-400 focus:outline-none focus:text-gray-400"
+            class="
+              text-gray-800
+              hover:text-gray-400
+              focus:outline-none focus:text-gray-400
+            "
           >
             <div
-              class="relative flex overflow-hidden items-center justify-end w-[50px] transform transition-all duration-200"
+              class="
+                relative
+                flex
+                overflow-hidden
+                items-center
+                justify-end
+                w-[50px]
+                transform
+                transition-all
+                duration-200
+              "
             >
               <div
-                class="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 origin-center overflow-hidden"
+                class="
+                  flex flex-col
+                  justify-between
+                  w-[20px]
+                  h-[20px]
+                  transform
+                  transition-all
+                  duration-300
+                  origin-center
+                  overflow-hidden
+                "
               >
                 <div
-                  class="bg-black h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-y-6 delay-100"
+                  class="
+                    bg-black
+                    h-[2px]
+                    w-7
+                    transform
+                    transition-all
+                    duration-300
+                    origin-left
+                    group-focus:translate-y-6
+                    delay-100
+                  "
                 ></div>
                 <div
-                  class="bg-black h-[2px] w-7 rounded transform transition-all duration-300 group-focus:translate-y-6 delay-75"
+                  class="
+                    bg-black
+                    h-[2px]
+                    w-7
+                    rounded
+                    transform
+                    transition-all
+                    duration-300
+                    group-focus:translate-y-6
+                    delay-75
+                  "
                 ></div>
                 <div
-                  class="bg-black h-[2px] w-7 transform transition-all duration-300 origin-left group-focus:translate-y-6"
+                  class="
+                    bg-black
+                    h-[2px]
+                    w-7
+                    transform
+                    transition-all
+                    duration-300
+                    origin-left
+                    group-focus:translate-y-6
+                  "
                 ></div>
 
                 <div
-                  class="absolute items-center justify-between transform transition-all duration-500 top-2.5 -translate-x-10 group-focus:translate-x-0 flex w-0 group-focus:w-12"
+                  class="
+                    absolute
+                    items-center
+                    justify-between
+                    transform
+                    transition-all
+                    duration-500
+                    top-2.5
+                    -translate-x-10
+                    group-focus:translate-x-0
+                    flex
+                    w-0
+                    group-focus:w-12
+                  "
                 >
                   <div
-                    class="absolute bg-black h-[2px] w-5 transform transition-all duration-500 rotate-0 delay-300 group-focus:rotate-45"
+                    class="
+                      absolute
+                      bg-black
+                      h-[2px]
+                      w-5
+                      transform
+                      transition-all
+                      duration-500
+                      rotate-0
+                      delay-300
+                      group-focus:rotate-45
+                    "
                   ></div>
                   <div
-                    class="absolute bg-black h-[2px] w-5 transform transition-all duration-500 -rotate-0 delay-300 group-focus:-rotate-45"
+                    class="
+                      absolute
+                      bg-black
+                      h-[2px]
+                      w-5
+                      transform
+                      transition-all
+                      duration-500
+                      -rotate-0
+                      delay-300
+                      group-focus:-rotate-45
+                    "
                   ></div>
                 </div>
               </div>
@@ -105,26 +220,88 @@
           ></div>
 
           <div
-            class="bg-white flex flex-col h-full overflow-y-auto fixed right-0 top-0 w-64 z-50 duration-500 transform ease-in-out transition-all"
+            class="
+              bg-white
+              flex flex-col
+              h-full
+              overflow-y-auto
+              fixed
+              right-0
+              top-0
+              w-64
+              z-50
+              duration-500
+              transform
+              ease-in-out
+              transition-all
+            "
             :class="showMenu ? 'translate-x-0' : 'translate-x-full'"
           >
             <div class="flex-col flex items-center mt-6 px-4">
               <button
-                class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 mb-2 hover:bg-cyan-600/[0.9] hover:border-cyan-500"
+                class="
+                  text-md
+                  bg-cyan-600
+                  border border-cyan-600
+                  text-white
+                  rounded-lg
+                  pt-3
+                  ps-4
+                  h-14
+                  flex
+                  justify-center
+                  px-4
+                  leading-8
+                  font-medium
+                  w-11/12
+                  mb-2
+                  hover:bg-cyan-600/[0.9] hover:border-cyan-500
+                "
                 @click="showSignup"
                 v-if="!isLoggedIn"
               >
                 Sign Up
               </button>
               <button
-                class="text-md text-black border border-gray-200 bg-gray-200 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-gray-300"
+                class="
+                  text-md text-black
+                  border border-gray-200
+                  bg-gray-200
+                  rounded-lg
+                  pt-3
+                  ps-4
+                  h-14
+                  flex
+                  justify-center
+                  px-4
+                  leading-8
+                  font-medium
+                  w-11/12
+                  hover:bg-gray-300
+                "
                 @click="showLogin"
                 v-if="!isLoggedIn"
               >
                 Login
               </button>
               <button
-                class="text-md text-black border border-green-500 bg-green-500 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-green-500/90 mb-2"
+                class="
+                  text-md text-black
+                  border border-green-500
+                  bg-green-500
+                  rounded-lg
+                  pt-3
+                  ps-4
+                  h-14
+                  flex
+                  justify-center
+                  px-4
+                  leading-8
+                  font-medium
+                  w-11/12
+                  hover:bg-green-500/90
+                  mb-2
+                "
                 v-if="isLoggedIn"
                 @click="
                   create = true;
@@ -135,7 +312,23 @@
               </button>
 
               <button
-                class="text-md text-black border border-cyan-500 bg-cyan-500 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-cyan-500/90 mb-2"
+                class="
+                  text-md text-black
+                  border border-cyan-500
+                  bg-cyan-500
+                  rounded-lg
+                  pt-3
+                  ps-4
+                  h-14
+                  flex
+                  justify-center
+                  px-4
+                  leading-8
+                  font-medium
+                  w-11/12
+                  hover:bg-cyan-500/90
+                  mb-2
+                "
                 v-if="isLoggedIn"
                 @click="showMenu = !showMenu"
               >
@@ -145,7 +338,23 @@
               </button>
 
               <button
-                class="text-md text-black border border-gray-200 bg-gray-200 rounded-lg pt-3 ps-4 h-14 flex justify-center px-4 leading-8 font-medium w-11/12 hover:bg-gray-300 mb-2"
+                class="
+                  text-md text-black
+                  border border-gray-200
+                  bg-gray-200
+                  rounded-lg
+                  pt-3
+                  ps-4
+                  h-14
+                  flex
+                  justify-center
+                  px-4
+                  leading-8
+                  font-medium
+                  w-11/12
+                  hover:bg-gray-300
+                  mb-2
+                "
                 @click="logout"
                 v-if="isLoggedIn"
               >
@@ -157,7 +366,14 @@
       </div>
 
       <div
-        class="hidden md:flex flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
+        class="
+          hidden
+          md:flex
+          flex-col
+          mt-8
+          space-y-4
+          md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0
+        "
       >
         <button
           class="h-full items-center flex flex-col hover:text-black/80"
@@ -165,7 +381,16 @@
         >
           <svg
             aria-hidden="true"
-            class="w-9 h-9 text-black dark:text-gray-400 lg:hidden justify-center items-center mr-5"
+            class="
+              w-9
+              h-9
+              text-black
+              dark:text-gray-400
+              lg:hidden
+              justify-center
+              items-center
+              mr-5
+            "
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -183,7 +408,20 @@
           </p>
         </button>
         <div
-          class="lg:hidden transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
+          class="
+            lg:hidden
+            transform
+            bottom-0
+            left-0
+            w-full
+            fixed
+            h-full
+            overflow-hidden
+            ease-in-out
+            transition-all
+            duration-500
+            z-50
+          "
           :class="searchDrawer ? 'translate-x-[30%]' : 'translate-x-full'"
         >
           <div
@@ -211,7 +449,22 @@
               <input
                 type="text"
                 id="mobile-search"
-                class="block w-8/12 !pl-10 !h-12 !font-normal !text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
+                class="
+                  block
+                  w-8/12
+                  !pl-10
+                  !h-12
+                  !font-normal
+                  !text-md
+                  text-gray-400
+                  border border-gray-300
+                  rounded-full
+                  bg-gray-50
+                  focus:outline-none
+                  cursor-text
+                  pt-[0.1rem]
+                  focus:text-md
+                "
                 placeholder="Search Locations, Attractions..."
                 @keypress.enter="goToSearchResults"
               />
@@ -219,14 +472,34 @@
           </div>
         </div>
         <button
-          class="text-md bg-cyan-600 border border-cyan-600 text-white rounded-full px-4 leading-8 h-12 hover:bg-cyan-600/[0.9]"
+          class="
+            text-md
+            bg-cyan-600
+            border border-cyan-600
+            text-white
+            rounded-full
+            px-4
+            leading-8
+            h-12
+            hover:bg-cyan-600/[0.9]
+          "
           @click="showSignup"
           v-if="!isLoggedIn"
         >
           Sign Up
         </button>
         <button
-          class="text-md text-gray-500 border bg-gray-100 border-gray-200 rounded-full px-4 leading-8 h-12 hover:bg-gray-200"
+          class="
+            text-md text-gray-500
+            border
+            bg-gray-100
+            border-gray-200
+            rounded-full
+            px-4
+            leading-8
+            h-12
+            hover:bg-gray-200
+          "
           @click="showLogin"
           v-if="!isLoggedIn"
         >
@@ -234,7 +507,12 @@
         </button>
         <div
           v-if="isLoggedIn"
-          class="h-full items-center flex flex-col hover:cursor-pointer hover:text-green-600"
+          class="
+            h-full
+            items-center
+            flex flex-col
+            hover:cursor-pointer hover:text-green-600
+          "
           @click="
             create = !create;
             focusCreate();
@@ -258,7 +536,12 @@
           </p>
         </div>
         <AppDropdown
-          class="h-full items-center flex flex-col hover:cursor-pointer hover:text-cyan-500"
+          class="
+            h-full
+            items-center
+            flex flex-col
+            hover:cursor-pointer hover:text-cyan-500
+          "
           v-if="isLoggedIn"
         >
           <!-- <div></div> -->
@@ -313,7 +596,20 @@
       @close="closeLogin"
     />
     <div
-      class="md:hidden transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
+      class="
+        md:hidden
+        transform
+        bottom-0
+        left-0
+        w-full
+        fixed
+        h-full
+        overflow-hidden
+        ease-in-out
+        transition-all
+        duration-500
+        z-50
+      "
       :class="searchDrawer ? 'translate-x-[40%]' : 'translate-x-full'"
     >
       <div
@@ -341,7 +637,22 @@
           <input
             type="text"
             id="small-search"
-            class="block w-7/12 !pl-10 !h-12 !font-normal !text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
+            class="
+              block
+              w-7/12
+              !pl-10
+              !h-12
+              !font-normal
+              !text-md
+              text-gray-400
+              border border-gray-300
+              rounded-full
+              bg-gray-50
+              focus:outline-none
+              cursor-text
+              pt-[0.1rem]
+              focus:text-md
+            "
             placeholder="Search Locations, Attractions..."
             @keypress.enter="goToSearchResults"
           />
@@ -350,12 +661,34 @@
     </div>
 
     <div
-      class="transform bottom-0 left-0 w-full bg-gray-100 fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
+      class="
+        transform
+        bottom-0
+        left-0
+        w-full
+        bg-gray-100
+        fixed
+        h-full
+        overflow-hidden
+        ease-in-out
+        transition-all
+        duration-500
+        z-50
+      "
       :class="create ? 'translate-y-0' : 'translate-y-full'"
     >
       <button
         type="button"
-        class="rounded-md p-2 absolute right-3 top-3 text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+        class="
+          rounded-md
+          p-2
+          absolute
+          right-3
+          top-3
+          text-gray-400
+          hover:text-gray-500 hover:bg-gray-100
+          focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500
+        "
         @click="
           create = !create;
           itinerary.name = 'Name your trip';
@@ -382,7 +715,16 @@
       </button>
       <div class="h-screen w-screen md:flex">
         <div
-          class="relative overflow-hidden md:flex w-1/2 bg-cyan-600 justify-around items-center hidden"
+          class="
+            relative
+            overflow-hidden
+            md:flex
+            w-1/2
+            bg-cyan-600
+            justify-around
+            items-center
+            hidden
+          "
         >
           <img
             src="https://www.tpl.org/wp-content/uploads/2021/05/8_2021_Cincinnati-Ohio_header.jpg"
@@ -391,7 +733,15 @@
           />
         </div>
         <div
-          class="flex md:w-1/2 justify-center py-10 items-center bg-white h-full"
+          class="
+            flex
+            md:w-1/2
+            justify-center
+            py-10
+            items-center
+            bg-white
+            h-full
+          "
         >
           <form
             class="bg-white w-4/6 relative h-full"
@@ -401,7 +751,14 @@
               <input
                 ref="itinerary"
                 id="itinerary"
-                class="font-extrabold tracking-tighter outline-none text-big border-none overflow-auto"
+                class="
+                  font-extrabold
+                  tracking-tighter
+                  outline-none
+                  text-big
+                  border-none
+                  overflow-auto
+                "
                 type="text"
                 name="itinerary"
                 v-model="itinerary.name"
@@ -419,7 +776,19 @@
             </div>
             <button
               type="submit"
-              class="block absolute bottom-0 w-full text-3xl bg-green-600 my-auto py-2 rounded-2xl text-white font-semibold"
+              class="
+                block
+                absolute
+                bottom-0
+                w-full
+                text-3xl
+                bg-green-600
+                my-auto
+                py-2
+                rounded-2xl
+                text-white
+                font-semibold
+              "
             >
               Get Started
             </button>
