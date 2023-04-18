@@ -44,6 +44,7 @@
         <input
           id="title"
           type="text"
+          rows="1"
           v-model="newReview.title"
           class="
             flex-auto
