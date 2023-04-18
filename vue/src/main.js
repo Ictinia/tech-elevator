@@ -32,7 +32,7 @@ const settings = {
         calendarHeaderWrapper: 'grid grid-cols-7',
         monthWrapper: 'grid grid-cols-4',
         yearWrapper: 'grid grid-cols-4',
-        input: 'block w-full px-3 py-2 transition duration-100 ease-in-out focus:border-0 focus:outline-none text-big ring-0 font-extrabold tracking-tighter '
+        input: 'block w-full transition duration-100 ease-in-out focus:border-0 focus:outline-none text-big ring-0 font-extrabold tracking-tighter '
       },
       classes: {
         wrapper: 'flex flex-col',
@@ -88,7 +88,7 @@ const settings = {
         yearWrapper: 'px-3 pt-2',
         year: 'text-sm rounded w-full h-12 mx-auto hover:bg-blue-100',
         selectedYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-500 text-white',
-        activeYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-100'
+        activeYear: 'text-sm rounded w-full h-12 mx-auto bg-blue-100',
       },
     }
   }

@@ -396,20 +396,25 @@
             class="bg-white w-4/6 relative h-full"
             v-on:submit.prevent="createItinerary"
           >
-            <div
-              class="flex absolute top-[30%] w-full items-center py-2 mb-4 overflow-hidden"
-            >
+            <div class="flex absolute top-[30%] w-full items-center py-2 mb-4">
               <input
                 ref="itinerary"
                 id="itinerary"
-                class="font-extrabold tracking-tighter outline-none text-big border-none"
+                class="font-extrabold tracking-tighter outline-none text-big border-none overflow-auto"
                 type="text"
                 name="itinerary"
                 v-model="itinerary.name"
               />
             </div>
             <div class="flex absolute top-[45%] w-full items-center py-2 mb-4">
-              <t-datepicker v-model="itinerary.date"> </t-datepicker>
+              <t-datepicker
+                v-model="itinerary.date"
+                :date-formatter="dateFormatter"
+                :date-parser="dateParser"
+                date-format="YYYY-MM-DD"
+                user-format="M / D"
+              >
+              </t-datepicker>
             </div>
             <button
               type="submit"
@@ -449,7 +454,7 @@ export default {
       showMenu: false,
       searchDrawer: false,
       showNavbar: false,
-      create: false,
+      create: true,
       itinerary: {
         name: "Name your trip",
         date: this.currentDate(),
@@ -509,7 +514,7 @@ export default {
     },
     currentDate() {
       const current = new Date();
-      return current;
+      return current.toISOString().substring(0, 10);
     },
     goToSearchResults(event) {
       let searchTerm = event.target.value;
@@ -525,9 +530,6 @@ export default {
     },
     close() {
       this.$emit("close");
-    },
-    customFormatter(date) {
-      return moment(date).format("M / D");
     },
     focusCreate: function () {
       return document.getElementById("itinerary").focus();
@@ -546,6 +548,12 @@ export default {
         this.errorMsg =
           "Error " + verb + " card. Request could not be created.";
       }
+    },
+    dateFormatter(date, format) {
+      return moment(date).format(format);
+    },
+    dateParser(date, format) {
+      return moment(date, format).toDate();
     },
   },
 };
