@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Itinerary;
 import com.techelevator.model.ItineraryDto;
+import com.techelevator.model.Landmark;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -22,8 +23,8 @@ public class JdbcItineraryDao implements ItineraryDao {
 
     @Override
     public List<Itinerary> getUserItineraries(int userId) {
-        List<Itinerary> itineraries = new ArrayList<>();
-        String sql = "SELECT itinerary_id, user_id, name, date FROM itineraries WHERE user_id = ?;";
+        final List<Itinerary> itineraries = new ArrayList<>();
+        final String sql = "SELECT itinerary_id, user_id, name, date FROM itineraries WHERE user_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while (results.next()) {
@@ -34,12 +35,37 @@ public class JdbcItineraryDao implements ItineraryDao {
 
     @Override
     public Itinerary get(int itineraryId, int userId) {
-        Itinerary itinerary = null;
         String sql = "SELECT itinerary_id, user_id, name, date FROM itineraries WHERE itinerary_id = ? AND user_id = ?;";
+        String landmarksSql = "SELECT landmarks.landmark_id, name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link, sequence_number\n" +
+                "FROM landmarks\n" +
+                "JOIN itinerary_details ON landmarks.landmark_id = itinerary_details.landmark_id \n" +
+                "WHERE itin_id = ?\n" +
+                "ORDER BY sequence_number ASC;";
+        final SqlRowSet results = jdbcTemplate.queryForRowSet(sql, itineraryId, userId);
+        if (!results.next()) {
+            return null;
+        }
+        final Itinerary itinerary = this.mapRowToItinerary(results);
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, itineraryId, userId);
-        if (results.next()) {
-            itinerary = mapRowToItinerary(results);
+        final SqlRowSet landmarksRs = this.jdbcTemplate.queryForRowSet(landmarksSql, itineraryId);
+        List<Landmark> landmarks = new ArrayList<>();
+        while (landmarksRs.next()) {
+            Landmark landmark = new Landmark();
+            landmark.setId(landmarksRs.getInt("landmark_id"));
+            landmark.setName(landmarksRs.getString("name"));
+            landmark.setCategory(landmarksRs.getString("category"));
+            landmark.setDescription(landmarksRs.getString("description"));
+            landmark.setPhone(landmarksRs.getString("phone"));
+            landmark.setAddress(landmarksRs.getString("address"));
+            landmark.setThumbsUp(landmarksRs.getInt("thumbs_up"));
+            landmark.setThumbsDown(landmarksRs.getInt("thumbs_down"));
+            landmark.setApproved(landmarksRs.getBoolean("approved"));
+            landmark.setHeroImg(landmarksRs.getString("hero_img"));
+            landmark.setLatitude(landmarksRs.getBigDecimal("latitude"));
+            landmark.setLongitude(landmarksRs.getBigDecimal("longitude"));
+            landmark.setMapLink(landmarksRs.getString("map_link"));
+
+            landmarks.add(landmark);
         }
         return itinerary;
     }

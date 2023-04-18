@@ -50,4 +50,12 @@ public class Itinerary {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
+    public List<Landmark> getLandmarks() {
+        return landmarks;
+    }
+
+    public void setLandmarks(List<Landmark> landmarks) {
+        this.landmarks = landmarks;
+    }
 }
