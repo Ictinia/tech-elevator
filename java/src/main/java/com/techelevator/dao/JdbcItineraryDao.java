@@ -45,7 +45,7 @@ public class JdbcItineraryDao implements ItineraryDao {
     }
 
     @Override
-    public void create(ItineraryDto itinerary, int userId) {
+    public void createItinerary(ItineraryDto itinerary, int userId) {
         String sql = "INSERT INTO itineraries (user_id, name, date) VALUES (?, ?, ?);";
         jdbcTemplate.update(sql, userId, itinerary.getName(), itinerary.getDate());
     }
@@ -60,6 +60,12 @@ public class JdbcItineraryDao implements ItineraryDao {
     public void delete(int itineraryId, int userId) {
         String sql = "DELETE FROM itineraries WHERE itinerary_id = ? AND user_id = ?;";
         jdbcTemplate.update(sql, itineraryId, userId);
+    }
+
+    @Override
+    public void addDestination(int itineraryId, int landmarkId) {
+        String sql = "INSERT INTO itinerary_details (itin_id, landmark_id, sequence_number) VALUES (?, ?, nextval('itinerary_sequence'));";
+        jdbcTemplate.update(sql, itineraryId, landmarkId);
     }
 
     public Itinerary mapRowToItinerary(SqlRowSet result) {
