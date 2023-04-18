@@ -130,7 +130,6 @@
                   overflow
                 "
               >
-                <li class="flex pr-6">Rating</li>
                 <li class="flex pr-6">
                   <svg
                     class="h-7 w-7 text-cyan-600 pr-1"
