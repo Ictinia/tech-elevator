@@ -12,7 +12,7 @@
           <div>
             <label
               for="default-search"
-              class="mb-2 text-sm font-medium text-gray-900 sr-only"
+              class="mb-2 !text-sm !font-medium text-gray-900 sr-only"
               >Search</label
             >
             <div class="relative hidden lg:block">
@@ -178,7 +178,7 @@
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             ></path>
           </svg>
-          <p class="lg:hidden text-xs m-0 p-0 mr-5 hover:text-black/80">
+          <p class="lg:hidden !text-xs m-0 p-0 mr-5 hover:text-black/80">
             Search
           </p>
         </button>
@@ -409,19 +409,7 @@
               />
             </div>
             <div class="flex absolute top-[45%] w-full items-center py-2 mb-4">
-              <datepicker
-                :minimumView="'day'"
-                :maximumView="'month'"
-                :initialView="'month'"
-                :format="customFormatter"
-                v-model="itinerary.date"
-              >
-                <span
-                  slot="afterDateInput"
-                  class="placeholder-black w-full font-extrabold tracking-tighter text-big outline-none border-none"
-                >
-                </span>
-              </datepicker>
+              <t-datepicker v-model="itinerary.date"> </t-datepicker>
             </div>
             <button
               type="submit"
@@ -442,7 +430,6 @@ import AppDropdown from "../components/AppDropdown.vue";
 import AppDropdownContent from "../components/AppDropdownContent.vue";
 import AppDropdownItem from "../components/AppDropdownItem.vue";
 import ItineraryService from "../services/ItineraryService";
-import Datepicker from "vuejs-datepicker";
 import moment from "moment";
 
 export default {
@@ -452,7 +439,6 @@ export default {
     AppDropdown,
     AppDropdownContent,
     AppDropdownItem,
-    Datepicker,
   },
 
   data() {
@@ -564,19 +550,3 @@ export default {
   },
 };
 </script>
-
-<style>
-input:focus,
-select:focus {
-  outline: none;
-  font-size: 4rem;
-  font-weight: 600;
-}
-
-input,
-select {
-  outline: none;
-  font-size: 4rem !important;
-  font-weight: 600 !important;
-}
-</style>
