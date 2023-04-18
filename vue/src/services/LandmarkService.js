@@ -39,6 +39,10 @@ export default {
         return http.post(`/landmarks`, landmark)
     },
 
+    acceptRating(id) {
+        return http.post(`/landmarks/${id}/ratings`)
+    },
+
     approveLandmark(id) {
         return http.put(`/landmarks/${id}`)
     },
