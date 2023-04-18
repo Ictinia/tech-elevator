@@ -6,6 +6,7 @@
         class="absolute object-cover w-full h-full z-0"
         alt=""
       />
+
       <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
         <p
           class="
@@ -220,7 +221,7 @@
             </section>
           </div>
           <div>
-            <review-section />
+            <review-section v-bind:landmarkId="this.$route.params.id" />
           </div>
 
           <!-- Underneath is mobile map -->
