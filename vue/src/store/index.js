@@ -27,8 +27,6 @@ export default new Vuex.Store({
     activeLandmark: null,
     hours: [],
     itineraries: [],
-    activeHourId: null,
-    activeItinerary: null,
     itineraryStops: [],
     landmark: {
       landmark_id: '',
@@ -45,7 +43,7 @@ export default new Vuex.Store({
       map_link: ''
     },
     itinerary: {
-      itinerary_id: null,
+      itinerary_id: '',
       user_id: '',
       name: '',
       date: '',

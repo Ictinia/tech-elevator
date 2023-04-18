@@ -5,6 +5,7 @@ import Logout from '../views/Logout.vue'
 import store from '../store/index'
 import LandmarkDetails from '../views/LandmarkDetail.vue'
 import Itinerary from '../views/MyItinerary.vue'
+import ItineraryDetail from '../views/ItineraryDetail.vue'
 import LandmarkSearch from '../views/SearchResults.vue'
 
 Vue.use(Router)
@@ -55,14 +56,6 @@ const router = new Router({
       }
     },
     {
-      path: "/itineraries/:id",
-      name: "itinerary-view",
-      component: Itinerary,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
       path: "/itineraries",
       name: "my-itinerary",
       component: Itinerary,
@@ -70,7 +63,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    
+    {
+      path: "/itineraries/:id",
+      name: "itinerary-view",
+      component: ItineraryDetail,
+      meta: {
+        requiresAuth: true
+      }
+    }
   ]
 })
 
