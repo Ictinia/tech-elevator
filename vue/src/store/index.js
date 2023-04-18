@@ -99,9 +99,6 @@ export default new Vuex.Store({
     SET_REVIEWS(state, reviews) {
       state.reviews = reviews;
     },
-
-
-
     SET_ITINERARIES(state, itineraries) {
       state.itineraries = itineraries;
     },

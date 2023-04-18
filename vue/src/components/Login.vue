@@ -45,7 +45,7 @@
         <div class="identity-input mb-5">
           <input
             id="username"
-            class="appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight hover:border-gray-700 focus:border-gray-700 focus:outline-none"
+            class="!text-md !font-normal appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight hover:border-gray-700 focus:border-gray-700 focus:outline-none"
             type="text"
             placeholder="Username"
             aria-describedby="usernameHelp"
@@ -58,7 +58,7 @@
         <div class="password-input mb-4">
           <input
             aria-describedby="passwordHelp"
-            class="appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight hover:border-gray-700 focus:border-gray-700 focus:outline-none"
+            class="!text-md !font-normal appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight hover:border-gray-700 focus:border-gray-700 focus:outline-none"
             id="password"
             type="password"
             placeholder="Password"
@@ -70,7 +70,7 @@
         <div class="password-confirm mb-4" v-if="isSignup">
           <input
             aria-describedby="passwordHelp"
-            class="appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight hover:border-gray-700 focus:border-gray-700 focus:outline-none"
+            class="!text-md !font-normal appearance-none border rounded w-full h-12 py-2 px-3 text-gray-700 leading-tight hover:border-gray-700 focus:border-gray-700 focus:outline-none"
             id="password"
             type="password"
             placeholder="Confirm Password"
@@ -138,6 +138,7 @@ export default {
       this.user.confirmPassword = "";
       this.invalidCredentials = false;
       this.registrationErrors = false;
+      this.registrationErrorMsg = "";
       this.showError = false;
     },
     submit() {

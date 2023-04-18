@@ -13,7 +13,7 @@ import java.security.Principal;
 import java.util.List;
 
 @CrossOrigin
-@PreAuthorize("isAuthenticated()")
+@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
 @RestController
 public class ItineraryController {
     private ItineraryDao itineraryDao;

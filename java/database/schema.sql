@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS operating_hrs;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS landmarks;
-DROP TABLE IF EXISTS ratings;
+
 
 
 CREATE TABLE users (
@@ -44,14 +44,21 @@ CREATE TABLE itineraries (
 	CONSTRAINT fk_itineraries_users FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-CREATE TABLE stops (
+CREATE TABLE itinerary_details (
 	stop_id SERIAL PRIMARY KEY,
 	itin_id INT NOT NULL,
 	landmark_id INT NOT NULL,
+	sequence_number INT NOT NULL,
 
 	CONSTRAINT fk_stops_itineraries FOREIGN KEY (itin_id) REFERENCES itineraries(itinerary_id),
 	CONSTRAINT fk_stops_landmark FOREIGN KEY (landmark_id) REFERENCES landmarks(landmark_id)		
 );
+
+CREATE SEQUENCE itinerary_sequence
+START 1
+INCREMENT 1
+MINVALUE 1
+OWNED BY itinerary_details.sequence_number;
 
 CREATE TABLE reviews (
 	review_id SERIAL PRIMARY KEY,
