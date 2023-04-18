@@ -53,7 +53,7 @@
                   !h-12
                   !font-normal
                   !text-md
-                  text-black
+                  text-black-400
                   border
                   active:text-black
                   border-gray-300
