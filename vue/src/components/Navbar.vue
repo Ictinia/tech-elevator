@@ -396,7 +396,6 @@
                 type="text"
                 name="itinerary"
                 v-model="itinerary.name"
-                placeholder="fuck"
               />
             </div>
             <div class="flex absolute top-[45%] w-full items-center py-2 mb-4">
@@ -454,7 +453,7 @@ export default {
       showMenu: false,
       searchDrawer: false,
       showNavbar: false,
-      create: true,
+      create: false,
       itinerary: {
         name: "Name your trip",
         date: this.currentDate(),
