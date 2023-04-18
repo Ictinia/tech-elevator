@@ -36,7 +36,7 @@
               <input
                 type="text"
                 id="default-search"
-                class="block md:w-full !pl-10 !h-12 !font-normal !text-md text-gray-400 border border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
+                class="placeholder-gray-400 block md:w-full !pl-10 !h-12 !font-normal !text-md text-black-400 border active:text-black border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
                 placeholder="Search Locations, Attractions..."
                 @keypress.enter="goToSearchResults"
               />
@@ -395,13 +395,16 @@
         >
           <form
             class="bg-white w-4/6 relative h-full"
-            v-on:submit.prevent="createItinerary"
+            v-on:submit.prevent="
+              createItinerary();
+              create = false;
+            "
           >
             <div class="flex absolute top-[30%] w-full items-center py-2 mb-4">
               <input
                 ref="itinerary"
                 id="itinerary"
-                class="font-extrabold tracking-tighter outline-none text-big border-none overflow-auto"
+                class="tracking-tighter outline-none text-big border-none overflow-auto"
                 type="text"
                 name="itinerary"
                 v-model="itinerary.name"

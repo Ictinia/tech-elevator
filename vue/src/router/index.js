@@ -55,13 +55,22 @@ const router = new Router({
       }
     },
     {
+      path: "/itineraries/:id",
+      name: "itinerary-view",
+      component: Itinerary,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
       path: "/itineraries",
       name: "my-itinerary",
       component: Itinerary,
       meta: {
         requiresAuth: true
       }
-    }
+    },
+    
   ]
 })
 

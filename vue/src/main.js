@@ -8,6 +8,7 @@ import login from './components/Login.vue'
 import footer from './components/Footer.vue'
 import moment from 'moment'
 import VueTailwind from 'vue-tailwind'
+import Draggable from "vuedraggable";
 
 import './assets/tailwind.css'
 
@@ -32,7 +33,7 @@ const settings = {
         calendarHeaderWrapper: 'grid grid-cols-7',
         monthWrapper: 'grid grid-cols-4',
         yearWrapper: 'grid grid-cols-4',
-        input: 'block w-full transition duration-100 ease-in-out focus:border-0 focus:outline-none text-big ring-0 font-extrabold tracking-tighter '
+        input: 'block w-full bg-transparent transition duration-100 ease-in-out focus:border-0 focus:outline-none text-big ring-0 tracking-tighter '
       },
       classes: {
         wrapper: 'flex flex-col',
@@ -104,6 +105,7 @@ Vue.component('login', login)
 Vue.component('footer-component', footer)
 Vue.prototype.moment = moment
 Vue.use(VueTailwind, settings)
+Vue.component('draggable', Draggable)
 
 
 new Vue({

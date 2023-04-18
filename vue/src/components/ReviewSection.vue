@@ -7,6 +7,7 @@
       @click="showForm = true"
       v-if="!showForm"
       class="
+        hover:bg-cyan-600/[0.9]
         bg-cyan-600
         outline-grey
         text-white
@@ -113,6 +114,7 @@
         type="submit"
         value="Save"
         class="
+          hover:bg-cyan-600/[0.9]
           bg-cyan-600
           outline-grey
           text-white
@@ -128,7 +130,16 @@
         type="button"
         value="Cancel"
         @click="resetForm()"
-        class="bg-cyan-600 outline-grey text-white font-bold py-2 px-4 rounded"
+        class="
+          bg-cyan-600
+          hover:bg-cyan-600/[0.9]
+          outline-grey
+          text-white
+          font-bold
+          py-2
+          px-4
+          rounded
+        "
       />
     </form>
 
