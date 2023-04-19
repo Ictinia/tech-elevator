@@ -3,7 +3,7 @@
     <div class="relative bg-green-600">
       <img
         src="https://www.tpl.org/wp-content/uploads/2021/05/8_2021_Cincinnati-Ohio_header.jpg"
-        class="absolute object-cover w-full h-full z-0"
+        class="absolute object-cover w-full h-full"
         alt=""
       />
 
@@ -20,7 +20,7 @@
             justify-center
           "
         >
-          <h1 class="text-white text-4xl font-bold z-50 mt-96 tracking-widest">
+          <h1 class="text-white text-4xl font-bold z-20 mt-96 tracking-widest">
             PLAN A TRIP IN CINCINNATI
           </h1>
         </div>
