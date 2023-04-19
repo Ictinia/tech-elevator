@@ -59,8 +59,9 @@ public class ItineraryController {
     // Add a landmark to an itinerary as a destination
     @ResponseStatus(HttpStatus.OK)
     @PutMapping(path = "itinerary/{itineraryId}")
-    public void create(@PathVariable int itineraryId, @RequestBody Itinerary itinerary) {
-        itineraryDao.updateItinerary(itineraryId, itinerary.getLandmarks());
+    public void update(@PathVariable int itineraryId, @RequestBody Itinerary itinerary, Principal principal) {
+        final int userId = userDao.findIdByUsername(principal.getName());
+        itineraryDao.updateItinerary(itineraryId, itinerary, userId);
     }
 
 //    ** Path clashes with updateItinerary above **

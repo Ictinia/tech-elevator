@@ -15,25 +15,42 @@
         >
         </t-datepicker>
       </div>
-      <div>
+      <div class="absolute right-10 top-32">
         <button
-          class="absolute right-36 top-32 bg-cyan-600 px-4 py-2 text-white rounded-lg"
+          class="mr-2 px-5 py-2.5 relative rounded-lg group border border-cyan-600 overflow-hidden font-medium bg-cyan-500 text-white inline-block"
           v-show="isEdited"
-          @click="cancel()"
+          @click="
+            save();
+            isEdited = false;
+          "
         >
-          Save
+          <span
+            class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-cyan-600 group-hover:h-full opacity-90"
+          ></span>
+          <span class="relative group-hover:text-white">Save</span>
         </button>
         <button
-          class="absolute right-10 top-32 bg-gray-200 px-4 py-2 border border-gray-400 rounded-lg"
+          class="px-5 py-2.5 relative rounded-lg group border border-gray-400 overflow-hidden font-medium bg-gray-300 text-gray-700 inline-block"
           v-show="isEdited"
-          @click="cancel()"
+          @click="
+            cancel();
+            isEdited = false;
+          "
         >
-          Cancel
+          <span
+            class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-gray-400 group-hover:h-full opacity-90"
+          ></span>
+          <span class="relative group-hover:text-black">Cancel</span>
         </button>
       </div>
     </header>
     <div class="bg-gray-100 w-full h-full border-gray-400 border rounded-md">
-      <h2 class="text-2xl mt-6 ml-6">Landmarks</h2>
+      <div class="flex justify-between">
+        <h2 class="text-2xl mt-6 ml-6">Landmarks</h2>
+        <button class="py-2 px-4 bg-gray-500 mt-4 mr-6 rounded-lg text-white">
+          Print Itinerary
+        </button>
+      </div>
       <draggable
         tag="ul"
         ghost-class="moving-card"
@@ -122,7 +139,6 @@ export default {
   },
 
   created() {
-    console.log("created");
     this.fetchItinerary(this.$route.params.id);
   },
 
@@ -159,8 +175,14 @@ export default {
     remove(index) {
       this.stops.splice(index, 1);
     },
+    save() {
+      itineraryService.updateItinerary(
+        this.$route.params.id,
+        this.$store.state.itinerary
+      );
+    },
     cancel() {
-      this.$store.commit("SET_STOPS", this.$store.state.itinerary.landmarks);
+      this.fetchItinerary(this.$route.params.id);
     },
   },
 
@@ -179,7 +201,7 @@ export default {
         return this.$store.state.itinerary.name;
       },
       set(name) {
-        this.isEdited = true;
+        this.isEdited = this.$store.state.itinerary.name != name;
         this.$store.commit("SET_NAME", name);
       },
     },

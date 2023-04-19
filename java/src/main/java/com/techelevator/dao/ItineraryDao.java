@@ -14,5 +14,5 @@ public interface ItineraryDao {
     void updateItineraryNameOrDate(int id, ItineraryDto itineraryDto, int userId);
     void delete(int itineraryId, int userId);
 
-    void updateItinerary(int itineraryId, List<Landmark> landmarks);
+    void updateItinerary(int itineraryId, Itinerary itinerary, int userId);
 }
