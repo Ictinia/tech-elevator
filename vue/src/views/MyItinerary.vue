@@ -37,22 +37,20 @@
         </div>
       </div>
     </div>
-    <itinerary-view
+    <router-view :key="$route.fullPath" />
+    <!-- <itinerary-view
       v-if="$route.params.id"
       id="app"
       class="min-h-screen w-screen bg-gray-200 flex flex-col items-start justify-start"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
 import itineraryService from "../services/ItineraryService";
-import itineraryView from "../components/ItineraryView.vue";
 
 export default {
-  components: {
-    itineraryView,
-  },
+  components: {},
 
   created() {
     console.log("Hello");
