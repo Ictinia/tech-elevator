@@ -5,7 +5,7 @@
       class="h-full min-h-full flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800"
     >
       <div
-        class="relative flex flex-col top-0 left-0 w-64 bg-white h-full border-r"
+        class="opacity-70 relative flex flex-col top-0 left-0 w-64 bg-white h-full border-r"
       >
         <div class="overflow-y-auto overflow-x-hidden flex-grow">
           <ul class="flex flex-col py-4 space-y-1">
@@ -37,22 +37,20 @@
         </div>
       </div>
     </div>
-    <itinerary-view
+    <router-view :key="$route.fullPath" />
+    <!-- <itinerary-view
       v-if="$route.params.id"
       id="app"
       class="min-h-screen w-screen bg-gray-200 flex flex-col items-start justify-start"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
 import itineraryService from "../services/ItineraryService";
-import itineraryView from "../components/ItineraryView.vue";
 
 export default {
-  components: {
-    itineraryView,
-  },
+  components: {},
 
   created() {
     console.log("Hello");
