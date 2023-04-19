@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS stops;
+DROP TABLE IF EXISTS itinerary_details;
 DROP TABLE IF EXISTS itineraries;
 DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS operating_hrs;

@@ -239,7 +239,7 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery')
 ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery'), 'Sunday', '08:00:00', '18:00:00', false, false);
 
 INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
-VALUES ('Sedamsville Rectory', 'Haunted', 'The Sedamsville Rectory is a historic Cincinnati building that once served as a home for the priests of Our Lady of Perpetual Help Church.  Reports detail strange, howling cries, and scratches appearing in the flesh of workers. The current owner of the building even claimed that she was pushed by an invisible force. At least one exorcism has occurred on the property.', '(513) 681-7446', '639 Steiner St, Cincinnati, Ohio 45204 USA', 0, 0, true, 'https://ghostcitytours.com/ghost-hunts/sedamsville-rectory/images/sedamsville-rectory-basement.jpg', '39.089383', '-84.567756', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6193.500780534121!2d-84.56775604999999!3d39.089383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b65e3ed31ced%3A0xbbd7cf82e1f24024!2sSedamsville%2C%20Cincinnati%2C%20OH%2045204!5e0!3m2!1sen!2sus!4v1681913945521!5m2!1sen!2sus');
+VALUES ('Sedamsville Rectory', 'Haunted', 'The Sedamsville Rectory is a historic Cincinnati building that once served as a home for the priests of Our Lady of Perpetual Help Church.  Reports detail strange, howling cries, and scratches appearing in the flesh of workers. The current owner of the building even claimed that she was pushed by an invisible force. At least one exorcism has occurred on the property.', '(513) 681-7446', '639 Steiner St, Cincinnati, Ohio 45204 USA', 0, 0, true, 'https://travel.home.sndimg.com/content/dam/images/travel/fullset/2012/10/12/c6/ghost-adventures_ss_sedamsville-rectory_010.rend.hgtvcom.966.644.suffix/1491582245337.jpeg', '39.089383', '-84.567756', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6193.500780534121!2d-84.56775604999999!3d39.089383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b65e3ed31ced%3A0xbbd7cf82e1f24024!2sSedamsville%2C%20Cincinnati%2C%20OH%2045204!5e0!3m2!1sen!2sus!4v1681913945521!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Monday', NULL, NULL, false, true),
@@ -249,6 +249,44 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 
  ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Friday', NULL, NULL, false, true),
  ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Saturday', NULL, NULL, false, true),
  ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Sunday', NULL, NULL, false, true);
+
+ INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Cincinnati Music Hall', 'Haunted', 'The Cincinnati Music Hall, or simply Music Hall, is a gorgeous gothic building housing Cincinnati’s ballet, symphony, and opera, as well a few of its ghosts. Originally built in 1878,  the hall was constructed over a Potter’s field, or a burial site for unidentified immigrants and the poor. Beneath the stunning gothic architecture and crystal chandeliers, hundreds of human bones lie buried. Staff of the Music Hall report strange, unexplained occurrences such as music playing from nowhere and ghostly figures appearing in the audience. One employee recalls taking his young son to visit after-hours. The two were standing on the stage when the boy asked his father who was in the audience. His father looked around at the empty theatre, confused. But the young boy insisted there was a man in one of the opera boxes waving to him. ', '(513) 681-7446', '639 Steiner St, Cincinnati, Ohio 45204 USA', 0, 0, true, 'https://www.cincinnatiarts.org/assets/img/DSC_0272-0956d9a482.jpg', '39.1094577', '-84.5191922', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12383.475090154712!2d-84.5191922!3d39.1094577!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b3fe2ee7e44f%3A0x9e8008a84dab5512!2sCincinnati%20Music%20Hall!5e0!3m2!1sen!2sus!4v1681917848267!5m2!1sen!2sus');
+
+INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
+VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Music Hall'), 'Monday', '10:00:00', '17:00:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Music Hall'), 'Tuesday', '10:00:00', '17:00:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Music Hall'), 'Wednesday', '10:00:00', '17:00:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Music Hall'), 'Thursday', '10:00:00', '17:00:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Music Hall'), 'Friday', '10:00:00', '17:00:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Music Hall'), 'Saturday', '10:00:00', '14:00:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Music Hall'), 'Sunday', '10:00:00', '14:00:00', false, false);
+
+
+ INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Cincinnati Cyclones', 'Sports', 'The Cincinnati Cyclones are a Kelly Cup Championship winning Hockey Team. ECHL affiliate of the National Hockey League Buffalo Sabres.', '(513) 421-7825', '100 Broadway, Cincinnati, OH 45202', 0, 0, true, 'https://media2.citybeat.com/citybeat/imager/u/blog/13687017/20211026_131318.6183cd8ac79bd.png?cb=1660829802', '39.0980677', '-84.5043575', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12385.476128757218!2d-84.5043575!3d39.0980677!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b15cd4cf4657%3A0xa0f27c039917dd6a!2sCincinnati%20Cyclones!5e0!3m2!1sen!2sus!4v1681921130375!5m2!1sen!2sus');
+
+INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
+VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Cyclones'), 'Monday', NULL, NULL, false, true),
+((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Cyclones'), 'Tuesday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Cyclones'), 'Wednesday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Cyclones'), 'Thursday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Cyclones'), 'Friday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Cyclones'), 'Saturday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Cyclones'), 'Sunday', NULL, NULL, false, true);
+
+
+  INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('William Howard Taft Historic Site', 'Historic', 'William Howard Taft National Historic Site is a historic house at 2038 Auburn Avenue in the Mount Auburn Historic District of Cincinnati, Ohio, a mile north of Downtown. It was the birthplace and childhood home of William Howard Taft, the 27th president and the 10th chief justice of the United States.', '(513) 684-3262', '2038 Auburn Ave, Cincinnati, OH 45219', 0, 0, true, 'https://lh3.googleusercontent.com/p/AF1QipPwmq1qN7Jl-Jmmp8lFsfoimYrU1eF-FWhZwPqr=s1360-w1360-h1020', '39.119501', '-84.5083058', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12381.710238931046!2d-84.5083058!3d39.119501!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b3ef6f512f19%3A0xd8c2d0398fbeb938!2sWilliam%20Howard%20Taft%20National%20Historic%20Site!5e0!3m2!1sen!2sus!4v1681922211595!5m2!1sen!2sus');
+
+INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
+VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), 'Monday', '08:30:00', '16:45:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), 'Tuesday', '08:30:00', '16:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), 'Wednesday', '08:30:00', '16:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), 'Thursday', '08:30:00', '16:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), 'Friday', '08:30:00', '16:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), 'Saturday', '08:30:00', '16:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), 'Sunday', '08:30:00', '16:45:00', false, false);
 
 
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '1', 'Ghosts everywhere!', 'I went out for a simple burger, but instead was inundated with ghosts trying to also order burgers.  I really wish they could solve their ghost issues at this place.');
@@ -261,31 +299,40 @@ INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT l
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'), '2', 'Tiny crackers', 'If you like those little tiny crackers that are shaped like hexagons, you are gonna love this place.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Reds'), '2', 'Big Red Machine!', 'They got the brats and mets with the best mustard in town.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Fifty West Brewing Company'), '1', 'I am leaving a review', 'This is the first reviews I have ever left on the internet.  I will be forever remembered.');
-INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Madtree'), '1', 'Difficult pa', 'This is the first reviews I have ever left on the internet.  I will be forever remembered.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Madtree'), '1', 'I am internetting!', 'This is the first reviews I have ever left on the internet.  I will be forever remembered.');
 
 
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Boca'), '2', 'Overpriced', 'I paid 18 dollars for an oyster shell filled with steak sauce, and it was not even A1, it was that off brand stuff that smells like shoes.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'FC Cincinnati'), '2', 'Soccer is interesting', 'It is a lot like Riverdancing, no one is allowed to use their hands');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Boca'), '1', 'Staff was friendly', 'Our waitress was very nice. I cannot read French, and had accidentally ordered a mongoose chili, but our waitress, thankfully, asked very politely if I was allegic to mongoose, which let me know I had made a terrible error in judgment without embarrassing me in front of my date.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Rhinegeist'), '1', 'Cornhole AND Ping Pong', 'They got the cornhole AND the ping pong. Most places have the ping pong, but not the cornhole, or, it is the other way around.  Rhinegeist did not dissapoint.  If you are looking for a place with cornhole AND the ping pongs, you will be happier than a pig in Cincinnati.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Madtree'), '2', 'Caught on fire', 'This is really unrelated, and once I caught on fire after I got too close to a campfire in Boy Scouts.  This really has nothing to do with Madtree, I am sure it is great, but I am so lonely and need someone to talk to.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Rollergirls'), '2', 'Extremely dangerous for geese', 'Roadkill is inevitable in any environment with fast moving rollergirls, but I was ill prepared for the sheer amount of dead geese.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Harriet Beecher Stowe House'), '2', 'Great place', 'The staff was very polite. I went in and start making myself an omelette, but the staff let me know this was a historical establisment and that I should not be making myself breakfast. If you are thinking of going, do not repeat my mistake, just leave your groceries in the car.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Findlay Market'), '1', 'Great tomatoes!', 'As stated above, Findlay Market is the only surviving municipal market house of the nine public markets operating in Cincinnati in the 19th and early 20th  century. That means that it is the only market that can hold its own on the field of battle. I am sure that it defeated all of the other markets with honor and their exceptional skill with the blade.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), '1', 'My exorcism went great!', 'As the sites only registered exorcismee, I wanted to report that I am feeling much better. For some reason, I cannot keep green pea soup down, but whatever.  The important thing is that I only levitate when I want to now, it is no longer involuntary.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Music Hall'), '1', 'Great performance! Barely any hauntings.', 'I recently saw the Blue Man Group at CMH, I had a great time.  I kept seeing a mysterious transparent fourth Blue Man, but as far as I know, it was part of the act. No biggie.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Cyclones'), '2', 'Worlds slowest Zamboni', 'Turns out, you can bribe the zamboni guy with salt water taffy. I happened to have a stash on me, begged zamboni man, and HE LET ME DRIVE THE ZAMBONI for an hour!  I took it outside the facility and immediately was pulled over the the police for going 1mph.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), '2', 'Very nice, much Taft', 'Shocked by how much the place still smelled like the former President. Get a Glade plug in or something.');
+
 
 
 INSERT INTO itineraries (user_id, name, date)
 VALUES (1, 'test', '2023-05-05');
 
 INSERT INTO itinerary_details (itin_id, landmark_id, sequence_number) VALUES 
-(1, 1, nextval('itinerary_sequence')),
-(1, 2, nextval('itinerary_sequence')),
-(1, 3, nextval('itinerary_sequence')),
-(1, 4, nextval('itinerary_sequence')),
-(1, 5, nextval('itinerary_sequence')),
-(1, 6, nextval('itinerary_sequence')),
-(1, 7, nextval('itinerary_sequence')),
-(1, 8, nextval('itinerary_sequence')),
-(1, 9, nextval('itinerary_sequence')),
-(1, 10, nextval('itinerary_sequence')),
-(1, 11, nextval('itinerary_sequence')),
-(1, 12, nextval('itinerary_sequence')),
-(1, 13, nextval('itinerary_sequence')),
-(1, 14, nextval('itinerary_sequence')),
-(1, 15, nextval('itinerary_sequence')),
-(1, 16, nextval('itinerary_sequence'));
+(1, 1, 12),
+(1, 2, 11),
+(1, 3, 10),
+(1, 4, 1),
+(1, 5, 2),
+(1, 6, 3),
+(1, 7, 4),
+(1, 8, 5),
+(1, 9, 6),
+(1, 10, 7),
+(1, 11, 8),
+(1, 12, 9);
+
 
 COMMIT TRANSACTION;
