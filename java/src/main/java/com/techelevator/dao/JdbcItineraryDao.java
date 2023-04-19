@@ -105,13 +105,14 @@ public class JdbcItineraryDao implements ItineraryDao {
             int sequenceNumber = 1;
             StringBuilder values = new StringBuilder("");
             for (Landmark l : itinerary.getLandmarks()) {
-                values.append(String.format("(%n, %n, %n),", itineraryId, l.getId(), sequenceNumber));
+                values.append(String.format("(%d, %d, %d),", itineraryId, l.getId(), sequenceNumber));
                 sequenceNumber++;
+                System.out.println(sequenceNumber);
             }
         values.deleteCharAt(values.length()-1);
-           values.toString();
-           String insertSql = String.format("INSERT INTO itinerary_details (itin_id, landmark_id, sequence_number) VALUES %n;", values);
+           String insertSql = String.format("INSERT INTO itinerary_details (itin_id, landmark_id, sequence_number) VALUES %s;", values.toString());
            jdbcTemplate.update(insertSql);
+           System.out.println(insertSql);
         }
     }
 
