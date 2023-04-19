@@ -16,22 +16,35 @@
         </t-datepicker>
       </div>
     </header>
-    <draggable
-      tag="ul"
-      ghost-class="moving-card"
-      filter=".action-button"
-      class="w-full max-w-md"
-      v-model="stops"
-      :animation="200"
-    >
-      <li
-        class="p-4 mb-3 flex justify-between items-center bg-white shadow rounded-lg cursor-move"
-        v-for="stop in stops"
-        v-bind:key="stop.landmark_id"
+    <div class="bg-gray-100 w-full h-full border-gray-500 border rounded-md">
+      <h2 class="text-3xl mt-6 ml-6">Landmarks</h2>
+      <draggable
+        tag="ul"
+        ghost-class="moving-card"
+        filter=".action-button"
+        class="w-full p-6"
+        v-model="stops"
+        :animation="200"
       >
-        {{ stop.name }}
-      </li>
-    </draggable>
+        <li
+          class="p-4 mb-3 h-28 flex items-center bg-white shadow rounded-lg cursor-move"
+          v-for="stop in stops"
+          v-bind:key="stop.landmark_id"
+        >
+          <div>
+            <img
+              class="rounded-md h-24 aspect-[5/3] w-full"
+              :src="stop.heroImg"
+              alt=""
+            />
+          </div>
+          <div class="flex-col ml-6">
+            <div class="text-2xl font-semibold">{{ stop.name }}</div>
+            <div>{{ stop.address }}</div>
+          </div>
+        </li>
+      </draggable>
+    </div>
   </div>
 </template>
 
