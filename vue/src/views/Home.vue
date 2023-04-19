@@ -25,6 +25,7 @@
               text-white
               lg:text-big
               md:text-3xl
+              sm:text-3xl
               font-bold
               z-20
               mt-96
