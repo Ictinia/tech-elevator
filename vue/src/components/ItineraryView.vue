@@ -54,19 +54,8 @@ export default {
   },
 
   created() {
-    itineraryService
-      .getItinerary(this.$route.params.id)
-      .then((response) => {
-        this.$store.commit("SET_CURRENT_ITINERARY", response.data);
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 404) {
-          alert(
-            "Itinerary not available. This itinerary may have been deleted or you have entered an invalid ID."
-          );
-          this.$router.push({ name: "home" });
-        }
-      });
+    console.log("created");
+    this.fetchItinerary(this.$route.params.id);
   },
 
   methods: {
@@ -77,18 +66,40 @@ export default {
     dateParser(date, format) {
       return moment(date, format).toDate();
     },
+    fetchItinerary(id) {
+      itineraryService
+        .getItinerary(id)
+        .then((response) => {
+          this.$store.commit("SET_CURRENT_ITINERARY", response.data);
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 404) {
+            alert(
+              "Itinerary not available. This itinerary may have been deleted or you have entered an invalid ID."
+            );
+            this.$router.push({ name: "home" });
+          }
+        });
+    },
   },
 
   computed: {
     ...mapGetters(["getStops"]),
     stops: {
       get() {
+        this.$store.state.itinerary.date;
         return this.$store.state.itinerary.landmarks;
       },
       set(stops) {
         this.$store.commit("SET_STOPS", stops);
       },
     },
+  },
+  beforeRouteUpdate(to, from, next) {
+    console.log("in bru");
+    // the 'to' parameter is a route object for the route we are trying to navigate to
+    this.fetchItinerary(to.params.id);
+    next();
   },
 };
 </script>

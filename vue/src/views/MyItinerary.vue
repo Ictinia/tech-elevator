@@ -1,74 +1,65 @@
 <template>
   <div class="flex">
-    <itinerary-sidebar />
+    <div
+      id="sidebar"
+      class="h-full min-h-full flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800"
+    >
+      <div
+        class="relative flex flex-col top-0 left-0 w-64 bg-white h-full border-r"
+      >
+        <div class="overflow-y-auto overflow-x-hidden flex-grow">
+          <ul class="flex flex-col py-4 space-y-1">
+            <li class="px-5">
+              <router-link :to="{ name: 'my-itinerary' }">
+                <div class="flex flex-row items-center h-8 border-b">
+                  <div class="text-sm font-light tracking-wide text-gray-500">
+                    Overview
+                  </div>
+                </div>
+              </router-link>
+            </li>
+            <li>
+              <router-link
+                v-for="itinerary in this.$store.state.itineraries"
+                v-bind:key="itinerary.id"
+                :to="{ name: 'itinerary-view', params: { id: itinerary.id } }"
+              >
+                <a
+                  class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
+                >
+                  <span class="ml-4 text-md tracking-wide truncate">{{
+                    itinerary.name
+                  }}</span>
+                </a>
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <itinerary-view
+      v-if="$route.params.id"
+      id="app"
+      class="min-h-screen w-screen bg-gray-200 flex flex-col items-start justify-start"
+    />
   </div>
 </template>
 
 <script>
-import ItinerarySidebar from "../components/ItinerarySidebar.vue";
 import itineraryService from "../services/ItineraryService";
-
-import { mapGetters, mapActions } from "vuex";
-import moment from "moment";
+import itineraryView from "../components/ItineraryView.vue";
 
 export default {
-  components: { ItinerarySidebar },
-
-  data() {
-    return {
-      itinerary: {
-        itinerary_id: this.$store.state.itinerary.id,
-        user_id: this.$store.state.itinerary.userId,
-        name: this.$store.state.itinerary.name,
-        date: this.$store.state.itinerary.date,
-        landmarks: this.$store.state.itinerary.landmarks,
-      },
-    };
+  components: {
+    itineraryView,
   },
 
   created() {
+    console.log("Hello");
     itineraryService.getUserItineraries().then((response) => {
       this.$store.commit("SET_ITINERARIES", response.data);
       return response.data;
     });
-  },
-
-  methods: {
-    ...mapActions(["updateStops"]),
-    dateFormatter(date, format) {
-      return moment(date).format(format);
-    },
-    dateParser(date, format) {
-      return moment(date, format).toDate();
-    },
-    itineraryView(id) {
-      itineraryService
-        .getItinerary(id)
-        .then((response) => {
-          this.$store.commit("SET_CURRENT_ITINERARY", response.data);
-        })
-        .catch((error) => {
-          if (error.response && error.response.status === 404) {
-            alert(
-              "Itinerary not available. This itinerary may have been deleted or you have entered an invalid ID."
-            );
-            this.$router.push({ name: "home" });
-          }
-        });
-    },
-  },
-
-  computed: {
-    ...mapGetters(["getStops"]),
-    stops: {
-      get() {
-        this.$store.state.itinerary.date;
-        return this.$store.state.itinerary.landmarks;
-      },
-      set(stops) {
-        this.$store.commit("SET_STOPS", stops);
-      },
-    },
   },
 };
 </script>
