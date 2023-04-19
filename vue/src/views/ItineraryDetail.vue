@@ -4,7 +4,13 @@
     class="min-h-screen w-screen bg-gray-200 flex flex-col items-start justify-start p-8"
   >
     <header>
-      <h1 class="text-big">{{ name }}</h1>
+      <h1
+        contenteditable
+        class="text-big"
+        @blur="onEdit"
+        v-text="name"
+        @keydown.enter.prevent="$event.target.blur()"
+      ></h1>
       <div class="flex items-center py-2 mb-4 w-44">
         <t-datepicker
           v-model="date"
@@ -174,6 +180,7 @@ export default {
     },
     remove(index) {
       this.stops.splice(index, 1);
+      this.isEdited = true;
     },
     save() {
       itineraryService.updateItinerary(
@@ -183,6 +190,11 @@ export default {
     },
     cancel() {
       this.fetchItinerary(this.$route.params.id);
+    },
+    onEdit(evt) {
+      const src = evt.target.innerText;
+      this.name = src;
+      this.isEdited = true;
     },
   },
 
@@ -201,7 +213,6 @@ export default {
         return this.$store.state.itinerary.name;
       },
       set(name) {
-        this.isEdited = this.$store.state.itinerary.name != name;
         this.$store.commit("SET_NAME", name);
       },
     },

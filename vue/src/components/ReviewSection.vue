@@ -1,4 +1,3 @@
-
 <template>
   <div class="reviewSection">
     <h3 class="text-xl font-semibold">Reviews</h3>
@@ -6,18 +5,7 @@
     <button
       @click="showForm = true"
       v-if="!showForm"
-      class="
-        hover:bg-cyan-600/[0.9]
-        bg-cyan-600
-        outline-grey
-        text-white
-        font-bold
-        py-2
-        px-6
-        rounded
-        margin-right
-        m-5
-      "
+      class="hover:bg-cyan-600/[0.9] bg-cyan-600 outline-grey text-white font-bold py-2 px-6 rounded margin-right my-5 mr-5"
     >
       Add Review
     </button>
@@ -29,15 +17,7 @@
       <div class="form-element">
         <label
           for="title"
-          class="
-            block
-            mb-2
-            pt-5
-            text-md
-            font-small
-            text-gray-900
-            dark:text-white
-          "
+          class="block mb-2 pt-5 text-md font-small text-gray-900 dark:text-white"
         >
           Title:</label
         >
@@ -47,40 +27,14 @@
           type="text"
           rows="1"
           v-model="newReview.title"
-          class="
-            flex-auto
-            block
-            p-2.5
-            w-full
-            text-sm text-gray-900
-            bg-gray-50
-            rounded-lg
-            outline
-            none
-            outline-cyan-600
-            focus:ring-blue-500 focus:border-blue-500
-            dark:bg-gray-700
-            dark:border-gray-600
-            dark:placeholder-gray-400
-            dark:text-white
-            dark:focus:ring-blue-500
-            dark:focus:border-blue-500
-          "
+          class="flex-auto block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg outline none outline-cyan-600 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
       </div>
 
       <div class="form-element">
         <label
           for="message"
-          class="
-            block
-            mb-2
-            pt-5
-            text-md
-            font-small
-            text-gray-900
-            dark:text-white
-          "
+          class="block mb-2 pt-5 text-md font-small text-gray-900 dark:text-white"
           >Description:
         </label>
 
@@ -88,58 +42,20 @@
           id="message"
           rows="4"
           v-model="newReview.description"
-          class="
-            flex-auto
-            block
-            p-2.5
-            w-full
-            text-sm text-gray-900
-            bg-gray-50
-            rounded-lg
-            outline
-            none
-            outline-cyan-600
-            focus:ring-blue-500 focus:border-blue-500
-            dark:bg-gray-700
-            dark:border-gray-600
-            dark:placeholder-gray-400
-            dark:text-white
-            dark:focus:ring-blue-500
-            dark:focus:border-blue-500
-          "
+          class="flex-auto block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg outline none outline-cyan-600 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Leave a comment..."
         ></textarea>
       </div>
       <input
         type="submit"
         value="Save"
-        class="
-          hover:bg-cyan-600/[0.9]
-          bg-cyan-600
-          outline-grey
-          text-white
-          font-bold
-          py-2
-          px-6
-          rounded
-          margin-right
-          m-5
-        "
+        class="hover:bg-cyan-600/[0.9] bg-cyan-600 outline-grey text-white font-bold py-2 px-6 rounded margin-right m-5"
       />
       <input
         type="button"
         value="Cancel"
         @click="resetForm()"
-        class="
-          bg-cyan-600
-          hover:bg-cyan-600/[0.9]
-          outline-grey
-          text-white
-          font-bold
-          py-2
-          px-4
-          rounded
-        "
+        class="bg-cyan-600 hover:bg-cyan-600/[0.9] outline-grey text-white font-bold py-2 px-4 rounded"
       />
     </form>
 
@@ -147,7 +63,7 @@
       <li
         v-for="review in this.$store.state.reviews"
         :key="review.id"
-        class="mb-6"
+        class="mb-6 border-b-gray-300 border-b pb-6"
       >
         <div class="flex items-center">
           <svg
