@@ -24,6 +24,7 @@
             class="
               flex
               text-white text-big
+              sm:ml-2
               font-bold
               z-20
               mt-96
