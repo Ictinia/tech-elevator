@@ -1,7 +1,7 @@
 <template>
   <div
     id="app"
-    class="min-h-screen w-screen flex flex-col items-start justify-start p-8"
+    class="min-h-screen w-screen flex flex-col items-start justify-start p-8 bg-gradient-to-tr from-cyan-200 to-green-200"
   >
     <header>
       <h1
@@ -100,21 +100,22 @@
               <circle cx="19" cy="19" r="1" />
             </svg>
           </div>
-          <div>
+          <div class="h-28 w-32 md:w-40 flex-shrink-0">
             <img
-              class="rounded-md h-24 aspect-video w-max"
+              class="rounded-md h-full w-40 max-w-36 object-cover"
               :src="stop.heroImg"
               alt=""
             />
           </div>
           <div class="flex-col ml-6">
-            <div class="text-2xl font-semibold">{{ stop.name }}</div>
-            <div>{{ stop.address }}</div>
+            <div class="text-xl md:text-2xl font-semibold">{{ stop.name }}</div>
+            <div class="text-md md:text-base">{{ stop.address }}</div>
           </div>
-          <div class="ml-auto mr-6">
-            <button @click="remove(index)">
+          <div class="ml-auto mr-2 md:mr-6">
+            <button @click="remove(index)" />
+            <button @click="deleteCard = true">
               <svg
-                class="h-8 w-8 text-gray-600 hover:text-red-600"
+                class="h-6 w-6 md:h-8 md:w-8 text-gray-600 hover:text-red-600"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -130,6 +131,12 @@
                 <line x1="14" y1="11" x2="14" y2="17" />
               </svg>
             </button>
+            <div
+              class="transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
+              :class="deleteCard ? 'translate-x-[40%]' : 'translate-x-full'"
+            >
+              <div class="relative block bg-white h-16 z-30 w-full"></div>
+            </div>
           </div>
         </li>
       </draggable>
@@ -139,14 +146,14 @@
 
 <script>
 import itineraryService from "../services/ItineraryService";
-import { mapActions } from "vuex";
 import moment from "moment";
 
 export default {
   data() {
     return {
-      isEdited: true,
+      isEdited: false,
       refresh: true,
+      deleteCard: false,
     };
   },
 
@@ -160,9 +167,6 @@ export default {
   },
 
   methods: {
-    ...mapActions(["updateStops"]),
-    ...mapActions(["updateName"]),
-    ...mapActions(["updateDate"]),
     dateFormatter(date, format) {
       return moment(date).format(format);
     },
@@ -207,30 +211,40 @@ export default {
   computed: {
     stops: {
       get() {
+        console.log("getstops");
         return this.$store.state.itinerary.landmarks;
       },
       set(stops) {
+        console.log("setstops");
         this.isEdited = true;
         this.$store.commit("SET_STOPS", stops);
       },
     },
     name: {
       get() {
+        console.log("getname");
         return this.$store.state.itinerary.name;
       },
       set(name) {
+        console.log("setname");
         this.$store.commit("SET_NAME", name);
       },
     },
     date: {
       get() {
+        console.log("getdate");
         return this.$store.state.itinerary.date;
       },
       set(date) {
+        console.log("setdate");
         this.isEdited = this.$store.state.itinerary.date != date;
         this.$store.commit("SET_DATE", date);
       },
     },
+  },
+
+  unmounted() {
+    this.isEdited = false;
   },
 };
 </script>
