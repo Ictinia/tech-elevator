@@ -191,8 +191,7 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Norwood Mound'), 'Monda
 ((SELECT landmark_id FROM landmarks WHERE name = 'Norwood Mound'), 'Sunday', NULL, NULL, false, true);
 
 INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
-VALUES ('Harriet Beecher Stowe House', 'Historic', 'The Harriet Beecher Stowe House is a historic home in Cincinnati, Ohio which was once the residence of influential anti slavery author Harriet Beecher Stowe, author of the 1852 novel Uncle Tom''s Cabin.', '(513) 751-0651', '2950 Gilbert Ave, Cincinnati, OH 45206
-', 0, 0, true, 'https://ohio.org/static/uploads/0688y000000pvcMAAQ.png', '39.1331569', '-84.4899151', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.827487565016!2d-84.48991512360126!3d39.13315693275831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b3b6cdfd223b%3A0xd8d3e6f431f1d790!2sHarriet%20Beecher%20Stowe%20House!5e0!3m2!1sen!2sus!4v1681359118153!5m2!1sen!2sus');
+VALUES ('Harriet Beecher Stowe House', 'Historic', 'The Harriet Beecher Stowe House is a historic home in Cincinnati, Ohio which was once the residence of influential anti slavery author Harriet Beecher Stowe, author of the 1852 novel Uncle Tom''s Cabin.', '(513) 751-0651', '2950 Gilbert Ave, Cincinnati, OH 45206', 0, 0, true, 'https://ohio.org/static/uploads/0688y000000pvcMAAQ.png', '39.1331569', '-84.4899151', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.827487565016!2d-84.48991512360126!3d39.13315693275831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b3b6cdfd223b%3A0xd8d3e6f431f1d790!2sHarriet%20Beecher%20Stowe%20House!5e0!3m2!1sen!2sus!4v1681359118153!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Harriet Beecher Stowe House'), 'Monday', NULL, NULL, true, false),
@@ -239,6 +238,19 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery')
 ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery'), 'Saturday', '08:00:00', '18:00:00', false, false),
 ((SELECT landmark_id FROM landmarks WHERE name = 'Spring Grove Cemetery'), 'Sunday', '08:00:00', '18:00:00', false, false);
 
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Sedamsville Rectory', 'Haunted', 'The Sedamsville Rectory is a historic Cincinnati building that once served as a home for the priests of Our Lady of Perpetual Help Church.  Reports detail strange, howling cries, and scratches appearing in the flesh of workers. The current owner of the building even claimed that she was pushed by an invisible force. At least one exorcism has occurred on the property.', '(513) 681-7446', '639 Steiner St, Cincinnati, Ohio 45204 USA', 0, 0, true, 'https://ghostcitytours.com/ghost-hunts/sedamsville-rectory/images/sedamsville-rectory-basement.jpg', '39.089383', '-84.567756', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6193.500780534121!2d-84.56775604999999!3d39.089383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b65e3ed31ced%3A0xbbd7cf82e1f24024!2sSedamsville%2C%20Cincinnati%2C%20OH%2045204!5e0!3m2!1sen!2sus!4v1681913945521!5m2!1sen!2sus');
+
+INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
+VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Monday', NULL, NULL, false, true),
+((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Tuesday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Wednesday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Thursday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Friday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Saturday', NULL, NULL, false, true),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Sedamsville Rectory'), 'Sunday', NULL, NULL, false, true);
+
+
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '1', 'Ghosts everywhere!', 'I went out for a simple burger, but instead was inundated with ghosts trying to also order burgers.  I really wish they could solve their ghost issues at this place.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '2', 'Just wanted a burger', 'Someone call the Ghostbusters. Too many ghouls. I just wanted some sliders without having to deal with dead people everywhere.');
 
@@ -249,7 +261,8 @@ INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT l
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Skyline Chili - Ludlow'), '2', 'Tiny crackers', 'If you like those little tiny crackers that are shaped like hexagons, you are gonna love this place.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Reds'), '2', 'Big Red Machine!', 'They got the brats and mets with the best mustard in town.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Fifty West Brewing Company'), '1', 'I am leaving a review', 'This is the first reviews I have ever left on the internet.  I will be forever remembered.');
-INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'The Root Beer Stand'), '2', 'Root', 'There are so many roots.  Why did they choose a place with roots if they are a root beer stand?');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Madtree'), '1', 'Difficult pa', 'This is the first reviews I have ever left on the internet.  I will be forever remembered.');
+
 
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'FC Cincinnati'), '2', 'Soccer is interesting', 'It is a lot like Riverdancing, no one is allowed to use their hands');
 
@@ -258,18 +271,21 @@ INSERT INTO itineraries (user_id, name, date)
 VALUES (1, 'test', '2023-05-05');
 
 INSERT INTO itinerary_details (itin_id, landmark_id, sequence_number) VALUES 
-(1, 1, 12),
-(1, 2, 11),
-(1, 3, 10),
-(1, 4, 1),
-(1, 5, 2),
-(1, 6, 3),
-(1, 7, 4),
-(1, 8, 5),
-(1, 9, 6),
-(1, 10, 7),
-(1, 11, 8),
-(1, 12, 9);
-
+(1, 1, nextval('itinerary_sequence')),
+(1, 2, nextval('itinerary_sequence')),
+(1, 3, nextval('itinerary_sequence')),
+(1, 4, nextval('itinerary_sequence')),
+(1, 5, nextval('itinerary_sequence')),
+(1, 6, nextval('itinerary_sequence')),
+(1, 7, nextval('itinerary_sequence')),
+(1, 8, nextval('itinerary_sequence')),
+(1, 9, nextval('itinerary_sequence')),
+(1, 10, nextval('itinerary_sequence')),
+(1, 11, nextval('itinerary_sequence')),
+(1, 12, nextval('itinerary_sequence')),
+(1, 13, nextval('itinerary_sequence')),
+(1, 14, nextval('itinerary_sequence')),
+(1, 15, nextval('itinerary_sequence')),
+(1, 16, nextval('itinerary_sequence'));
 
 COMMIT TRANSACTION;
