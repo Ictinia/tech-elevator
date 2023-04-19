@@ -24,15 +24,14 @@
             class="
               text-white
               lg:text-big
-              md:
-              text-4xl
+              md:text-3xl
               font-bold
               z-20
               mt-96
               tracking-widest
             "
           >
-            PLAN A TRIP IN CINCINNATI
+            PLAN A TOUR IN CINCINNATI
           </h1>
         </div>
       </div>
