@@ -50,6 +50,7 @@
 import itineraryService from "../services/ItineraryService";
 
 export default {
+  data() {},
   components: {},
 
   created() {
