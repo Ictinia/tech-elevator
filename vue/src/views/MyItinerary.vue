@@ -1,18 +1,20 @@
 <template>
-  <div class="flex">
+  <div class="flex bg-gradient-to-tr from-cyan-200 to-green-200">
     <div
       id="sidebar"
-      class="h-full min-h-full flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800"
+      class="flex flex-col flex-auto flex-shrink-0 antialiased text-gray-800"
     >
       <div
-        class="opacity-70 relative flex flex-col top-0 left-0 w-64 bg-white h-full border-r"
+        class="bg-opacity-70 relative flex flex-col top-0 left-0 w-64 bg-white h-full border-r"
       >
         <div class="overflow-y-auto overflow-x-hidden flex-grow">
           <ul class="flex flex-col py-4 space-y-1">
             <li class="px-5">
               <router-link :to="{ name: 'my-itinerary' }">
                 <div class="flex flex-row items-center h-8 border-b">
-                  <div class="text-sm font-light tracking-wide text-gray-500">
+                  <div
+                    class="text-md font-semibold tracking-wide text-gray-500"
+                  >
                     Itineraries
                   </div>
                 </div>

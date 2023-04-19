@@ -3,7 +3,7 @@
     <header>
       <navbar />
     </header>
-    <router-view />
+    <router-view class="min-h-screen" />
     <footer-component />
   </div>
 </template>

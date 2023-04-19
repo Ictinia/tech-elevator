@@ -1,15 +1,17 @@
 <template>
   <div
     id="app"
-    class="min-h-screen w-screen bg-gray-200 flex flex-col items-start justify-start p-8"
+    class="min-h-screen w-screen flex flex-col items-start justify-start p-8"
   >
     <header>
       <h1
         contenteditable
-        class="text-big"
+        class="text-big hover:bg-gray-300 w-fit"
         @blur="onEdit"
         v-text="name"
         @keydown.enter.prevent="$event.target.blur()"
+        spellcheck="false"
+        title="Edit Name"
       ></h1>
       <div class="flex items-center py-2 mb-4 w-44">
         <t-datepicker
@@ -18,6 +20,8 @@
           :date-parser="dateParser"
           date-format="YYYY-MM-DD"
           user-format="M / D"
+          class="hover:bg-gray-300"
+          title="Edit Date"
         >
         </t-datepicker>
       </div>
@@ -50,7 +54,9 @@
         </button>
       </div>
     </header>
-    <div class="bg-gray-100 w-full h-full border-gray-400 border rounded-md">
+    <div
+      class="bg-gradient-to-tr from-gray-300 to-gray-100 w-full h-full border-gray-400 border rounded-md"
+    >
       <div class="flex justify-between">
         <h2 class="text-2xl mt-6 ml-6">Landmarks</h2>
         <button class="py-2 px-4 bg-gray-500 mt-4 mr-6 rounded-lg text-white">
