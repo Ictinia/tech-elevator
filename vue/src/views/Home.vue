@@ -22,10 +22,8 @@
         >
           <h1
             class="
-              text-white
-              lg:text-big
-              md:text-3xl
-              sm:text-3xl
+              flex
+              text-white text-big
               font-bold
               z-20
               mt-96
