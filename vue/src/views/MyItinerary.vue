@@ -13,7 +13,7 @@
               <router-link :to="{ name: 'my-itinerary' }">
                 <div class="flex flex-row items-center h-8 border-b">
                   <div class="text-sm font-light tracking-wide text-gray-500">
-                    Overview
+                    Itineraries
                   </div>
                 </div>
               </router-link>
