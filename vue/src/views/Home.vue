@@ -22,17 +22,16 @@
         >
           <h1
             class="
-              text-white
-              lg:text-big
-              md:
-              text-4xl
+              flex
+              text-white text-big
+              sm:ml-2
               font-bold
               z-20
               mt-96
               tracking-widest
             "
           >
-            PLAN A TRIP IN CINCINNATI
+            PLAN A TOUR IN CINCINNATI
           </h1>
         </div>
       </div>

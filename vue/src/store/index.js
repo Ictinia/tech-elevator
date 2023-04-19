@@ -49,7 +49,7 @@ export default new Vuex.Store({
       user_id: '',
       name: '',
       date: '',
-      landmarks: []
+      landmarks: [],
     },
     review: {
       review_id: '',
@@ -118,12 +118,24 @@ export default new Vuex.Store({
     },
     SET_STOPS(state, stops) {
       state.itinerary.landmarks = stops
+    },
+    SET_NAME(state, name) {
+      state.itinerary.name = name
+    },
+    SET_DATE(state, date) {
+      state.itinerary.date = date
     }
   },
   
   actions: {
     updateStops({commit}, stops) {
       commit('SET_STOPS', stops);
+    },
+    updateName({commit}, name) {
+      commit('SET_NAME', name);
+    },
+    updateDate({commit}, date) {
+      commit('SET_DATE', date);
     },
   }
 
