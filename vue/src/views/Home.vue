@@ -20,7 +20,18 @@
             justify-center
           "
         >
-          <h1 class="text-white text-4xl font-bold z-20 mt-96 tracking-widest">
+          <h1
+            class="
+              text-white
+              lg:text-big
+              md:
+              text-4xl
+              font-bold
+              z-20
+              mt-96
+              tracking-widest
+            "
+          >
             PLAN A TRIP IN CINCINNATI
           </h1>
         </div>
