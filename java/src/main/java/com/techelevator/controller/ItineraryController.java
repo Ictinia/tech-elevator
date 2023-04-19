@@ -4,6 +4,7 @@ import com.techelevator.dao.ItineraryDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Itinerary;
 import com.techelevator.model.ItineraryDto;
+import com.techelevator.model.LandmarkIdDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -56,21 +57,13 @@ public class ItineraryController {
         itineraryDao.createItinerary(itineraryDto, userId);
     }
 
-    // Add a landmark to an itinerary as a destination
+    // Save itinerary after changes a destination
     @ResponseStatus(HttpStatus.OK)
     @PutMapping(path = "itinerary/{itineraryId}")
     public void update(@PathVariable int itineraryId, @RequestBody Itinerary itinerary, Principal principal) {
         final int userId = userDao.findIdByUsername(principal.getName());
         itineraryDao.updateItinerary(itineraryId, itinerary, userId);
     }
-
-//    ** Path clashes with updateItinerary above **
-//    @ResponseStatus(HttpStatus.OK)
-//    @PutMapping(path = "/itinerary/{itineraryId}")
-//    public void update(@PathVariable int itineraryId, @RequestBody ItineraryDto itineraryDto, Principal principal) {
-//        final int userId = userDao.findIdByUsername(principal.getName());
-//        itineraryDao.updateItineraryNameOrDate(itineraryId, itineraryDto, userId);
-//    }
 
     // Delete an itinerary
     @ResponseStatus(HttpStatus.NO_CONTENT)

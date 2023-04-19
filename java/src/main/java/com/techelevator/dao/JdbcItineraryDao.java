@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Itinerary;
 import com.techelevator.model.ItineraryDto;
 import com.techelevator.model.Landmark;
+import com.techelevator.model.LandmarkIdDto;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -79,18 +80,21 @@ public class JdbcItineraryDao implements ItineraryDao {
     }
 
     @Override
-    public void updateItineraryNameOrDate(int itineraryId, ItineraryDto itineraryDto, int userId) {
-        String sql = "UPDATE itineraries SET name = ?, date = ? WHERE itinerary_id = ? AND user_id = ?;";
-        jdbcTemplate.update(sql, itineraryDto.getName(), itineraryDto.getDate(), itineraryId, userId);
-    }
-
-    @Override
     public void delete(int itineraryId, int userId) {
-        String sql1 = "DELETE FROM itinerary_details WHERE itin_id = ?;";
-        jdbcTemplate.update(sql1, itineraryId);
+        String sql = "SELECT user_id from itineraries WHERE itinerary_id = ?";
+        SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, itineraryId);
+        int id = -1;
+        if (rs.next()) {
+            id = rs.getInt("user_id");
+        }
 
-        String sql2 = "DELETE FROM itineraries WHERE itinerary_id = ? AND user_id = ?;";
-        jdbcTemplate.update(sql2, itineraryId, userId);
+        if (id == userId) {
+            String sql1 = "DELETE FROM itinerary_details WHERE itin_id = ?;";
+            jdbcTemplate.update(sql1, itineraryId);
+
+            String sql2 = "DELETE FROM itineraries WHERE itinerary_id = ? AND user_id = ?;";
+            jdbcTemplate.update(sql2, itineraryId, userId);
+        }
     }
 
     @Override
