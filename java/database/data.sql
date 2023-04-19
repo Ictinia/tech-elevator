@@ -203,7 +203,7 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Harriet Beecher Stowe H
 ((SELECT landmark_id FROM landmarks WHERE name = 'Harriet Beecher Stowe House'), 'Sunday', NULL, NULL, true, false);
 
 INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
-VALUES ('Bobby Mackeys', 'Haunted', 'On the 2 hour tour, you are taken around all accessible areas of the building.  Your tour guide is with you at all times and provides information on the history of the location and reported paranormal activity.  We will spend time in each area to allow for a brief paranormal investigation.  You are welcome to bring small, handheld equipment such as recorders, EMF meters, camera, etc.', '(859) 431-5588', '44 Licking Pike, Wilder, KY 41071', 0, 0, true, 'https://creepycincinnati.files.wordpress.com/2014/04/dscn1472.jpg', '39.0733538', '-84.4955359', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3097.4540678037856!2d-84.49553592349409!3d39.07335383630198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b11b05bcd3f3%3A0x7a493810ab51566!2sBobby%20Mackey&#39;s!5e0!3m2!1sen!2sus!4v1681745733301!5m2!1sen!2sus');
+VALUES ('Bobby Mackeys', 'Haunted', 'On the 2 hour tour, you are taken around all accessible areas of the building.  Your tour guide is with you at all times and provides information on the history of the location and reported paranormal activity.  We will spend time in each area to allow for a brief paranormal investigation.  You are welcome to bring small, handheld equipment such as recorders, EMF meters, camera, etc.', '(859) 431-5588', '44 Licking Pike, Wilder, KY 41071', 0, 0, true, 'https://creepycincinnati.files.wordpress.com/2014/04/dscn1472.jpg', '39.1261005', '-84.4898469', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4535.3152570353195!2d-84.48568620837513!3d39.127355703276315!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b3c864a10261%3A0xec02b57a5469cb50!2sEsoteric%20Brewing%20Co.!5e0!3m2!1sen!2sus!4v1681928009044!5m2!1sen!2sus');
 
 INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
 VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), 'Monday', '19:00:00', '21:00:00', false, false),
@@ -289,6 +289,45 @@ VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft His
  ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), 'Sunday', '08:30:00', '16:45:00', false, false);
 
 
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Murder Car', 'Haunted', 'Not much is known about Murder Car, other than it just sits there all day and ominously stares at the staff of Tech Elevator.  It is said that Murder Car is where Tech Elevator staff members respawn upon their death.  In the back seat of the car is a lonely sack of potatoes.', '(937) 545-4639', 'Mentor Ave # 361, Cincinnati, OH 45212', 0, 0, true, 'https://ibb.co/rkL2N9j', '39.15211', '-84.4672265', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12375.97742466401!2d-84.4672265!3d39.15211!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b2f72057d245%3A0x27bc76f0bdcb7dfd!2sTech%20Elevator%20Cincinnati!5e0!3m2!1sen!2sus!4v1681926842388!5m2!1sen!2sus');
+
+INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
+VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Murder Car'), 'Monday', '08:30:00', '17:45:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Murder Car'), 'Tuesday', '08:30:00', '17:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Murder Car'), 'Wednesday', '08:30:00', '17:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Murder Car'), 'Thursday', '08:30:00', '17:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Murder Car'), 'Friday', '08:30:00', '17:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Murder Car'), 'Saturday', '08:30:00', '17:45:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Murder Car'), 'Sunday', '08:30:00', '17:45:00', false, false);
+
+ INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Woodburn Brewing', 'Brewery', 'At Woodburn Brewing we look to the phoenix as an inspiration. We find the good in all things and all people. It also symbolizes the rebirth of the Cincinnati brewing legacy over the last 100 years. We raise a glass to Cincinnati brewing heritage one pint at a time.', '(513) 221-2041', '2800 Woodburn Ave, Cincinnati, OH 45206', 0, 0, true, 'https://lh3.googleusercontent.com/p/AF1QipOrS_fJY-VYDIpsA_wQLPiI55SpfnSv54l5PQ-7=s1360-w1360-h1020', '39.128943', '-84.4768004', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12380.050703732104!2d-84.4768004!3d39.128943!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b24a69970313%3A0xed63227c8a3b6f18!2sWoodburn%20Brewing!5e0!3m2!1sen!2sus!4v1681927474124!5m2!1sen!2sus');
+
+INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
+VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Woodburn Brewing'), 'Monday', '11:00:00', '11:30:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Woodburn Brewing'), 'Tuesday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Woodburn Brewing'), 'Wednesday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Woodburn Brewing'), 'Thursday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Woodburn Brewing'), 'Friday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Woodburn Brewing'), 'Saturday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Woodburn Brewing'), 'Sunday', '11:00:00', '11:30:00', false, false);
+
+INSERT INTO landmarks (name, category, description, phone, address, thumbs_up, thumbs_down, approved, hero_img, latitude, longitude, map_link)
+VALUES ('Esoteric Brewing Co.', 'Brewery', 'Our vision is to craft a beer with such integrity that it has a profound social impact. That is why we brew with pure ingredients, sourced locally, and grown organically, in order to craft a beer with such integrity that it has a profound social impact.', '(513) 214-1987', '918 E McMillan St, Cincinnati, OH 45206', 0, 0, true, 'https://media.bizj.us/view/img/7985262/paramountbuilding*750xx5184-2922-0-434.jpg', '39.1261005', '-84.4898469', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4535.3152570353195!2d-84.48568620837513!3d39.127355703276315!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b3c864a10261%3A0xec02b57a5469cb50!2sEsoteric%20Brewing%20Co.!5e0!3m2!1sen!2sus!4v1681928009044!5m2!1sen!2sus');
+
+INSERT INTO operating_hrs (landmark_id, day_of_week, opening_time, closing_time, closed, varies)
+VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Esoteric Brewing Co.'), 'Monday', '11:00:00', '11:30:00', false, false),
+((SELECT landmark_id FROM landmarks WHERE name = 'Esoteric Brewing Co.'), 'Tuesday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Esoteric Brewing Co.'), 'Wednesday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Esoteric Brewing Co.'), 'Thursday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Esoteric Brewing Co.'), 'Friday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Esoteric Brewing Co.'), 'Saturday', '11:00:00', '11:30:00', false, false),
+ ((SELECT landmark_id FROM landmarks WHERE name = 'Esoteric Brewing Co.'), 'Sunday', '11:00:00', '11:30:00', false, false);
+
+ 
+ 
+
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '1', 'Ghosts everywhere!', 'I went out for a simple burger, but instead was inundated with ghosts trying to also order burgers.  I really wish they could solve their ghost issues at this place.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Bobby Mackeys'), '2', 'Just wanted a burger', 'Someone call the Ghostbusters. Too many ghouls. I just wanted some sliders without having to deal with dead people everywhere.');
 
@@ -314,6 +353,9 @@ INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT l
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Music Hall'), '1', 'Great performance! Barely any hauntings.', 'I recently saw the Blue Man Group at CMH, I had a great time.  I kept seeing a mysterious transparent fourth Blue Man, but as far as I know, it was part of the act. No biggie.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Cincinnati Cyclones'), '2', 'Worlds slowest Zamboni', 'Turns out, you can bribe the zamboni guy with salt water taffy. I happened to have a stash on me, begged zamboni man, and HE LET ME DRIVE THE ZAMBONI for an hour!  I took it outside the facility and immediately was pulled over the the police for going 1mph.');
 INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'William Howard Taft Historic Site'), '2', 'Very nice, much Taft', 'Shocked by how much the place still smelled like the former President. Get a Glade plug in or something.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Murder Car'), '1', 'Invisible potatoes', 'We drove from Alabama after reading in the summary that there was a free bag of potatoes in the back seat of Murder Car. Upon reaching our destination, we found that either the potatoes were gone, or they had turned invisible.  Either way, the car is totally haunted.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Woodburn Brewing'), '1', 'Chonky animals', 'There was a seriously chonky cat sitting outside of the brewery on Tuesday, I just wanted to rub his little tummy and take him home.');
+INSERT INTO reviews (landmark_id, user_id, title, description) VALUES ((SELECT landmark_id FROM landmarks WHERE name = 'Esoteric Brewing Co.'), '1', 'Great place to meet a Tinder date', 'Swipe right for this fine brewery.  Not only did I meet every one of my 48 significant others at this bar, but I my one true love here.  I met my wife here too.');
 
 
 
