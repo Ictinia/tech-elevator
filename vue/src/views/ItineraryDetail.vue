@@ -112,8 +112,7 @@
             <div class="text-md md:text-base">{{ stop.address }}</div>
           </div>
           <div class="ml-auto mr-2 md:mr-6">
-            <button @click="remove(index)" />
-            <button @click="deleteCard = true">
+            <button @click="remove(index)">
               <svg
                 class="h-6 w-6 md:h-8 md:w-8 text-gray-600 hover:text-red-600"
                 viewBox="0 0 24 24"
@@ -131,12 +130,6 @@
                 <line x1="14" y1="11" x2="14" y2="17" />
               </svg>
             </button>
-            <div
-              class="transform bottom-0 left-0 w-full fixed h-full overflow-hidden ease-in-out transition-all duration-500 z-50"
-              :class="deleteCard ? 'translate-x-[40%]' : 'translate-x-full'"
-            >
-              <div class="relative block bg-white h-16 z-30 w-full"></div>
-            </div>
           </div>
         </li>
       </draggable>
