@@ -9,16 +9,55 @@
 
       <div class="relative bg-gray-900 bg-opacity-40 lg:h-[36rem] h-96 z-0">
         <p
-          class="text-md font-semibold italic text-white pb-3 text-right absolute right-5 bottom-12 lg:bottom-16 lg:right-14"
+          class="
+            text-md
+            font-semibold
+            italic
+            text-white
+            pb-3
+            text-right
+            absolute
+            right-5
+            bottom-12
+            lg:bottom-16 lg:right-14
+          "
         ></p>
         <div
-          class="absolute left-5 bottom-5 lg:right-14 lg:bottom-8 flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
+          class="
+            absolute
+            left-5
+            bottom-5
+            lg:right-14 lg:bottom-8
+            flex-col
+            mt-8
+            space-y-4
+            md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0
+          "
         >
           <landmark-rating :landmark="landmark" />
         </div>
       </div>
       <div
-        class="absolute flex sm:px-8 justify-center items-center p-2 lg:right-12 right-5 top-5 z-20 bg-white rounded-md border-[1px] border-gray-200 hover:border-blue-700 hover:border-[3px] hover:-m-[2px] hover:bg-gray-100 hover:cursor-pointer"
+        class="
+          absolute
+          flex
+          sm:px-8
+          justify-center
+          items-center
+          p-2
+          lg:right-12
+          right-5
+          top-5
+          z-20
+          bg-white
+          rounded-md
+          border-[1px] border-gray-200
+          hover:border-blue-700
+          hover:border-[3px]
+          hover:-m-[2px]
+          hover:bg-gray-100
+          hover:cursor-pointer
+        "
         @click="copyURL()"
       >
         <svg
@@ -58,7 +97,21 @@
 
             <div class="flex-1 hidden md:flex items-center ml-1">
               <button
-                class="flex-auto text-lg font-semibold w-full bg-cyan-600 border text-white rounded-lg px-4 leading-8 h-12 hover:bg-cyan-600/[0.9] z-10"
+                class="
+                  flex-auto
+                  text-lg
+                  font-semibold
+                  w-full
+                  bg-cyan-600
+                  border
+                  text-white
+                  rounded-lg
+                  px-4
+                  leading-8
+                  h-12
+                  hover:bg-cyan-600/[0.9]
+                  z-10
+                "
                 @click="showModal = true"
               >
                 Add to Itinerary
@@ -68,10 +121,20 @@
           <div class="flex align-middle justify-center h-full md:mb-10">
             <section class="w-full md:w-2/3 text-md">
               <ul
-                class="flex flex-wrap relative pb-4 overflow-auto pt-5 text-md items-center overflow"
+                class="
+                  flex flex-wrap
+                  relative
+                  pb-4
+                  overflow-auto
+                  pt-5
+                  text-md
+                  items-center
+                  overflow
+                "
               >
                 <li class="flex pr-6">
                   <svg
+                    v-scroll-to="{ element: '#Reviews' }"
                     class="h-7 w-7 text-cyan-600 pr-1"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -84,7 +147,12 @@
                       d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
                     />
                   </svg>
-                  <p class="flex items-center">Reviews</p>
+                  <p
+                    class="flex items-center"
+                    v-scroll-to="{ element: '#Reviews' }"
+                  >
+                    Reviews
+                  </p>
                 </li>
                 <li class="flex pr-6">
                   <svg
@@ -160,7 +228,10 @@
             </section>
           </div>
           <div>
-            <review-section v-bind:landmarkId="this.$route.params.id" />
+            <review-section
+              id="Reviews"
+              v-bind:landmarkId="this.$route.params.id"
+            />
           </div>
 
           <!-- Underneath is mobile map -->
@@ -174,7 +245,22 @@
           </div>
           <div class="flex justify-center align-middle w-full">
             <button
-              class="md:hidden text-lg mx-5 font-semibold w-full bg-cyan-600 border text-white rounded-lg px-4 leading-8 h-12 hover:bg-cyan-600/[0.9] z-10"
+              class="
+                md:hidden
+                text-lg
+                mx-5
+                font-semibold
+                w-full
+                bg-cyan-600
+                border
+                text-white
+                rounded-lg
+                px-4
+                leading-8
+                h-12
+                hover:bg-cyan-600/[0.9]
+                z-10
+              "
               @click="showModal = true"
             >
               Add to Itinerary
