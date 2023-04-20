@@ -4,7 +4,7 @@
       class="lg:px-12 px-5 md:flex md:justify-between md:items-center md:h-20 mx-auto h-16 bg-white border-b font-sans"
     >
       <div class="flex items-center justify-between">
-        <router-link to="/" class="h-16 flex items-center">
+        <router-link :to="{ name: 'home' }" class="h-16 flex items-center">
           <img src="../assets/planeteer-logo.png" class="h-12 md:h-12 w-auto" />
         </router-link>
 
@@ -36,25 +36,7 @@
               <input
                 type="text"
                 id="default-search"
-                class="
-                  placeholder-gray-400
-                  block
-                  md:w-full
-                  !pl-10
-                  !h-12
-                  !font-normal
-                  !text-md
-                  text-black-400
-                  border
-                  active:text-black
-                  border-gray-300
-                  rounded-full
-                  bg-gray-50
-                  focus:outline-none
-                  cursor-text
-                  pt-[0.1rem]
-                  focus:text-md
-                "
+                class="placeholder-gray-400 block md:w-full !pl-10 !h-12 !font-normal !text-md text-black-400 border active:text-black border-gray-300 rounded-full bg-gray-50 focus:outline-none cursor-text pt-[0.1rem] focus:text-md"
                 placeholder="Search Locations, Attractions..."
                 @keypress.enter="goToSearchResults"
               />
