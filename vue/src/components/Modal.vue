@@ -57,7 +57,7 @@
         <p class="text-lg my-5">Landmark has been added successfully</p>
         <button
           class="bg-green-500 w-40 h-10 text-white text-md rounded-2xl mt-12"
-          @click="close()"
+          @click="home()"
         >
           Go Home
         </button>
@@ -117,6 +117,11 @@ export default {
     close() {
       this.$emit("close-modal");
       this.landmarkAdded = false;
+    },
+
+    home() {
+      this.$emit("close-modal");
+      this.$router.push({ name: "home" });
     },
   },
 };

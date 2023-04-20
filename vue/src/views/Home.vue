@@ -9,27 +9,10 @@
 
       <div class="relative">
         <div
-          class="
-            absolute
-            top-0
-            left-0
-            w-full
-            h-full
-            flex
-            items-center
-            justify-center
-          "
+          class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
         >
           <h1
-            class="
-              flex
-              text-white text-big
-              sm:ml-2
-              font-bold
-              z-20
-              mt-96
-              tracking-widest
-            "
+            class="flex text-white text-big sm:ml-2 font-bold z-20 mt-96 tracking-widest"
           >
             PLAN A TOUR IN CINCINNATI
           </h1>
@@ -40,16 +23,7 @@
         <div class="flex h-full w-full justify-center align-middle"></div>
 
         <div
-          class="
-            absolute
-            right-5
-            bottom-5
-            lg:right-14 lg:bottom-8
-            flex-col
-            mt-8
-            space-y-4
-            md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0
-          "
+          class="absolute right-5 bottom-5 lg:right-14 lg:bottom-8 flex-col mt-8 space-y-4 md:space-y-0 md:flex-row md:items-center md:space-x-2 md:mt-0"
         ></div>
       </div>
     </div>
@@ -61,102 +35,47 @@
             <ul class="flex relative pb-4 overflow-auto">
               <li class="inline-block pr-4">
                 <button
-                  class="
-                    text-gray-500
-                    hover:text-black
-                    font-semibold
-                    leading-8
-                    h-12
-                    hover:decoration-2
-                    hover:underline
-                    hover:underline-offset-[16px]
-                    !py-4
-                  "
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
                 >
                   <span>All</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="
-                    text-gray-500
-                    hover:text-black
-                    font-semibold
-                    leading-8
-                    h-12
-                    hover:decoration-2
-                    hover:underline
-                    hover:underline-offset-[16px]
-                    !py-4
-                  "
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  v-scroll-to="{ element: '#Food' }"
                 >
                   <span>Food</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="
-                    text-gray-500
-                    hover:text-black
-                    font-semibold
-                    leading-8
-                    h-12
-                    hover:decoration-2
-                    hover:underline
-                    hover:underline-offset-[16px]
-                    !py-4
-                  "
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  v-scroll-to="{ element: '#Sports' }"
                 >
                   <span>Sports</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="
-                    text-gray-500
-                    hover:text-black
-                    font-semibold
-                    leading-8
-                    h-12
-                    hover:decoration-2
-                    hover:underline
-                    hover:underline-offset-[16px]
-                    !py-4
-                  "
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  v-scroll-to="{ element: '#Brewery' }"
                 >
                   <span>Brewery</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="
-                    text-gray-500
-                    hover:text-black
-                    font-semibold
-                    leading-8
-                    h-12
-                    hover:decoration-2
-                    hover:underline
-                    hover:underline-offset-[16px]
-                    !py-4
-                  "
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  v-scroll-to="{ element: '#Historic' }"
                 >
                   <span>Historic</span>
                 </button>
               </li>
               <li class="inline-block pr-4">
                 <button
-                  class="
-                    text-gray-500
-                    hover:text-black
-                    font-semibold
-                    leading-8
-                    h-12
-                    hover:decoration-2
-                    hover:underline
-                    hover:underline-offset-[16px]
-                    !py-4
-                  "
+                  class="text-gray-500 hover:text-black font-semibold leading-8 h-12 hover:decoration-2 hover:underline hover:underline-offset-[16px] !py-4"
+                  v-scroll-to="{ element: '#Haunted' }"
                 >
                   <span>Haunted</span>
                 </button>
@@ -172,20 +91,13 @@
             v-for="category in this.$store.state.categories"
             v-bind:key="category.id"
             class="overflow-hidden"
+            :id="category"
           >
             <div class="py-2 border-b-gray-300 border-b">
               <h2 class="text-2xl font-semibold">{{ category }}</h2>
             </div>
             <div
-              class="
-                flex
-                relative
-                gap-x-4 gap-y-8
-                my-5
-                w-full
-                overflow-x-auto
-                no-scrollbar
-              "
+              class="flex relative gap-x-4 gap-y-8 my-5 w-full overflow-x-auto no-scrollbar"
             >
               <landmarkCard
                 v-for="landmark in landmarkFilter(category)"

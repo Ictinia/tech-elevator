@@ -59,6 +59,7 @@
             <div class="flex-1 hidden md:flex items-center ml-1">
               <button
                 class="flex-auto text-lg font-semibold w-full bg-cyan-600 border text-white rounded-lg px-4 leading-8 h-12 hover:bg-cyan-600/[0.9] z-10"
+                @click="showModal = true"
               >
                 Add to Itinerary
               </button>
@@ -174,6 +175,7 @@
           <div class="flex justify-center align-middle w-full">
             <button
               class="md:hidden text-lg mx-5 font-semibold w-full bg-cyan-600 border text-white rounded-lg px-4 leading-8 h-12 hover:bg-cyan-600/[0.9] z-10"
+              @click="showModal = true"
             >
               Add to Itinerary
             </button>

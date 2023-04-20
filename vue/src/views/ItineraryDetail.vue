@@ -59,9 +59,6 @@
     >
       <div class="flex justify-between">
         <h2 class="text-2xl mt-6 ml-6">Landmarks</h2>
-        <button class="py-2 px-4 bg-gray-500 mt-4 mr-6 rounded-lg text-white">
-          Print Itinerary
-        </button>
       </div>
       <draggable
         tag="ul"
