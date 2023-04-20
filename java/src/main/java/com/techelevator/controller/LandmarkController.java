@@ -57,6 +57,7 @@ public class LandmarkController {
         landmarkDao.create(landmark);
     }
 
+    @PreAuthorize("isAuthenticated()")
     @PostMapping(path = "/landmarks/{id}/ratings")
     public int acceptRating(@PathVariable int id, @RequestBody RatingDto ratingDto) {
         if ("up".equalsIgnoreCase(ratingDto.rating)) {
