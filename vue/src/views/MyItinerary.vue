@@ -161,7 +161,7 @@
         />
       </transition>
     </div>
-    <div class="absolute left-72 top-28 z-0">
+    <div class="absolute left-10 md:left-72 top-28 z-0">
       <img src="../assets/pickone.png" />
     </div>
     <router-view :key="$route.fullPath" class="z-30" />

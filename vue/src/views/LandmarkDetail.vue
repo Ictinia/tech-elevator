@@ -59,6 +59,7 @@
             <div class="flex-1 hidden md:flex items-center ml-1">
               <button
                 class="flex-auto text-lg font-semibold w-full bg-cyan-600 border text-white rounded-lg px-4 leading-8 h-12 hover:bg-cyan-600/[0.9] z-10"
+                @click="showModal = true"
               >
                 Add to Itinerary
               </button>
@@ -174,6 +175,7 @@
           <div class="flex justify-center align-middle w-full">
             <button
               class="md:hidden text-lg mx-5 font-semibold w-full bg-cyan-600 border text-white rounded-lg px-4 leading-8 h-12 hover:bg-cyan-600/[0.9] z-10"
+              @click="showModal = true"
             >
               Add to Itinerary
             </button>
@@ -181,6 +183,7 @@
         </section>
       </div>
     </body>
+    <Modal v-show="showModal" @close-modal="showModal = false" />
   </div>
 </template>
 
@@ -189,6 +192,7 @@ import landmarkService from "../services/LandmarkService";
 import reviewsService from "../services/ReviewsService";
 import ReviewSection from "../components/ReviewSection.vue";
 import LandmarkRating from "../components/LandmarkRating.vue";
+import Modal from "../components/Modal.vue";
 
 export default {
   data() {
@@ -197,6 +201,7 @@ export default {
         title: "",
         description: "",
       },
+      showModal: false,
     };
   },
 
@@ -223,6 +228,7 @@ export default {
   components: {
     ReviewSection,
     LandmarkRating,
+    Modal,
   },
   created() {
     console.log("in created");
