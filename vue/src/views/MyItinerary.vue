@@ -186,13 +186,15 @@ export default {
       this.open = !this.open;
     },
     remove(index) {
+      const itinerary = this.itineraries[index];
+
       if (
         confirm(
           "Are you sure you want to delete this itinerary? This action cannot be undone."
         )
       ) {
         this.itineraries.splice(index, 1);
-        itineraryService.deleteItinerary(this.itineraries[index].id);
+        itineraryService.deleteItinerary(itinerary.id);
       }
     },
   },
